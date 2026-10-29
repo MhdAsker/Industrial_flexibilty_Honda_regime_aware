@@ -1,0 +1,22 @@
+{
+  "h1_checkpoint": "80b8e3033547341f0223d6ccd4e54da4de741909",
+  "dataset_doi": "10.5061/dryad.73n5tb363",
+  "resolution": "15min",
+  "primary_eligibility": ["OBSERVED_ORIGINAL"],
+  "sensitivity_eligibility": ["OBSERVED_ORIGINAL", "CORRECTED_NONIMPUTED"],
+  "provenance_precedence": [
+    "IMPUTED_OR_FILLED",
+    "UNKNOWN_PROVENANCE",
+    "MISSING_UNRESOLVED",
+    "CORRECTED_NONIMPUTED",
+    "OBSERVED_ORIGINAL"
+  ],
+  "tixi_unsynchronised_conservative_end_utc": "2020-04-01T00:00:00Z",
+  "pv_first_phase_documented_start_utc": "2019-06-28T22:00:00Z",
+  "pv_preinstallation_safe_zero_end_utc": "2019-06-28T22:00:00Z",
+  "pv_final_phase_start_utc": "2020-06-25T00:00:00Z",
+  "office_transformers_old_end_utc": "2020-09-09T12:00:00Z",
+  "office_transformers_new_start_utc": "2020-09-15T10:00:00Z",
+  "import_export_split_tolerance_kw": 0.0,
+  "full_archive_download_allowed": false
+}

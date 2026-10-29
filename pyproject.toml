@@ -7,7 +7,16 @@ name = "honda-industrial-energy-audit"
 version = "0.1.0"
 description = "Forensic audit of the reduced Honda R&D Europe energy dataset"
 requires-python = ">=3.10"
-dependencies = ["numpy", "pandas", "matplotlib"]
+dependencies = [
+  "lxml",
+  "matplotlib",
+  "numpy",
+  "pandas",
+  "pyarrow",
+  "PyYAML",
+  "requests",
+  "websocket-client",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

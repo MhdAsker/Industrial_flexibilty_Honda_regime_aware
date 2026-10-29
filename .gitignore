@@ -1,12 +1,14 @@
 # Immutable/downloaded source archives and extracted data
 data/raw/honda/*.zip
+data/raw/honda/provenance/**
+data/raw/honda/selective_full/**
+!data/raw/honda/selective_full/.gitkeep
 data/staging/honda/**
 !data/staging/honda/.gitkeep
 
 # Future generated datasets and models
 data/silver/**
 data/gold/**
-*.parquet
 *.pkl
 *.joblib
 models/
@@ -16,6 +18,12 @@ results/audit/*.csv
 results/audit/*.png
 results/audit/*.json
 !results/audit/honda_audit_manifest.json
+results/provenance/*.csv
+results/provenance/*.png
+results/provenance/*.md
+results/provenance/*.json
+!results/provenance/aggregation_semantics.md
+!results/provenance/honda_h2_manifest.json
 
 # Python/tool caches
 __pycache__/
