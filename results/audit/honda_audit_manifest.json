@@ -1,0 +1,140 @@
+{
+  "audit_configuration": {
+    "analysis_policy": "forensic_only_no_model_training_no_imputation",
+    "dataset_doi": "10.5061/dryad.73n5tb363",
+    "expected_sha256": "2a35a629fdf863793ab1a0c1bf80110ec7fc909ea65f716613a529da4539571f",
+    "resolutions": [
+      "1min",
+      "15min",
+      "1h"
+    ],
+    "source_zip": "data/raw/honda/reduced_data.zip",
+    "staging_dir": "data/staging/honda"
+  },
+  "determinism_note": "CSV tables and figures are deterministic for unchanged inputs and package versions; execution timestamp is intentionally runtime-specific.",
+  "extraction_audit_execution_timestamp": "2026-10-29T09:42:07.761258+00:00",
+  "generated_artifacts": {
+    "results/audit/archive_inventory.csv": {
+      "bytes": 2409,
+      "sha256": "aa44d61c3652e72db9710664d7160ea8d2dcec0686ab8c1edb847b69ac04cd11"
+    },
+    "results/audit/chp_audit.csv": {
+      "bytes": 1417,
+      "sha256": "683748cab6c93f0220d023a278a9d9a529e4952a2f1d0151b8431712230509fc"
+    },
+    "results/audit/correction_imputation_audit.csv": {
+      "bytes": 3852,
+      "sha256": "41b1b9633e11296c34e229c651be212d6cad052b3093d3f4fabf714e00a34f48"
+    },
+    "results/audit/electrical_balance_diagnostics.csv": {
+      "bytes": 1479,
+      "sha256": "c08762bbbec0c752ddc375d5aa6c561c5f899e3e49e31fb0c82657eb5ee16f2b"
+    },
+    "results/audit/electrical_target_candidates.csv": {
+      "bytes": 1768,
+      "sha256": "d6cd3f7c0bc3d9716158f4fc72d68f65fd009356b4db6d6a3cdcae05a17218ae"
+    },
+    "results/audit/extracted_file_manifest.csv": {
+      "bytes": 3834,
+      "sha256": "ea674cdfc126c400bfc51056519a0457127873ef5e3d282c8e74482ba4fdace0"
+    },
+    "results/audit/figures/chp_by_year.png": {
+      "bytes": 36434,
+      "sha256": "7acb3f39452d68da885d28de5aa585199a31a4aa6b4a8f23fb9e4c91939874ec"
+    },
+    "results/audit/figures/electrical_overview.png": {
+      "bytes": 123975,
+      "sha256": "dbd017b2f7b858ad21b74fbe24423f6518d926bf26f0149fb973c4fbd4e1251e"
+    },
+    "results/audit/figures/grid_seasonal_profile.png": {
+      "bytes": 171261,
+      "sha256": "922692f91f402e6d9efd69be4c094792a22fbb8def368e90ebb34229cad3496c"
+    },
+    "results/audit/figures/missingness_heatmap.png": {
+      "bytes": 39822,
+      "sha256": "18e6aa6ecc3b1a5e5d9d6bee0ce9d7531c8ae936744f7b865f1509c3bd4c4c50"
+    },
+    "results/audit/figures/pv_by_year.png": {
+      "bytes": 115016,
+      "sha256": "bbdd14b357e46e19d7445d925ab6e5f9421f422b6b360c7cf24d74000696c68a"
+    },
+    "results/audit/figures/yearly_availability.png": {
+      "bytes": 33889,
+      "sha256": "a89e8e9b960fc9ce131da7fc38c4122ae7c4053e2bd3dc78856a57fb7ac4fd2c"
+    },
+    "results/audit/forecast_target_integrity.csv": {
+      "bytes": 1009,
+      "sha256": "9162c647529be42269c98561509a0089d51bdd9c38d622bbdd961993181d82ee"
+    },
+    "results/audit/meter_hierarchy.csv": {
+      "bytes": 422,
+      "sha256": "7a10a51dd3a37e2e958fe25579f3dd44b46977bedc2d38236653296ed0235c11"
+    },
+    "results/audit/missingness_patterns.csv": {
+      "bytes": 24479,
+      "sha256": "93e9bcfd75572faf452b6296e5c33328e4572c2b332d0674cb5d81e4564de971"
+    },
+    "results/audit/missingness_summary.csv": {
+      "bytes": 1584,
+      "sha256": "a1e6d4c49445c1fd26d01de2cd7af9af98f52c3df3c93760cb5bf8663d0b249e"
+    },
+    "results/audit/physical_plausibility_audit.csv": {
+      "bytes": 9811,
+      "sha256": "c9b95d287c9a2afb72c65b7df28479461c173c8092d00936a7474c835db754ce"
+    },
+    "results/audit/pv_audit.csv": {
+      "bytes": 1396,
+      "sha256": "7672aab45b3bdb9875324ab05b1c67950b0bcbc1a8ebeda86f6ce7665b9a78b5"
+    },
+    "results/audit/regime_support_matrix.csv": {
+      "bytes": 897,
+      "sha256": "e3c3643ab8a31bc813be693c734e8e160ce3836ba52d7a2b1f5f5a8a8e0d9779"
+    },
+    "results/audit/research_target_scorecard.csv": {
+      "bytes": 1181,
+      "sha256": "dfe5fb6d3b2d57d6e7d0a22ca05a92c2b1c4dc543ca1e2b9e14a3913a3e3f4cc"
+    },
+    "results/audit/resolution_consistency.csv": {
+      "bytes": 5403,
+      "sha256": "c753720a2f7509bbab4f1830e50acd851159ac7a90aa072a88af60c3782b9054"
+    },
+    "results/audit/signal_catalog.csv": {
+      "bytes": 22322,
+      "sha256": "808ee789198f604e4c54fe60f102990a9f9dff1e69948592b9aae04886f46066"
+    },
+    "results/audit/structural_eras.csv": {
+      "bytes": 1794,
+      "sha256": "ea0327c61147016c07bddc518b6fefb5575ae20b60507c9d7c9032d416ddb78f"
+    },
+    "results/audit/subsystem_energy_summary.csv": {
+      "bytes": 271,
+      "sha256": "ac1c2ebb24cec8c39ff634998e63fb8747287f6957fdf89d8622b2b22f0758c8"
+    },
+    "results/audit/thermal_signal_summary.csv": {
+      "bytes": 3753,
+      "sha256": "4faf86abab634eba36a8ef7d49ef88580a12be7f8fc22e5a2a95f180d40e022c"
+    },
+    "results/audit/timestamp_audit.csv": {
+      "bytes": 8930,
+      "sha256": "24152112f347b2f796eb947a6a2f307dd54f20956af5312136958e772df0d390"
+    },
+    "results/audit/weather_audit.csv": {
+      "bytes": 1698,
+      "sha256": "f88f5c034c8d0b7e1325ffed679c8a98200c6328739e1d4c325f0a7324e800c2"
+    }
+  },
+  "git_commit": "254e6e39f31b8289a71426a1421466255a475779",
+  "package_versions": {
+    "matplotlib": "3.9.2",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "pytest": "8.4.2"
+  },
+  "python_version": "3.12.7",
+  "source_zip_bytes": 320157291,
+  "source_zip_filename": "reduced_data.zip",
+  "source_zip_md5": "8db608ae7efa029493e559d2a2fa5e98",
+  "source_zip_modification_timestamp": "2026-10-29T09:28:08.838943+00:00",
+  "source_zip_project_relative_path": "data/raw/honda/reduced_data.zip",
+  "source_zip_sha256": "2a35a629fdf863793ab1a0c1bf80110ec7fc909ea65f716613a529da4539571f"
+}
