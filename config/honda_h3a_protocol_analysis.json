@@ -1,0 +1,40 @@
+{
+  "h2_checkpoint": "2d29de9f45dcd414baf53dd3b3dabb4627798fe3",
+  "candidate_target": "grid_exchange_kw_signed",
+  "target_semantics": "signed net grid exchange; positive import, negative export",
+  "candidate_resolution": "15min",
+  "timezone": "Europe/Berlin",
+  "candidate_issue_time_local": "13:00",
+  "measurement_cutoff_rule": "interval_end_utc <= forecast_issue_time_utc",
+  "analysis_start_local_date": "2020-01-01",
+  "analysis_end_local_date": "2023-12-31",
+  "primary_target_provenance": ["OBSERVED_ORIGINAL"],
+  "sensitivity_target_provenance": ["OBSERVED_ORIGINAL", "CORRECTED_NONIMPUTED"],
+  "historical_context_available_provenance": ["OBSERVED_ORIGINAL", "CORRECTED_NONIMPUTED"],
+  "historical_context_unavailable_provenance": ["IMPUTED_OR_FILLED", "UNKNOWN_PROVENANCE", "MISSING_UNRESOLVED"],
+  "context_windows_hours": [24, 48, 168, 336, 672, 1344],
+  "import_export_zero_tolerance_kw": 0.0,
+  "covid_start_local_date": "2020-03-16",
+  "covid_end_local_date": "2021-01-17",
+  "pv_final_capacity_start_utc": "2020-06-25T00:00:00Z",
+  "modernization_start_local_date": "2023-06-01",
+  "holiday_region": "DE-HE",
+  "candidate_protocols": {
+    "P1": [
+      {"stage": "fold_a", "role": "train", "years": [2020]},
+      {"stage": "fold_a", "role": "validation", "years": [2021]},
+      {"stage": "fold_b", "role": "train", "years": [2020, 2021]},
+      {"stage": "fold_b", "role": "validation", "years": [2022]},
+      {"stage": "final", "role": "development_refit", "years": [2020, 2021, 2022]},
+      {"stage": "final", "role": "test", "years": [2023]}
+    ],
+    "P2": [
+      {"stage": "development", "role": "train", "years": [2021]},
+      {"stage": "development", "role": "validation", "years": [2022]},
+      {"stage": "final", "role": "development_refit", "years": [2021, 2022]},
+      {"stage": "final", "role": "test", "years": [2023]}
+    ]
+  },
+  "final_protocol_frozen": false,
+  "model_training_allowed": false
+}

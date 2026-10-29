@@ -1,0 +1,91 @@
+{
+  "configuration_sha256": "7558594bc8af1fd75f78af6c9071f7f347cba2a3f3d19a26a199eb8af93d7de3",
+  "deterministic_runtime_timestamp_omitted": true,
+  "final_protocol_frozen": false,
+  "generated_outputs": {
+    "reports/h3a_measurement_availability.md": {
+      "bytes": 2912,
+      "sha256": "5156010b9f8391e5c8bd9ef0dd4a74a7ea7e8dbf8eec995c52a095686e5768e7"
+    },
+    "reports/honda_forecasting_protocol_h3a.md": {
+      "bytes": 12919,
+      "sha256": "2b92ab2f40298165d8c84407c24dd062e185a3789aa19ff877e6d4613ff07567"
+    },
+    "results/protocol_h3a/calendar_day_type_availability.csv": {
+      "bytes": 722,
+      "sha256": "01aa1569e84d37392a040866009b672ef6d8d0ed14246bcc3db6ef0c3e9eccab"
+    },
+    "results/protocol_h3a/complete_day_blocks.csv": {
+      "bytes": 324,
+      "sha256": "7a93161901cc668427c326302258e2d52177fc10059a3882514ff8503267a778"
+    },
+    "results/protocol_h3a/context_availability.csv": {
+      "bytes": 1115131,
+      "sha256": "03cbef18841dd74f392f864ca16ac31303a1b8984e7068304f27805dfc436d97"
+    },
+    "results/protocol_h3a/context_availability_summary.csv": {
+      "bytes": 2259,
+      "sha256": "6ad9dfc624f149e9f1cdbd7b307450e65f17a673f2ae71f63fad76e954b6c0b6"
+    },
+    "results/protocol_h3a/feature_availability_matrix.csv": {
+      "bytes": 1630,
+      "sha256": "bcb5021ce6fff7edadde6fadd1a367710c620aa6abd058394c76c77508d6b4c5"
+    },
+    "results/protocol_h3a/forecast_origins_candidate.csv": {
+      "bytes": 278557,
+      "sha256": "cb1338dbea1e8957b19c1071117ce987f9d223b56b35602e641e16414388ac33"
+    },
+    "results/protocol_h3a/grid_target_summary.csv": {
+      "bytes": 873,
+      "sha256": "63f82f5477c46d795910ff120686c0a28dd35931b144d83cc83ee18b005534cb"
+    },
+    "results/protocol_h3a/holiday_calendar.csv": {
+      "bytes": 8862,
+      "sha256": "eca5da2e6151f16cb769c0d5c7209e495a058b738cc7360934125daf03e25dd2"
+    },
+    "results/protocol_h3a/lead_time_distribution.csv": {
+      "bytes": 29910013,
+      "sha256": "6a1825d619ce9defa4b13416cc0438f67f8d228033ec1d3fb3197127f0b90ced"
+    },
+    "results/protocol_h3a/protocol_candidate_analysis.csv": {
+      "bytes": 3324,
+      "sha256": "35015ff44077b07b07b333d2ed0cceeb83cd406c2ef0cbefb536a089e133a2a7"
+    },
+    "results/protocol_h3a/structural_era_feature_policy.csv": {
+      "bytes": 1062,
+      "sha256": "b3d0e0d6c0a1a8772dae2ed319701f04dbc3e22ddceff4fe50b53e870972096f"
+    },
+    "results/protocol_h3a/structural_era_target_availability.csv": {
+      "bytes": 372,
+      "sha256": "841dcf2f9ee7902416a9cee0e3a432d5233021295602b6cbcf1f71dfdaa16055"
+    },
+    "results/protocol_h3a/target_availability_by_year.csv": {
+      "bytes": 532,
+      "sha256": "671a067a6359e5554bf4b5f2ffffbafe704093e62ee2696b21640f9f8eb0930f"
+    },
+    "results/protocol_h3a/yearly_distribution_shift.csv": {
+      "bytes": 4656,
+      "sha256": "8bb7a60c8de3a1afe6e8e942790ad2251b60e4e593581a1d88d9a2e2a944bb47"
+    }
+  },
+  "generator_sha256": "732611ef058b16667acfdff50c9e539fa4a1b8bff5f4fdc204651116af8b7fda",
+  "h2_commit": "2d29de9f45dcd414baf53dd3b3dabb4627798fe3",
+  "holiday_source_metadata": {
+    "facility": "Honda R&D Europe facility, Offenbach am Main, Hessen, Germany",
+    "facility_source": "Dryad README and Scientific Data article DOI 10.1038/s41597-025-05186-3",
+    "holiday_law": "Hessisches Feiertagsgesetz \u00a71",
+    "holiday_source_url": "https://www.rv.hessenrecht.hessen.de/bshe/document/jlr-FeiertGHErahmen"
+  },
+  "issues_source_sha256": "594e09131fc797af0a0cfb4355fd2dabe95d88a72fd78e73dbb3017240452a85",
+  "model_training_performed": false,
+  "package_versions": {
+    "numpy": "2.0.1",
+    "pandas": "3.0.1",
+    "pyarrow": "23.0.1",
+    "pytest": "8.2.0",
+    "python-dateutil": "2.9.0.post0"
+  },
+  "provenance_mask_sha256": "f93d5bf4597d8f768cc63437f2ce78d21f4050f4dfcfbbe0e59d2fa0ef4eb778",
+  "python_version": "3.12.3",
+  "silver_sha256": "d9d93445391985faa7a0aa015cdb65b949f3909636d284c59449db876ae310df"
+}

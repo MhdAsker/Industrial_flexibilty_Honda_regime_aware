@@ -24,6 +24,9 @@ results/provenance/*.md
 results/provenance/*.json
 !results/provenance/aggregation_semantics.md
 !results/provenance/honda_h2_manifest.json
+results/protocol_h3a/*.csv
+results/protocol_h3a/*.json
+!results/protocol_h3a/honda_h3a_manifest.json
 
 # Python/tool caches
 __pycache__/
