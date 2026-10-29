@@ -1,0 +1,63 @@
+{
+  "B5_fallback": "selected B4 when minimum ensemble member count is unmet",
+  "P1": {
+    "aliases": {
+      "B0": "B0",
+      "B1": "B1",
+      "B2": "B2",
+      "B3": "B3_N8_MIN4",
+      "B4": "B4_C3_MONTH_QUARTER_WEEKEND",
+      "B5": "E4_MEAN_B1_B2_B3_B4_MIN3"
+    },
+    "frozen_b5_rule": {
+      "aggregation": "mean",
+      "candidate_id": "E4_MEAN_B1_B2_B3_B4_MIN3",
+      "fallback": "B4_C3_MONTH_QUARTER_WEEKEND",
+      "members": [
+        "B1",
+        "B2",
+        "B3_N8_MIN4",
+        "B4_C3_MONTH_QUARTER_WEEKEND"
+      ],
+      "minimum_available_members": 3
+    },
+    "primary_baseline": "B5",
+    "selected_b3": "B3_N8_MIN4",
+    "selected_b4": "B4_C3_MONTH_QUARTER_WEEKEND",
+    "selected_b5": "E4_MEAN_B1_B2_B3_B4_MIN3"
+  },
+  "P2_sensitivity": {
+    "aliases": {
+      "B0": "B0",
+      "B1": "B1",
+      "B2": "B2",
+      "B3": "B3_N8_MIN4",
+      "B4": "B4_C3_MONTH_QUARTER_WEEKEND",
+      "B5": "E4_MEAN_B1_B2_B3_B4_MIN3"
+    },
+    "frozen_b5_rule": {
+      "aggregation": "mean",
+      "candidate_id": "E4_MEAN_B1_B2_B3_B4_MIN3",
+      "fallback": "B4_C3_MONTH_QUARTER_WEEKEND",
+      "members": [
+        "B1",
+        "B2",
+        "B3_N8_MIN4",
+        "B4_C3_MONTH_QUARTER_WEEKEND"
+      ],
+      "minimum_available_members": 3
+    },
+    "primary_baseline": "B5",
+    "selected_b3": "B3_N8_MIN4",
+    "selected_b4": "B4_C3_MONTH_QUARTER_WEEKEND",
+    "selected_b5": "E4_MEAN_B1_B2_B3_B4_MIN3"
+  },
+  "coverage_threshold_b3": 0.95,
+  "coverage_threshold_primary": 0.99,
+  "protocol": "H3_FROZEN",
+  "selection_metric": "concatenated equal-target-weighted P1 validation MAE",
+  "selection_status": "FROZEN_BEFORE_TEST",
+  "test_used_for_selection": false,
+  "test_year": 2023,
+  "tie_breaker": "simpler baseline/candidate identifier"
+}

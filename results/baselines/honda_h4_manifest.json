@@ -1,0 +1,121 @@
+{
+  "H3B_commit": "b12d055591cf90ca7929342b34e1e31b3caf6e0f",
+  "baseline_selection_config_sha256": "1bbbbac404675bb1bfb5c85067e1504fda843fc2bc52151a60025f4e3c8b7a04",
+  "bootstrap_resamples": 2000,
+  "bootstrap_seed": 20261029,
+  "deterministic_artifacts": {
+    "config/honda_baseline_selection_frozen.json": {
+      "bytes": 1833,
+      "sha256": "1bbbbac404675bb1bfb5c85067e1504fda843fc2bc52151a60025f4e3c8b7a04"
+    },
+    "reports/honda_baseline_benchmark.md": {
+      "bytes": 13485,
+      "sha256": "31f9e3e7a897c17304e5faec5e92c7abb7d51ea1bdd13e98c181a2fd3531fe27"
+    },
+    "reports/honda_baseline_dst_audit.md": {
+      "bytes": 723,
+      "sha256": "62b98ba071a0caa64bbcdfe3f473ea0baf888bd8498516c4ef3b86d2cd509392"
+    },
+    "results/baselines/b3_selection.csv": {
+      "bytes": 3922,
+      "sha256": "3f4c485c9b1bb4ad91c19093698c80bf10a78d81d6fab7f4e3587f2a225c6279"
+    },
+    "results/baselines/b4_selection.csv": {
+      "bytes": 3062,
+      "sha256": "f116452a16de2ba0bf0d95cff1d219478ebc50d0f6c516f61694dabe0462be8b"
+    },
+    "results/baselines/b5_selection.csv": {
+      "bytes": 3287,
+      "sha256": "09569da5f2777799be450918f3b17ea7e9e6c2540e00ee68caa35d77475dd70f"
+    },
+    "results/baselines/bootstrap_comparisons.csv": {
+      "bytes": 540,
+      "sha256": "d6c71ce253fef768cd2b11b5fa89b0db58653ec385a10a45b0779d8b66f2d27f"
+    },
+    "results/baselines/development_baseline_summary.csv": {
+      "bytes": 4315,
+      "sha256": "ba5d0d1eef440085100b17a04ad2d652ca67226d97363fb1882dc6c1e8e1ea26"
+    },
+    "results/baselines/development_predictions.parquet": {
+      "bytes": 9295363,
+      "sha256": "2158a7d0ef4e64188b462c2d52c7b23907dfd7cfa29e86e910724db6b6b216d0"
+    },
+    "results/baselines/figures/development_mae_coverage.png": {
+      "bytes": 42724,
+      "sha256": "9372b4882f7a1b5b83f33c80c4ca067ad3a89ef4609b2acdf04ca2e3ec38f7b7"
+    },
+    "results/baselines/figures/primary_daily_mae_distribution.png": {
+      "bytes": 15525,
+      "sha256": "78b4ced75d54bea05185b9ced4fa552c743b592f5ea8ecf53b955e9a3315b31c"
+    },
+    "results/baselines/figures/primary_example_complete_days.png": {
+      "bytes": 161236,
+      "sha256": "5b493734aa58834c53fb17fe0f1d5463ad14f8ca05c957aa4507843011668f06"
+    },
+    "results/baselines/figures/primary_monthly_mae_bias.png": {
+      "bytes": 39554,
+      "sha256": "99a4778907e7c426775a30042e3992630b0d8fccf87ecaabf579491b16784f00"
+    },
+    "results/baselines/figures/test_mae_by_baseline.png": {
+      "bytes": 14496,
+      "sha256": "216169c1457bcc64b3a0868fe81eddbbd905572eac2272ab2e21af30338f9f56"
+    },
+    "results/baselines/figures/test_mae_by_lead_band.png": {
+      "bytes": 68675,
+      "sha256": "c3f2fe58a2e32357e45a77360b653df5b505ea199e8af18654df0314072d66b0"
+    },
+    "results/baselines/leakage_audit.csv": {
+      "bytes": 286,
+      "sha256": "0ad2406efe7946f228319112c2fce3eb53b0db539ed24bc4cefb338450fe452d"
+    },
+    "results/baselines/test_baseline_summary.csv": {
+      "bytes": 3388,
+      "sha256": "50bb1f4c97c9b1b972df5a7157fa2b211586f7890e60dba94cee15720dcef486"
+    },
+    "results/baselines/test_calendar_summary.csv": {
+      "bytes": 4036,
+      "sha256": "de58435fb369a9569f9120ed972c1f7acc937f2d6c7ff298ba97412d305f065c"
+    },
+    "results/baselines/test_daily_by_day.csv": {
+      "bytes": 227023,
+      "sha256": "8329e31e463505be313c8c37fbba9e80bf82f00bff54e62063b0a5a87ca39749"
+    },
+    "results/baselines/test_daily_summary.csv": {
+      "bytes": 3191,
+      "sha256": "facf7eddb12926334bf56ed8493d22ee4701ef46c449b713811cb7195c57dcff"
+    },
+    "results/baselines/test_grid_mode_summary.csv": {
+      "bytes": 1157,
+      "sha256": "d2cef088ac88e8b00a485ace8b1326627a52cbc54a65eebb2464c30c1886cbbc"
+    },
+    "results/baselines/test_lead_band_summary.csv": {
+      "bytes": 2407,
+      "sha256": "2589c9bf120da194c939e5fc9aa3c79d250fbae5d804f7f6add0c289701daf6f"
+    },
+    "results/baselines/test_monthly_summary.csv": {
+      "bytes": 8672,
+      "sha256": "f576faf048d387c38dce327528895b0a592d108b40411b0940652a9a8c6561fa"
+    },
+    "results/baselines/test_predictions_2023.parquet": {
+      "bytes": 5444112,
+      "sha256": "d864bb88fdac94d5b7b3d214d5316a499f0dde702798607d14e657eba1866832"
+    },
+    "results/baselines/test_structural_summary.csv": {
+      "bytes": 1502,
+      "sha256": "736b3a5c91c85093e49ebe054a72c3a6fa653d580d91ae69353662fd2878fe96"
+    }
+  },
+  "forecast_index_sha256": "19224168abd94880233e39f7fe4952febc42fae90b516b63f0d4d36b02f3fc0a",
+  "frozen_protocol_sha256": "281f49331bc3b3c31aec0d33b50f6a83a149261db93ce04a29d67479cb62676e",
+  "generator_sha256": "7e04406b96b2d7b71f70dfa8ad6dd2ad7209c52f305eabfbd55318b7914d8f3f",
+  "model_training_performed": false,
+  "optimization_performed": false,
+  "package_versions": {
+    "numpy": "2.0.1",
+    "pandas": "2.3.3"
+  },
+  "provenance_mask_sha256": "f93d5bf4597d8f768cc63437f2ce78d21f4050f4dfcfbbe0e59d2fa0ef4eb778",
+  "python_version": "3.12.3",
+  "silver_sha256": "d9d93445391985faa7a0aa015cdb65b949f3909636d284c59449db876ae310df",
+  "source_code_base_commit": "b12d055591cf90ca7929342b34e1e31b3caf6e0f"
+}
