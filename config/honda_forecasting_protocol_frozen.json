@@ -1,0 +1,147 @@
+{
+  "protocol_version": "honda-h3-v1.0.0",
+  "protocol_status": "FROZEN",
+  "dataset": "Honda R&D Europe industrial facility energy dataset, Dryad DOI 10.5061/dryad.73n5tb363",
+  "H2_commit": "2d29de9f45dcd414baf53dd3b3dabb4627798fe3",
+  "H3A_commit": "99bb2033e30c06aeb71486f65a347887735f5c95",
+  "primary_task": "At 13:00 Europe/Berlin on D-1, forecast every physical 15-minute signed-grid-exchange interval of local calendar day D.",
+  "primary_target": "grid_exchange_kw_signed",
+  "units": "kW",
+  "sign_convention": {"positive": "grid import", "negative": "grid export", "prediction_clipping": "FORBIDDEN"},
+  "resolution_minutes": 15,
+  "optional_secondary_resolution_minutes": 60,
+  "timezone": "Europe/Berlin",
+  "internal_time_key": "timestamp_utc",
+  "forecast_issue_local_time": "13:00",
+  "historical_measurement_cutoff_rule": "interval_end_utc <= forecast_issue_time_utc",
+  "forecast_horizon": {
+    "ordinary_interval_start_hours": [11.0, 34.75],
+    "spring_dst_interval_start_hours": [11.0, 33.75],
+    "autumn_dst_interval_start_hours": [11.0, 35.75]
+  },
+  "target_primary_provenance": ["OBSERVED_ORIGINAL"],
+  "target_sensitivity_provenance": ["OBSERVED_ORIGINAL", "CORRECTED_NONIMPUTED"],
+  "target_forbidden_provenance": ["IMPUTED_OR_FILLED", "UNKNOWN_PROVENANCE", "MISSING_UNRESOLVED"],
+  "historical_predictor_provenance_policy": {
+    "OBSERVED_ORIGINAL": "PRIMARY_ALLOWED",
+    "CORRECTED_NONIMPUTED": "SENSITIVITY_SAFE_WITH_EXPLICIT_FLAG",
+    "IMPUTED_OR_FILLED": "UNAVAILABLE",
+    "UNKNOWN_PROVENANCE": "UNAVAILABLE",
+    "MISSING_UNRESOLVED": "UNAVAILABLE"
+  },
+  "missing_history_policy": {
+    "canonical_target_set_independent_of_context_completeness": true,
+    "drop_valid_target_for_missing_predictor": false,
+    "canonical_representation": "NaN plus explicit availability indicator where appropriate",
+    "protocol_generation_imputation": "FORBIDDEN",
+    "model_specific_adapter": "Allowed later if leakage-safe, explicit, audited, and does not alter the canonical target set",
+    "global_context_threshold": null,
+    "common_context_subset": "Allowed only for strict pairwise architecture comparisons; never replaces canonical evaluation"
+  },
+  "primary_development_folds": [
+    {"fold": "P1_FOLD_A", "train_years": [2020], "validation_years": [2021]},
+    {"fold": "P1_FOLD_B", "train_years": [2020, 2021], "validation_years": [2022]}
+  ],
+  "structural_sensitivity_folds": {
+    "name": "POST_2020_STRUCTURAL_SENSITIVITY",
+    "development_train_years": [2021],
+    "development_validation_years": [2022],
+    "final_refit_years": [2021, 2022],
+    "test_years": [2023],
+    "purpose": "Assess robustness to excluding fragmented and structurally unusual 2020; must not replace P1 based on TEST scores"
+  },
+  "final_development_refit_years": [2020, 2021, 2022],
+  "final_test_period": {"start_local": "2023-01-01", "end_local": "2023-12-31", "labels_locked_until_final_evaluation": true},
+  "test_access_guard": {
+    "forbidden_uses": ["hyperparameter_selection", "feature_selection", "baseline_selection", "context_window_selection", "model_choice", "early_stopping", "quantile_calibration", "conformal_calibration", "regime_thresholds", "scenario_construction", "post_hoc_bias_correction", "ensemble_weighting"],
+    "reopening_rule": "Requires explicit new protocol version and scientific justification"
+  },
+  "complete_day_rule": "Every physical interval of the local day is primary eligible",
+  "complete_sensitivity_day_rule": "Every physical interval is OBSERVED_ORIGINAL or CORRECTED_NONIMPUTED",
+  "partial_day_rule": "Retain every primary-eligible interval in headline interval metrics; exclude incomplete days only from complete-day profile and default optimization analyses",
+  "lead_time_bands": [
+    {"id": "H1", "lower_hours_inclusive": 11.0, "upper_hours_exclusive": 17.0},
+    {"id": "H2", "lower_hours_inclusive": 17.0, "upper_hours_exclusive": 23.0},
+    {"id": "H3", "lower_hours_inclusive": 23.0, "upper_hours_exclusive": 29.0},
+    {"id": "H4", "lower_hours_inclusive": 29.0, "upper_hours_inclusive": 36.0}
+  ],
+  "holiday_state": "Hessen",
+  "holiday_region_code": "DE-HE",
+  "calendar_contexts": ["NORMAL_WEEKDAY", "WEEKEND", "PUBLIC_HOLIDAY", "DAY_BEFORE_PUBLIC_HOLIDAY", "DAY_AFTER_PUBLIC_HOLIDAY", "BRIDGE_DAY_DIAGNOSTIC_ONLY"],
+  "bridge_day_rule": {
+    "definition": "Non-holiday Monday-Friday with one adjacent local date a public holiday and the other adjacent local date a weekend day",
+    "use": "DESCRIPTIVE_DIAGNOSTIC_ONLY"
+  },
+  "structural_era_policy": {
+    "COVID_REDUCED_OPERATION": "EVALUATION_STRATUM_AND_DATE_KNOWN_AT_ISSUANCE",
+    "PV_CAPACITY_ERA": "EVALUATION_STRATUM; documented engineering dates may be future-safe",
+    "POST_COVID": "EVALUATION_STRATUM_AND_DATE_KNOWN_AT_ISSUANCE",
+    "PRE_MODERNIZATION_2023": "EVALUATION_ONLY; before 2023-06-01 local",
+    "POST_MODERNIZATION_2023": "EVALUATION_ONLY; 2023-06-01 through 2023-12-31 local; month precision; no causal claim",
+    "CHP_CONTROL_BOUNDARY_UNCERTAIN": "EVALUATION_ONLY; official sources disagree between 2019-02-13 and 2019-02-19; not a predictive feature",
+    "TARGET_BEHAVIOR_DERIVED_ERA": "FORBIDDEN_AS_FEATURE"
+  },
+  "feature_contracts": {
+    "M0": ["historical signed grid exchange", "future-known calendar variables", "structural dates classified future-safe"],
+    "M1": ["M0", "pre-issuance historical PV", "pre-issuance historical CHP", "pre-issuance historical weather", "pre-issuance historical thermal variables where provenance allows"]
+  },
+  "forbidden_future_features": ["future observed Ta", "future observed Igm", "future measured PV", "future measured CHP", "future realized heating", "future realized cooling", "realized grid mode", "2023 TEST labels during development"],
+  "baseline_definitions": {
+    "B0": "Most recent completed provenance-safe grid value at issuance, held constant over target day",
+    "B1": "Most recent preceding local calendar day with provenance-safe matching local quarter-hour; repeated-hour fold/offset must match; missing if none",
+    "B2": "Same local quarter-hour exactly seven local calendar days earlier when safe and completed; repeated-hour fold/offset must match; otherwise missing",
+    "B3": "Median same local quarter-hour from prior N eligible calendar weeks; N in {2,4,8} selected on development folds only",
+    "B4": "Training-only robust calendar climatology; grouping selected on development folds, candidate month x weekday/weekend x local quarter-hour",
+    "B5": "Simple ensemble of selected baselines only when development-fold evidence justifies it; rule frozen before TEST"
+  },
+  "baseline_audit_fields": ["source_timestamp", "source_provenance_class", "lag_calendar_days", "prediction_available"],
+  "primary_metrics": {
+    "MAE_kW": "mean(abs(y_pred - y_true))",
+    "RMSE_kW": "sqrt(mean((y_pred - y_true)^2))",
+    "Bias_kW": "mean(y_pred - y_true)",
+    "MedianAE_kW": "median(abs(y_pred - y_true))",
+    "NMAE_absolute_target_scale": "mean(abs(y_pred - y_true)) / mean(abs(y_true))"
+  },
+  "secondary_metrics": {
+    "absolute_target_scaled_WAPE": "sum(abs(y_pred - y_true)) / sum(abs(y_true))",
+    "ordinary_MAPE": "FORBIDDEN_HEADLINE_METRIC",
+    "grid_mode_diagnostics": true,
+    "lead_band_metrics": true,
+    "fold_specific_metrics": true,
+    "complete_day_profile_metrics": true
+  },
+  "grid_mode_definition": {"IMPORT": "y > epsilon", "EXPORT": "y < -epsilon", "NEUTRAL": "abs(y) <= epsilon", "use": "DIAGNOSTIC_ONLY"},
+  "near_zero_tolerance": {"epsilon_kw": 0.0, "basis": "No defensible nonzero metering tolerance documented; future sensitivity tolerance must be predefined without TEST tuning"},
+  "grid_mode_diagnostics": ["import_only_MAE", "export_only_MAE", "neutral_state_MAE_if_supported", "sign_classification_accuracy", "import_recall", "export_recall", "false_import_rate", "false_export_rate", "zero_crossing_error"],
+  "daily_profile_metrics": ["daily_MAE", "daily_RMSE", "daily_bias", "maximum_absolute_interval_error", "mean_signed_energy_exchange_error_kWh=sum(pred-actual)*0.25", "absolute_daily_energy_exchange_error_kWh", "daily_import_energy_error_kWh", "daily_export_energy_error_kWh_where_meaningful"],
+  "model_selection_rule": {
+    "protocol": "P1",
+    "metric": "MAE",
+    "aggregation": "Concatenate all eligible 2021 Fold-A and 2022 Fold-B validation targets and compute one MAE, giving equal weight to every eligible target interval",
+    "fold_specific_reporting_required": true,
+    "test_data_use": "FORBIDDEN"
+  },
+  "final_refit_rule": "After P1 development selection, refit once on eligible 2020-2022 data and evaluate 2023 once; P2 may separately refit on 2021-2022",
+  "bootstrap_unit": "local_calendar_day",
+  "bootstrap_resamples": 2000,
+  "bootstrap_seed": 20261029,
+  "pairwise_comparison_rule": "Use common eligible targets and common complete days; report paired mean error difference, whole-day bootstrap 95% CI, daily win rate, and common target/day counts",
+  "prediction_coverage_reporting": ["eligible_target_count", "predicted_target_count", "prediction_coverage_fraction", "complete_day_forecast_coverage", "fallback_usage"],
+  "foundation_model_rules": {
+    "same_issuance_target_test_quality_metrics_and_DST": true,
+    "canonical_target_set_independent_of_model_context": true,
+    "maximal_protocol_valid_set_report": true,
+    "common_context_subset_report_if_needed": true,
+    "architecture_natural_and_common_input_benchmarks": true,
+    "zero_shot_before_fine_tuning": true,
+    "zero_shot_and_fine_tuned_results_separate": true,
+    "candidate_context_days": [7, 14, 28, 56],
+    "context_selected_on_development_only": true,
+    "hidden_author_imputation_forbidden": true
+  },
+  "probabilistic_test_rule": "Use the same 2023 TEST and target rules; calibration uses chronological development data only; 2023 calibration is forbidden; exact calibration design requires a separately versioned extension",
+  "coherent_scenario_requirement": "Downstream stochastic optimization requires temporally coherent daily trajectories; marginal quantiles alone are insufficient",
+  "market_timing_note": "Forecast issuance stays 13:00 D-1; a later verified price-publication/decision timestamp may be slightly later without changing forecast issuance",
+  "cross_dataset_note": "Honda signed net grid exchange is not equivalent to SPARK gross/site consumption-like demand; raw kW MAE is not a fair cross-site comparison",
+  "model_training_allowed_in_h3b": false
+}

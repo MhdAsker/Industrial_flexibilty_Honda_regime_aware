@@ -90,7 +90,15 @@ def test_candidate_split_chronology_and_2023_test_is_untouched():
 def test_no_model_training_or_frozen_h3_configuration():
     source = (h3a.ROOT / "src/honda/h3a_protocol_analysis.py").read_text(encoding="utf-8").lower()
     assert not any(token in source for token in ["lightgbm", "xgboost", "chronos", "timesfm", "timegpt", ".fit(", "predict("])
-    assert not (h3a.ROOT / "config/honda_forecasting_protocol_frozen.json").exists()
+    frozen = h3a.ROOT / "config/honda_forecasting_protocol_frozen.json"
+    if frozen.exists():
+        # H3B is the authorized successor stage that creates this file. The
+        # frozen config must identify the verified H3A checkpoint explicitly.
+        protocol = json.loads(frozen.read_text(encoding="utf-8"))
+        assert protocol["protocol_status"] == "FROZEN"
+        assert protocol["H3A_commit"] == "99bb2033e30c06aeb71486f65a347887735f5c95"
+    else:
+        assert not frozen.exists()
     assert not [p for p in (h3a.ROOT / "data/gold").rglob("*") if p.is_file()]
     assert h3a.CONFIG["final_protocol_frozen"] is False
     assert h3a.CONFIG["model_training_allowed"] is False

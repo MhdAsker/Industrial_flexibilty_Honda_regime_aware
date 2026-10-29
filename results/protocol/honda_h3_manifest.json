@@ -1,0 +1,114 @@
+{
+  "H2_commit": "2d29de9f45dcd414baf53dd3b3dabb4627798fe3",
+  "H3A_artifact_hashes": {
+    "reports/h3a_measurement_availability.md": {
+      "bytes": 2912,
+      "sha256": "5156010b9f8391e5c8bd9ef0dd4a74a7ea7e8dbf8eec995c52a095686e5768e7"
+    },
+    "reports/honda_forecasting_protocol_h3a.md": {
+      "bytes": 12919,
+      "sha256": "2b92ab2f40298165d8c84407c24dd062e185a3789aa19ff877e6d4613ff07567"
+    },
+    "results/protocol_h3a/calendar_day_type_availability.csv": {
+      "bytes": 722,
+      "sha256": "01aa1569e84d37392a040866009b672ef6d8d0ed14246bcc3db6ef0c3e9eccab"
+    },
+    "results/protocol_h3a/complete_day_blocks.csv": {
+      "bytes": 324,
+      "sha256": "7a93161901cc668427c326302258e2d52177fc10059a3882514ff8503267a778"
+    },
+    "results/protocol_h3a/context_availability.csv": {
+      "bytes": 1115131,
+      "sha256": "03cbef18841dd74f392f864ca16ac31303a1b8984e7068304f27805dfc436d97"
+    },
+    "results/protocol_h3a/context_availability_summary.csv": {
+      "bytes": 2259,
+      "sha256": "6ad9dfc624f149e9f1cdbd7b307450e65f17a673f2ae71f63fad76e954b6c0b6"
+    },
+    "results/protocol_h3a/feature_availability_matrix.csv": {
+      "bytes": 1630,
+      "sha256": "bcb5021ce6fff7edadde6fadd1a367710c620aa6abd058394c76c77508d6b4c5"
+    },
+    "results/protocol_h3a/forecast_origins_candidate.csv": {
+      "bytes": 278557,
+      "sha256": "cb1338dbea1e8957b19c1071117ce987f9d223b56b35602e641e16414388ac33"
+    },
+    "results/protocol_h3a/grid_target_summary.csv": {
+      "bytes": 873,
+      "sha256": "63f82f5477c46d795910ff120686c0a28dd35931b144d83cc83ee18b005534cb"
+    },
+    "results/protocol_h3a/holiday_calendar.csv": {
+      "bytes": 8862,
+      "sha256": "eca5da2e6151f16cb769c0d5c7209e495a058b738cc7360934125daf03e25dd2"
+    },
+    "results/protocol_h3a/lead_time_distribution.csv": {
+      "bytes": 29910013,
+      "sha256": "6a1825d619ce9defa4b13416cc0438f67f8d228033ec1d3fb3197127f0b90ced"
+    },
+    "results/protocol_h3a/protocol_candidate_analysis.csv": {
+      "bytes": 3324,
+      "sha256": "35015ff44077b07b07b333d2ed0cceeb83cd406c2ef0cbefb536a089e133a2a7"
+    },
+    "results/protocol_h3a/structural_era_feature_policy.csv": {
+      "bytes": 1062,
+      "sha256": "b3d0e0d6c0a1a8772dae2ed319701f04dbc3e22ddceff4fe50b53e870972096f"
+    },
+    "results/protocol_h3a/structural_era_target_availability.csv": {
+      "bytes": 372,
+      "sha256": "841dcf2f9ee7902416a9cee0e3a432d5233021295602b6cbcf1f71dfdaa16055"
+    },
+    "results/protocol_h3a/target_availability_by_year.csv": {
+      "bytes": 532,
+      "sha256": "671a067a6359e5554bf4b5f2ffffbafe704093e62ee2696b21640f9f8eb0930f"
+    },
+    "results/protocol_h3a/yearly_distribution_shift.csv": {
+      "bytes": 4656,
+      "sha256": "8bb7a60c8de3a1afe6e8e942790ad2251b60e4e593581a1d88d9a2e2a944bb47"
+    }
+  },
+  "H3A_commit": "99bb2033e30c06aeb71486f65a347887735f5c95",
+  "H3A_manifest_sha256": "15007d61cac8936719ec38b73e46c179db38e98418100db5f054d5fdd4427a1b",
+  "baseline_specification_sha256": "fdda6b3493e02adc51b4ee9d86a07f63dbbf3fa288dbdee3d940dcc445ef4d28",
+  "deterministic_outputs": {
+    "config/honda_forecasting_protocol_frozen.json": {
+      "bytes": 10479,
+      "sha256": "281f49331bc3b3c31aec0d33b50f6a83a149261db93ce04a29d67479cb62676e"
+    },
+    "data/silver/honda/honda_forecasting_index_15min.parquet": {
+      "bytes": 2368580,
+      "sha256": "19224168abd94880233e39f7fe4952febc42fae90b516b63f0d4d36b02f3fc0a"
+    },
+    "reports/honda_forecasting_protocol.md": {
+      "bytes": 15934,
+      "sha256": "0c9704fc5d53d77a804712771a6d858e1100e2b048c77271f0b84120c2bbce31"
+    },
+    "results/protocol/frozen_baseline_specifications.csv": {
+      "bytes": 1751,
+      "sha256": "fdda6b3493e02adc51b4ee9d86a07f63dbbf3fa288dbdee3d940dcc445ef4d28"
+    },
+    "results/protocol/frozen_feature_contract.csv": {
+      "bytes": 2499,
+      "sha256": "3a84e6d1932bea8f464f0fbafdc95fd7fc90a7c898b18e57a477530082fb8540"
+    },
+    "results/protocol/frozen_fold_summary.csv": {
+      "bytes": 2331,
+      "sha256": "484e362cd006e1f69067bba78d92a74acdc1b1a30fa39adf71911cf36b1029b1"
+    }
+  },
+  "feature_contract_sha256": "3a84e6d1932bea8f464f0fbafdc95fd7fc90a7c898b18e57a477530082fb8540",
+  "forecast_index_sha256": "19224168abd94880233e39f7fe4952febc42fae90b516b63f0d4d36b02f3fc0a",
+  "frozen_protocol_sha256": "281f49331bc3b3c31aec0d33b50f6a83a149261db93ce04a29d67479cb62676e",
+  "generator_sha256": "e6b61530afe5663cd12e1f287670a6c85eb78b3f6113c18c5f08a2d6c93f7da0",
+  "model_training_performed": false,
+  "optimization_performed": false,
+  "package_versions": {
+    "numpy": "2.0.1",
+    "pandas": "3.0.1",
+    "pyarrow": "23.0.1",
+    "pytest": "8.2.0"
+  },
+  "predictions_created": false,
+  "provenance_mask_sha256": "f93d5bf4597d8f768cc63437f2ce78d21f4050f4dfcfbbe0e59d2fa0ef4eb778",
+  "python_version": "3.12.3",
+  "silver_sha256": "d9d93445391985faa7a0aa015cdb65b949f3909636d284c59449db876ae310df"
+}
