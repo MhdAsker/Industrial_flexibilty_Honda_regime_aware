@@ -1,0 +1,8 @@
+{
+  "dataset_doi": "10.5061/dryad.73n5tb363",
+  "source_zip": "data/raw/honda/reduced_data.zip",
+  "staging_dir": "data/staging/honda",
+  "resolutions": ["1min", "15min", "1h"],
+  "analysis_policy": "forensic_only_no_model_training_no_imputation",
+  "expected_sha256": "2a35a629fdf863793ab1a0c1bf80110ec7fc909ea65f716613a529da4539571f"
+}

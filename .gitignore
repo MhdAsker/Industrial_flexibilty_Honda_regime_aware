@@ -1,0 +1,32 @@
+# Immutable/downloaded source archives and extracted data
+data/raw/honda/*.zip
+data/staging/honda/**
+!data/staging/honda/.gitkeep
+
+# Future generated datasets and models
+data/silver/**
+data/gold/**
+*.parquet
+*.pkl
+*.joblib
+models/
+
+# Generated audit tables and figures (manifest/report remain tracked)
+results/audit/*.csv
+results/audit/*.png
+results/audit/*.json
+!results/audit/honda_audit_manifest.json
+
+# Python/tool caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
