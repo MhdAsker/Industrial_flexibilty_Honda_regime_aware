@@ -1,0 +1,587 @@
+feature_name,information_set,feature_family,source_signal,feature_type,lookback,future_known,provenance_requirement,availability_cutoff,leakage_risk,notes
+annual_cos,M0,M0-A,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+annual_sin,M0,M0-A,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+bridge_day,M0,M0-A,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+covid_reduced_known,M0,M0-A,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+daily_cos,M0,M0-A,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+daily_sin,M0,M0-A,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+day_after_holiday,M0,M0-A,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+day_before_holiday,M0,M0-A,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+day_of_year,M0,M0-A,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+dst_state,M0,M0-A,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+fold,M0,M0-A,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+lead_time_hours,M0,M0-A,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+local_hour,M0,M0-A,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+local_quarter_in_hour,M0,M0-A,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+month,M0,M0-A,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+public_holiday,M0,M0-A,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+pv_phase_2_known,M1,M0-A,PV history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+quarter,M0,M0-A,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekday,M0,M0-A,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekend,M0,M0-A,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+analogue_B0,M0,M0-B,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+analogue_B1,M0,M0-B,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+analogue_B2,M0,M0-B,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+analogue_B3,M0,M0-B,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+annual_cos,M0,M0-B,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+annual_sin,M0,M0-B,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+bridge_day,M0,M0-B,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+covid_reduced_known,M0,M0-B,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+daily_cos,M0,M0-B,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+daily_sin,M0,M0-B,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+day_after_holiday,M0,M0-B,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+day_before_holiday,M0,M0-B,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+day_of_year,M0,M0-B,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+dst_state,M0,M0-B,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+fold,M0,M0-B,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_14d,M0,M0-B,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_1d,M0,M0-B,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_21d,M0,M0-B,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_28d,M0,M0-B,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_2d,M0,M0-B,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_35d,M0,M0-B,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_3d,M0,M0-B,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_42d,M0,M0-B,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_49d,M0,M0-B,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_56d,M0,M0-B,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_7d,M0,M0-B,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+lead_time_hours,M0,M0-B,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+local_hour,M0,M0-B,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+local_quarter_in_hour,M0,M0-B,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+month,M0,M0-B,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+public_holiday,M0,M0-B,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+pv_phase_2_known,M1,M0-B,PV history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+quarter,M0,M0-B,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekday,M0,M0-B,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekend,M0,M0-B,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_available_8,M0,M0-B,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_mean_4,M0,M0-B,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_median_2,M0,M0-B,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_median_4,M0,M0-B,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_median_8,M0,M0-B,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_std_4,M0,M0-B,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_std_8,M0,M0-B,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+analogue_B0,M0,M0-C,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+analogue_B1,M0,M0-C,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+analogue_B2,M0,M0-C,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+analogue_B3,M0,M0-C,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+annual_cos,M0,M0-C,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+annual_sin,M0,M0-C,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+bridge_day,M0,M0-C,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+covid_reduced_known,M0,M0-C,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+daily_cos,M0,M0-C,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+daily_sin,M0,M0-C,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+day_after_holiday,M0,M0-C,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+day_before_holiday,M0,M0-C,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+day_of_year,M0,M0-C,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+dst_state,M0,M0-C,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+fold,M0,M0-C,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+grid_12h_mean,M0,M0-C,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_14d_mean,M0,M0-C,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_1h_last,M0,M0-C,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_1h_mean,M0,M0-C,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_max,M0,M0-C,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_mean,M0,M0-C,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_median,M0,M0-C,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_min,M0,M0-C,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_observed_fraction,M0,M0-C,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_28d_mean,M0,M0-C,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_28d_observed_fraction,M0,M0-C,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_3h_mean,M0,M0-C,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_48h_mean,M0,M0-C,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_6h_mean,M0,M0-C,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_max,M0,M0-C,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_mean,M0,M0-C,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_median,M0,M0-C,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_min,M0,M0-C,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_observed_fraction,M0,M0-C,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_14d,M0,M0-C,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_1d,M0,M0-C,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_21d,M0,M0-C,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_28d,M0,M0-C,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_2d,M0,M0-C,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_35d,M0,M0-C,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_3d,M0,M0-C,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_42d,M0,M0-C,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_49d,M0,M0-C,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_56d,M0,M0-C,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_7d,M0,M0-C,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_level_7d_minus_28d,M0,M0-C,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+lead_time_hours,M0,M0-C,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+local_hour,M0,M0-C,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+local_quarter_in_hour,M0,M0-C,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+month,M0,M0-C,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+public_holiday,M0,M0-C,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+pv_phase_2_known,M1,M0-C,PV history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+quarter,M0,M0-C,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekday,M0,M0-C,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekend,M0,M0-C,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_available_8,M0,M0-C,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_mean_4,M0,M0-C,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_median_2,M0,M0-C,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_median_4,M0,M0-C,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_median_8,M0,M0-C,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_std_4,M0,M0-C,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_std_8,M0,M0-C,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+analogue_B0,M0,M0-D,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+analogue_B1,M0,M0-D,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+analogue_B2,M0,M0-D,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+analogue_B3,M0,M0-D,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+annual_cos,M0,M0-D,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+annual_sin,M0,M0-D,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+bridge_day,M0,M0-D,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+covid_reduced_known,M0,M0-D,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+daily_cos,M0,M0-D,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+daily_sin,M0,M0-D,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+day_after_holiday,M0,M0-D,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+day_before_holiday,M0,M0-D,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+day_of_year,M0,M0-D,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+dst_state,M0,M0-D,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+fold,M0,M0-D,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+grid_12h_mean,M0,M0-D,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_14d_mean,M0,M0-D,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_14d_std,M0,M0-D,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_1h_last,M0,M0-D,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_1h_mean,M0,M0-D,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_export_fraction,M0,M0-D,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_max,M0,M0-D,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_mean,M0,M0-D,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_mean_abs_ramp,M0,M0-D,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_median,M0,M0-D,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_min,M0,M0-D,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_observed_fraction,M0,M0-D,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_std,M0,M0-D,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_28d_export_fraction,M0,M0-D,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_28d_mean,M0,M0-D,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_28d_observed_fraction,M0,M0-D,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_3h_mean,M0,M0-D,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_48h_mean,M0,M0-D,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_6h_mean,M0,M0-D,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_export_count,M0,M0-D,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_export_fraction,M0,M0-D,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_max,M0,M0-D,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_mean,M0,M0-D,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_mean_abs_ramp,M0,M0-D,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_median,M0,M0-D,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_min,M0,M0-D,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_observed_fraction,M0,M0-D,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_std,M0,M0-D,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_14d,M0,M0-D,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_1d,M0,M0-D,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_21d,M0,M0-D,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_28d,M0,M0-D,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_2d,M0,M0-D,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_35d,M0,M0-D,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_3d,M0,M0-D,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_42d,M0,M0-D,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_49d,M0,M0-D,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_56d,M0,M0-D,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_7d,M0,M0-D,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_level_7d_minus_28d,M0,M0-D,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+lead_time_hours,M0,M0-D,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+local_hour,M0,M0-D,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+local_quarter_in_hour,M0,M0-D,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+month,M0,M0-D,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+public_holiday,M0,M0-D,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+pv_phase_2_known,M1,M0-D,PV history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+quarter,M0,M0-D,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekday,M0,M0-D,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekend,M0,M0-D,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_available_8,M0,M0-D,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_mean_4,M0,M0-D,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_median_2,M0,M0-D,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_median_4,M0,M0-D,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_median_8,M0,M0-D,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_std_4,M0,M0-D,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_std_8,M0,M0-D,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+analogue_B0,M0,M1-ALL,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+analogue_B1,M0,M1-ALL,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+analogue_B2,M0,M1-ALL,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+analogue_B3,M0,M1-ALL,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+annual_cos,M0,M1-ALL,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+annual_sin,M0,M1-ALL,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+bridge_day,M0,M1-ALL,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+chp_24h_last,M1,M1-ALL,CHP history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+chp_24h_max,M1,M1-ALL,CHP history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+chp_24h_mean,M1,M1-ALL,CHP history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+chp_24h_observed_fraction,M1,M1-ALL,CHP history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+chp_24h_on_fraction,M1,M1-ALL,CHP history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+chp_7d_max,M1,M1-ALL,CHP history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+chp_7d_mean,M1,M1-ALL,CHP history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+chp_7d_observed_fraction,M1,M1-ALL,CHP history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+chp_7d_std,M1,M1-ALL,CHP history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+covid_reduced_known,M0,M1-ALL,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+daily_cos,M0,M1-ALL,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+daily_sin,M0,M1-ALL,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+day_after_holiday,M0,M1-ALL,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+day_before_holiday,M0,M1-ALL,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+day_of_year,M0,M1-ALL,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+dst_state,M0,M1-ALL,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+fold,M0,M1-ALL,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+grid_12h_mean,M0,M1-ALL,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_14d_mean,M0,M1-ALL,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_14d_std,M0,M1-ALL,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_1h_last,M0,M1-ALL,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_1h_mean,M0,M1-ALL,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_export_fraction,M0,M1-ALL,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_max,M0,M1-ALL,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_mean,M0,M1-ALL,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_mean_abs_ramp,M0,M1-ALL,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_median,M0,M1-ALL,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_min,M0,M1-ALL,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_observed_fraction,M0,M1-ALL,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_std,M0,M1-ALL,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_28d_export_fraction,M0,M1-ALL,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_28d_mean,M0,M1-ALL,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_28d_observed_fraction,M0,M1-ALL,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_3h_mean,M0,M1-ALL,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_48h_mean,M0,M1-ALL,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_6h_mean,M0,M1-ALL,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_export_count,M0,M1-ALL,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_export_fraction,M0,M1-ALL,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_max,M0,M1-ALL,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_mean,M0,M1-ALL,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_mean_abs_ramp,M0,M1-ALL,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_median,M0,M1-ALL,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_min,M0,M1-ALL,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_observed_fraction,M0,M1-ALL,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_std,M0,M1-ALL,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_14d,M0,M1-ALL,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_1d,M0,M1-ALL,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_21d,M0,M1-ALL,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_28d,M0,M1-ALL,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_2d,M0,M1-ALL,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_35d,M0,M1-ALL,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_3d,M0,M1-ALL,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_42d,M0,M1-ALL,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_49d,M0,M1-ALL,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_56d,M0,M1-ALL,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_7d,M0,M1-ALL,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_level_7d_minus_28d,M0,M1-ALL,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+lead_time_hours,M0,M1-ALL,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+local_hour,M0,M1-ALL,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+local_quarter_in_hour,M0,M1-ALL,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+month,M0,M1-ALL,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+public_holiday,M0,M1-ALL,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+pv_24h_last,M1,M1-ALL,PV history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+pv_24h_max,M1,M1-ALL,PV history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+pv_24h_mean,M1,M1-ALL,PV history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+pv_24h_observed_fraction,M1,M1-ALL,PV history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+pv_7d_max,M1,M1-ALL,PV history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+pv_7d_mean,M1,M1-ALL,PV history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+pv_7d_observed_fraction,M1,M1-ALL,PV history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+pv_7d_std,M1,M1-ALL,PV history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+pv_phase_2_known,M1,M1-ALL,PV history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+quarter,M0,M1-ALL,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekday,M0,M1-ALL,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekend,M0,M1-ALL,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_available_8,M0,M1-ALL,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_mean_4,M0,M1-ALL,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_median_2,M0,M1-ALL,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_median_4,M0,M1-ALL,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_median_8,M0,M1-ALL,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_std_4,M0,M1-ALL,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_std_8,M0,M1-ALL,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+analogue_B0,M0,M1-CHP,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+analogue_B1,M0,M1-CHP,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+analogue_B2,M0,M1-CHP,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+analogue_B3,M0,M1-CHP,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+annual_cos,M0,M1-CHP,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+annual_sin,M0,M1-CHP,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+bridge_day,M0,M1-CHP,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+chp_24h_last,M1,M1-CHP,CHP history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+chp_24h_max,M1,M1-CHP,CHP history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+chp_24h_mean,M1,M1-CHP,CHP history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+chp_24h_observed_fraction,M1,M1-CHP,CHP history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+chp_24h_on_fraction,M1,M1-CHP,CHP history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+chp_7d_max,M1,M1-CHP,CHP history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+chp_7d_mean,M1,M1-CHP,CHP history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+chp_7d_observed_fraction,M1,M1-CHP,CHP history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+chp_7d_std,M1,M1-CHP,CHP history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+covid_reduced_known,M0,M1-CHP,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+daily_cos,M0,M1-CHP,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+daily_sin,M0,M1-CHP,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+day_after_holiday,M0,M1-CHP,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+day_before_holiday,M0,M1-CHP,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+day_of_year,M0,M1-CHP,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+dst_state,M0,M1-CHP,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+fold,M0,M1-CHP,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+grid_12h_mean,M0,M1-CHP,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_14d_mean,M0,M1-CHP,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_14d_std,M0,M1-CHP,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_1h_last,M0,M1-CHP,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_1h_mean,M0,M1-CHP,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_export_fraction,M0,M1-CHP,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_max,M0,M1-CHP,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_mean,M0,M1-CHP,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_mean_abs_ramp,M0,M1-CHP,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_median,M0,M1-CHP,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_min,M0,M1-CHP,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_observed_fraction,M0,M1-CHP,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_std,M0,M1-CHP,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_28d_export_fraction,M0,M1-CHP,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_28d_mean,M0,M1-CHP,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_28d_observed_fraction,M0,M1-CHP,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_3h_mean,M0,M1-CHP,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_48h_mean,M0,M1-CHP,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_6h_mean,M0,M1-CHP,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_export_count,M0,M1-CHP,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_export_fraction,M0,M1-CHP,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_max,M0,M1-CHP,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_mean,M0,M1-CHP,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_mean_abs_ramp,M0,M1-CHP,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_median,M0,M1-CHP,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_min,M0,M1-CHP,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_observed_fraction,M0,M1-CHP,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_std,M0,M1-CHP,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_14d,M0,M1-CHP,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_1d,M0,M1-CHP,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_21d,M0,M1-CHP,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_28d,M0,M1-CHP,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_2d,M0,M1-CHP,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_35d,M0,M1-CHP,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_3d,M0,M1-CHP,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_42d,M0,M1-CHP,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_49d,M0,M1-CHP,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_56d,M0,M1-CHP,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_7d,M0,M1-CHP,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_level_7d_minus_28d,M0,M1-CHP,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+lead_time_hours,M0,M1-CHP,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+local_hour,M0,M1-CHP,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+local_quarter_in_hour,M0,M1-CHP,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+month,M0,M1-CHP,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+public_holiday,M0,M1-CHP,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+pv_phase_2_known,M1,M1-CHP,PV history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+quarter,M0,M1-CHP,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekday,M0,M1-CHP,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekend,M0,M1-CHP,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_available_8,M0,M1-CHP,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_mean_4,M0,M1-CHP,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_median_2,M0,M1-CHP,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_median_4,M0,M1-CHP,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_median_8,M0,M1-CHP,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_std_4,M0,M1-CHP,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_std_8,M0,M1-CHP,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+analogue_B0,M0,M1-PV,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+analogue_B1,M0,M1-PV,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+analogue_B2,M0,M1-PV,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+analogue_B3,M0,M1-PV,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+annual_cos,M0,M1-PV,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+annual_sin,M0,M1-PV,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+bridge_day,M0,M1-PV,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+covid_reduced_known,M0,M1-PV,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+daily_cos,M0,M1-PV,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+daily_sin,M0,M1-PV,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+day_after_holiday,M0,M1-PV,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+day_before_holiday,M0,M1-PV,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+day_of_year,M0,M1-PV,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+dst_state,M0,M1-PV,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+fold,M0,M1-PV,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+grid_12h_mean,M0,M1-PV,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_14d_mean,M0,M1-PV,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_14d_std,M0,M1-PV,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_1h_last,M0,M1-PV,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_1h_mean,M0,M1-PV,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_export_fraction,M0,M1-PV,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_max,M0,M1-PV,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_mean,M0,M1-PV,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_mean_abs_ramp,M0,M1-PV,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_median,M0,M1-PV,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_min,M0,M1-PV,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_observed_fraction,M0,M1-PV,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_std,M0,M1-PV,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_28d_export_fraction,M0,M1-PV,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_28d_mean,M0,M1-PV,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_28d_observed_fraction,M0,M1-PV,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_3h_mean,M0,M1-PV,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_48h_mean,M0,M1-PV,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_6h_mean,M0,M1-PV,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_export_count,M0,M1-PV,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_export_fraction,M0,M1-PV,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_max,M0,M1-PV,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_mean,M0,M1-PV,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_mean_abs_ramp,M0,M1-PV,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_median,M0,M1-PV,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_min,M0,M1-PV,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_observed_fraction,M0,M1-PV,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_std,M0,M1-PV,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_14d,M0,M1-PV,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_1d,M0,M1-PV,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_21d,M0,M1-PV,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_28d,M0,M1-PV,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_2d,M0,M1-PV,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_35d,M0,M1-PV,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_3d,M0,M1-PV,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_42d,M0,M1-PV,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_49d,M0,M1-PV,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_56d,M0,M1-PV,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_7d,M0,M1-PV,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_level_7d_minus_28d,M0,M1-PV,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+lead_time_hours,M0,M1-PV,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+local_hour,M0,M1-PV,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+local_quarter_in_hour,M0,M1-PV,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+month,M0,M1-PV,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+public_holiday,M0,M1-PV,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+pv_24h_last,M1,M1-PV,PV history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+pv_24h_max,M1,M1-PV,PV history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+pv_24h_mean,M1,M1-PV,PV history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+pv_24h_observed_fraction,M1,M1-PV,PV history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+pv_7d_max,M1,M1-PV,PV history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+pv_7d_mean,M1,M1-PV,PV history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+pv_7d_observed_fraction,M1,M1-PV,PV history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+pv_7d_std,M1,M1-PV,PV history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+pv_phase_2_known,M1,M1-PV,PV history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+quarter,M0,M1-PV,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekday,M0,M1-PV,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekend,M0,M1-PV,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_available_8,M0,M1-PV,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_mean_4,M0,M1-PV,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_median_2,M0,M1-PV,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_median_4,M0,M1-PV,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_median_8,M0,M1-PV,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_std_4,M0,M1-PV,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_std_8,M0,M1-PV,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+analogue_B0,M0,M1-T,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+analogue_B1,M0,M1-T,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+analogue_B2,M0,M1-T,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+analogue_B3,M0,M1-T,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+annual_cos,M0,M1-T,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+annual_sin,M0,M1-T,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+bridge_day,M0,M1-T,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+covid_reduced_known,M0,M1-T,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+daily_cos,M0,M1-T,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+daily_sin,M0,M1-T,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+day_after_holiday,M0,M1-T,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+day_before_holiday,M0,M1-T,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+day_of_year,M0,M1-T,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+dst_state,M0,M1-T,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+fold,M0,M1-T,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+grid_12h_mean,M0,M1-T,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_14d_mean,M0,M1-T,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_14d_std,M0,M1-T,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_1h_last,M0,M1-T,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_1h_mean,M0,M1-T,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_export_fraction,M0,M1-T,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_max,M0,M1-T,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_mean,M0,M1-T,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_mean_abs_ramp,M0,M1-T,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_median,M0,M1-T,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_min,M0,M1-T,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_observed_fraction,M0,M1-T,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_std,M0,M1-T,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_28d_export_fraction,M0,M1-T,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_28d_mean,M0,M1-T,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_28d_observed_fraction,M0,M1-T,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_3h_mean,M0,M1-T,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_48h_mean,M0,M1-T,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_6h_mean,M0,M1-T,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_export_count,M0,M1-T,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_export_fraction,M0,M1-T,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_max,M0,M1-T,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_mean,M0,M1-T,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_mean_abs_ramp,M0,M1-T,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_median,M0,M1-T,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_min,M0,M1-T,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_observed_fraction,M0,M1-T,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_std,M0,M1-T,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_14d,M0,M1-T,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_1d,M0,M1-T,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_21d,M0,M1-T,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_28d,M0,M1-T,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_2d,M0,M1-T,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_35d,M0,M1-T,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_3d,M0,M1-T,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_42d,M0,M1-T,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_49d,M0,M1-T,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_56d,M0,M1-T,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_7d,M0,M1-T,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_level_7d_minus_28d,M0,M1-T,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+lead_time_hours,M0,M1-T,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+local_hour,M0,M1-T,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+local_quarter_in_hour,M0,M1-T,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+month,M0,M1-T,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+public_holiday,M0,M1-T,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+pv_phase_2_known,M1,M1-T,PV history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+quarter,M0,M1-T,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+thermal_history,M1,M1-T,heating/cooling,NOT_EVALUABLE,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= issue,BLOCKED,No primary provenance masks for reduced thermal aggregates
+weekday,M0,M1-T,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekend,M0,M1-T,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_available_8,M0,M1-T,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_mean_4,M0,M1-T,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_median_2,M0,M1-T,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_median_4,M0,M1-T,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_median_8,M0,M1-T,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_std_4,M0,M1-T,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_std_8,M0,M1-T,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+analogue_B0,M0,M1-W,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+analogue_B1,M0,M1-W,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+analogue_B2,M0,M1-W,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+analogue_B3,M0,M1-W,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+annual_cos,M0,M1-W,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+annual_sin,M0,M1-W,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+bridge_day,M0,M1-W,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+covid_reduced_known,M0,M1-W,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+daily_cos,M0,M1-W,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+daily_sin,M0,M1-W,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+day_after_holiday,M0,M1-W,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+day_before_holiday,M0,M1-W,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+day_of_year,M0,M1-W,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+dst_state,M0,M1-W,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+fold,M0,M1-W,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+grid_12h_mean,M0,M1-W,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_14d_mean,M0,M1-W,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_14d_std,M0,M1-W,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_1h_last,M0,M1-W,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_1h_mean,M0,M1-W,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_export_fraction,M0,M1-W,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_max,M0,M1-W,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_mean,M0,M1-W,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_mean_abs_ramp,M0,M1-W,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_median,M0,M1-W,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_min,M0,M1-W,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_observed_fraction,M0,M1-W,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_24h_std,M0,M1-W,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_28d_export_fraction,M0,M1-W,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_28d_mean,M0,M1-W,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_28d_observed_fraction,M0,M1-W,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_3h_mean,M0,M1-W,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_48h_mean,M0,M1-W,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_6h_mean,M0,M1-W,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_export_count,M0,M1-W,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_export_fraction,M0,M1-W,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_max,M0,M1-W,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_mean,M0,M1-W,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_mean_abs_ramp,M0,M1-W,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_median,M0,M1-W,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_min,M0,M1-W,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_observed_fraction,M0,M1-W,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_7d_std,M0,M1-W,volatility/export history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_14d,M0,M1-W,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_1d,M0,M1-W,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_21d,M0,M1-W,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_28d,M0,M1-W,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_2d,M0,M1-W,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_35d,M0,M1-W,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_3d,M0,M1-W,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_42d,M0,M1-W,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_49d,M0,M1-W,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_56d,M0,M1-W,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_lag_7d,M0,M1-W,historical analogues,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+grid_level_7d_minus_28d,M0,M1-W,recent level,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+lead_time_hours,M0,M1-W,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+local_hour,M0,M1-W,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+local_quarter_in_hour,M0,M1-W,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+month,M0,M1-W,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+public_holiday,M0,M1-W,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+pv_phase_2_known,M1,M1-W,PV history,numeric,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= forecast_issue_time_utc,LOW after timestamp/provenance guard,NaN preserved
+quarter,M0,M1-W,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weather_history,M1,M1-W,Ta/Igm,NOT_EVALUABLE,pre-issuance,no,OBSERVED_ORIGINAL,interval_end_utc <= issue,BLOCKED,H2 explicitly did not create weather provenance masks
+weekday,M0,M1-W,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekend,M0,M1-W,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_available_8,M0,M1-W,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_mean_4,M0,M1-W,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_median_2,M0,M1-W,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_median_4,M0,M1-W,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_median_8,M0,M1-W,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_std_4,M0,M1-W,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved
+weekly_std_8,M0,M1-W,calendar,numeric,target-time known,yes,not applicable,known at issuance,LOW after timestamp/provenance guard,NaN preserved

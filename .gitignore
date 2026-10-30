@@ -12,6 +12,7 @@ data/gold/**
 *.pkl
 *.joblib
 models/
+artifacts/models/
 
 # Generated audit tables and figures (manifest/report remain tracked)
 results/audit/*.csv

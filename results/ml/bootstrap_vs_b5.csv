@@ -1,0 +1,2 @@
+ML_model,comparator,common_complete_days,mean_daily_mae_difference_kw,ci95_lower_kw,ci95_upper_kw,ML_daily_win_rate,resamples,seed
+PRIMARY_ML,B5,347,-5.122428726,-6.83316021,-3.514361622,0.6426512968,2000,20261029

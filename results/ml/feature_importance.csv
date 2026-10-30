@@ -1,0 +1,152 @@
+model,feature_name,feature_group,gain_importance,split_importance
+LGBM_M0,analogue_B1,historical analogues,438371.3159,158
+LGBM_M0,grid_24h_median,recent level,76321.05072,120
+LGBM_M0,weekday,calendar,72436.27319,191
+LGBM_M0,analogue_B3,historical analogues,61742.916,64
+LGBM_M0,weekly_mean_4,historical analogues,55491.26711,48
+LGBM_M0,analogue_B2,historical analogues,53339.32691,65
+LGBM_M0,weekly_median_2,historical analogues,46757.51649,61
+LGBM_M0,annual_cos,calendar,38314.08958,91
+LGBM_M0,day_of_year,calendar,32383.0433,135
+LGBM_M0,weekly_median_4,historical analogues,24749.36588,18
+LGBM_M0,daily_cos,calendar,22470.42431,89
+LGBM_M0,grid_24h_mean_abs_ramp,volatility/export history,22250.09835,89
+LGBM_M0,grid_7d_median,recent level,20787.88917,66
+LGBM_M0,grid_level_7d_minus_28d,recent level,20337.69403,99
+LGBM_M0,grid_lag_1d,historical analogues,18544.11569,50
+LGBM_M0,grid_lag_3d,historical analogues,17723.73238,71
+LGBM_M0,grid_24h_std,volatility/export history,17126.00328,94
+LGBM_M0,grid_12h_mean,recent level,14747.31264,49
+LGBM_M0,grid_28d_mean,recent level,14661.71524,75
+LGBM_M0,grid_1h_mean,recent level,14103.49902,77
+LGBM_M0,weekly_median_8,historical analogues,13257.97702,24
+LGBM_M0,grid_14d_mean,recent level,12414.81094,71
+LGBM_M0,grid_lag_35d,historical analogues,11816.22553,55
+LGBM_M0,grid_24h_mean,recent level,11274.09309,34
+LGBM_M0,grid_28d_export_fraction,volatility/export history,11065.04728,66
+LGBM_M0,annual_sin,calendar,10595.14261,72
+LGBM_M0,grid_24h_max,recent level,10534.76973,69
+LGBM_M0,grid_7d_mean_abs_ramp,volatility/export history,10138.10107,62
+LGBM_M0,grid_6h_mean,recent level,10078.52929,44
+LGBM_M0,grid_7d_std,volatility/export history,10059.87409,64
+LGBM_M0,grid_14d_std,volatility/export history,9346.726006,48
+LGBM_M0,analogue_B0,historical analogues,9326.823917,51
+LGBM_M0,grid_7d_min,recent level,8355.241322,51
+LGBM_M0,grid_7d_max,recent level,8341.082268,53
+LGBM_M0,weekly_std_8,historical analogues,8234.198425,22
+LGBM_M0,grid_lag_7d,historical analogues,8209.631321,7
+LGBM_M0,grid_48h_mean,recent level,8190.024101,47
+LGBM_M0,grid_1h_last,recent level,7962.01458,38
+LGBM_M0,weekend,calendar,7531.099991,16
+LGBM_M0,grid_7d_export_count,volatility/export history,6931.237396,38
+LGBM_M0,grid_28d_observed_fraction,recent level,6744.72781,47
+LGBM_M0,grid_3h_mean,recent level,6712.994392,42
+LGBM_M0,grid_24h_min,recent level,6503.351746,37
+LGBM_M0,quarter,calendar,6114.600891,31
+LGBM_M0,grid_7d_mean,recent level,5929.761749,32
+LGBM_M0,grid_24h_export_fraction,volatility/export history,5586.0504,42
+LGBM_M0,grid_lag_28d,historical analogues,5468.972519,39
+LGBM_M0,month,calendar,3848.147964,11
+LGBM_M0,weekly_std_4,historical analogues,3819.872444,27
+LGBM_M0,grid_lag_2d,historical analogues,3762.510025,13
+LGBM_M0,grid_lag_49d,historical analogues,3596.983311,27
+LGBM_M0,grid_lag_42d,historical analogues,3267.694157,13
+LGBM_M0,grid_lag_21d,historical analogues,3257.339901,27
+LGBM_M0,daily_sin,calendar,3176.390007,15
+LGBM_M0,grid_7d_export_fraction,volatility/export history,3066.523918,22
+LGBM_M0,grid_lag_14d,historical analogues,2889.373405,23
+LGBM_M0,dst_state,calendar,2538.760986,4
+LGBM_M0,grid_7d_observed_fraction,recent level,2367.003044,15
+LGBM_M0,grid_24h_observed_fraction,recent level,1493.140388,10
+LGBM_M0,local_hour,calendar,1408.020004,5
+LGBM_M0,lead_time_hours,calendar,1382.455002,7
+LGBM_M0,grid_lag_56d,historical analogues,1052.295681,9
+LGBM_M0,public_holiday,calendar,793.2392044,7
+LGBM_M0,covid_reduced_known,calendar,199.3317032,2
+LGBM_M0,day_after_holiday,calendar,93.80740356,1
+LGBM_M0,local_quarter_in_hour,calendar,0,0
+LGBM_M0,day_before_holiday,calendar,0,0
+LGBM_M0,bridge_day,calendar,0,0
+LGBM_M0,fold,calendar,0,0
+LGBM_M0,pv_phase_2_known,PV history,0,0
+LGBM_M0,weekly_available_8,historical analogues,0,0
+LGBM_M1,analogue_B1,historical analogues,448451.6729,148
+LGBM_M1,chp_24h_last,CHP history,93103.6441,127
+LGBM_M1,chp_24h_mean,CHP history,86576.03445,68
+LGBM_M1,analogue_B3,historical analogues,74108.16338,72
+LGBM_M1,weekday,calendar,65782.62497,157
+LGBM_M1,weekly_median_2,historical analogues,56023.47112,53
+LGBM_M1,weekly_mean_4,historical analogues,37092.56581,54
+LGBM_M1,daily_cos,calendar,36649.99901,64
+LGBM_M1,analogue_B2,historical analogues,35314.81501,53
+LGBM_M1,day_of_year,calendar,22232.30116,94
+LGBM_M1,grid_24h_median,recent level,20738.94541,65
+LGBM_M1,weekly_median_8,historical analogues,18382.88548,28
+LGBM_M1,grid_level_7d_minus_28d,recent level,18325.44757,79
+LGBM_M1,chp_24h_on_fraction,CHP history,16623.38487,35
+LGBM_M1,grid_lag_1d,historical analogues,15446.81917,46
+LGBM_M1,annual_cos,calendar,12943.54353,53
+LGBM_M1,grid_24h_mean_abs_ramp,volatility/export history,12390.69113,59
+LGBM_M1,grid_1h_mean,recent level,12257.00451,54
+LGBM_M1,grid_7d_min,recent level,11852.60028,60
+LGBM_M1,chp_7d_mean,CHP history,11446.10007,51
+LGBM_M1,chp_7d_std,CHP history,11311.40869,50
+LGBM_M1,grid_28d_mean,recent level,10745.63968,47
+LGBM_M1,grid_24h_max,recent level,10416.4463,57
+LGBM_M1,grid_7d_median,recent level,10146.95202,46
+LGBM_M1,grid_12h_mean,recent level,9809.400551,29
+LGBM_M1,grid_24h_std,volatility/export history,9577.493202,54
+LGBM_M1,grid_lag_3d,historical analogues,9293.672707,39
+LGBM_M1,weekly_median_4,historical analogues,9278.857025,12
+LGBM_M1,weekly_std_8,historical analogues,8957.377914,27
+LGBM_M1,grid_14d_mean,recent level,8785.972321,47
+LGBM_M1,annual_sin,calendar,8701.762871,51
+LGBM_M1,chp_7d_max,CHP history,8684.049828,36
+LGBM_M1,grid_7d_max,recent level,8584.142632,50
+LGBM_M1,weekend,calendar,8243.997055,20
+LGBM_M1,quarter,calendar,8179.856934,38
+LGBM_M1,grid_7d_mean_abs_ramp,volatility/export history,8132.976051,38
+LGBM_M1,grid_3h_mean,recent level,7324.822594,36
+LGBM_M1,chp_24h_max,CHP history,7269.693069,38
+LGBM_M1,grid_28d_export_fraction,volatility/export history,7256.865685,45
+LGBM_M1,daily_sin,calendar,6844.401009,27
+LGBM_M1,grid_7d_mean,recent level,6590.304497,32
+LGBM_M1,grid_6h_mean,recent level,6395.455154,24
+LGBM_M1,analogue_B0,historical analogues,6302.562309,26
+LGBM_M1,grid_24h_min,recent level,6001.138901,35
+LGBM_M1,grid_28d_observed_fraction,recent level,5882.353195,37
+LGBM_M1,grid_7d_std,volatility/export history,4689.871605,28
+LGBM_M1,grid_1h_last,recent level,4653.260399,24
+LGBM_M1,grid_lag_35d,historical analogues,4650.000214,27
+LGBM_M1,grid_24h_export_fraction,volatility/export history,4495.871101,29
+LGBM_M1,grid_14d_std,volatility/export history,4492.598076,24
+LGBM_M1,grid_lag_28d,historical analogues,4469.404564,28
+LGBM_M1,grid_lag_49d,historical analogues,4031.796272,27
+LGBM_M1,grid_24h_mean,recent level,3791.227051,12
+LGBM_M1,weekly_std_4,historical analogues,3566.757454,25
+LGBM_M1,grid_7d_export_fraction,volatility/export history,3449.801003,20
+LGBM_M1,grid_lag_21d,historical analogues,3130.741096,21
+LGBM_M1,grid_48h_mean,recent level,3045.278519,17
+LGBM_M1,grid_7d_export_count,volatility/export history,2723.930191,17
+LGBM_M1,grid_7d_observed_fraction,recent level,2626.576706,16
+LGBM_M1,grid_lag_2d,historical analogues,2371.07103,3
+LGBM_M1,grid_lag_14d,historical analogues,1832.748878,10
+LGBM_M1,grid_lag_42d,historical analogues,1761.797989,6
+LGBM_M1,month,calendar,1536.784996,9
+LGBM_M1,grid_lag_7d,historical analogues,1261.833984,3
+LGBM_M1,lead_time_hours,calendar,1251.948997,8
+LGBM_M1,local_hour,calendar,1032.080002,5
+LGBM_M1,public_holiday,calendar,950.8614044,6
+LGBM_M1,grid_24h_observed_fraction,recent level,825.3547897,6
+LGBM_M1,chp_7d_observed_fraction,CHP history,804.3740158,4
+LGBM_M1,grid_lag_56d,historical analogues,759.0580063,5
+LGBM_M1,covid_reduced_known,calendar,432.4140015,3
+LGBM_M1,local_quarter_in_hour,calendar,0,0
+LGBM_M1,dst_state,calendar,0,0
+LGBM_M1,day_before_holiday,calendar,0,0
+LGBM_M1,day_after_holiday,calendar,0,0
+LGBM_M1,bridge_day,calendar,0,0
+LGBM_M1,fold,calendar,0,0
+LGBM_M1,pv_phase_2_known,PV history,0,0
+LGBM_M1,weekly_available_8,historical analogues,0,0
+LGBM_M1,chp_24h_observed_fraction,CHP history,0,0
