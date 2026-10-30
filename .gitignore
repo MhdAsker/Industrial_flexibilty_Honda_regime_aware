@@ -13,6 +13,10 @@ data/gold/**
 *.joblib
 models/
 artifacts/models/
+.venv-h6-chronos/
+.venv-h6-timesfm/
+.cache-h6/
+artifacts/foundation_models/
 
 # Generated audit tables and figures (manifest/report remain tracked)
 results/audit/*.csv

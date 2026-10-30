@@ -1,0 +1,15 @@
+{
+  "chronos2": {
+    "canonical_sha256": "31cd0cd368e93622ed1a679447304343e8158adf09e394d8d118a2acf89330bb",
+    "max_absolute_prediction_difference_kw": 0.0,
+    "mean_absolute_prediction_difference_kw": 0.0,
+    "rerun_sha256": "31cd0cd368e93622ed1a679447304343e8158adf09e394d8d118a2acf89330bb"
+  },
+  "result": "exactly_reproduced_on_this_hardware_and_software_stack",
+  "timesfm3": {
+    "canonical_sha256": "97676bf77af77784ef91acfdb1de1cb7a716fefb4c7896aa6457e5c7d082062c",
+    "max_absolute_prediction_difference_kw": 0.0,
+    "mean_absolute_prediction_difference_kw": 0.0,
+    "rerun_sha256": "97676bf77af77784ef91acfdb1de1cb7a716fefb4c7896aa6457e5c7d082062c"
+  }
+}

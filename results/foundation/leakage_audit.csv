@@ -1,0 +1,11 @@
+check,violations,evidence
+future_target_in_context,0,contexts end at issue_time minus 15 minutes
+post_issuance_context,0,interval_end_utc <= forecast_issue_time_utc
+author_imputed_history_as_observed,0,only OBSERVED_ORIGINAL values enter context
+future_realized_PV,0,not supplied
+future_realized_CHP,0,only past-only CHP supplied in C1
+future_realized_weather,0,not supplied
+test_based_selection,0,configs frozen from 2021+2022 before TEST
+fine_tuning_or_gradient_training,0,gradient mode disabled
+timestamp_alignment,0,canonical UTC key
+missing_foundation_predictions,0,eligible TEST rows

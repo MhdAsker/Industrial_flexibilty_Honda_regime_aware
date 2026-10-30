@@ -1,0 +1,13 @@
+{
+  "cpu": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+  "cuda_used": true,
+  "device_used": "CUDA for frozen foundation inference",
+  "disk_free_bytes_after_downloads": 69814431744,
+  "gpu": "NVIDIA GeForce GTX 1650, 4096 MiB, 610.62",
+  "logical_cpu_count": 12,
+  "os": "Windows-11-10.0.26200-SP0",
+  "physical_cpu_count": 8,
+  "precision": "Chronos float16; TimesFM float32",
+  "python": "3.12.3",
+  "ram_bytes": 16870006784
+}

@@ -1,0 +1,410 @@
+{
+  "H3_protocol_hash": "281f49331bc3b3c31aec0d33b50f6a83a149261db93ce04a29d67479cb62676e",
+  "H4_baseline_config_hash": "1bbbbac404675bb1bfb5c85067e1504fda843fc2bc52151a60025f4e3c8b7a04",
+  "H5_LightGBM_config_hash": "7fff8efbf51fc17ac2524ceeac30dbed6764d4ec55eaf1ea3993c47691dd21ea",
+  "H5_commit": "b3764bd791f1a843fc5aa8bf005d07e382d21059",
+  "bootstrap_resamples": 2000,
+  "chronos": {
+    "H3_protocol_sha256": "281f49331bc3b3c31aec0d33b50f6a83a149261db93ce04a29d67479cb62676e",
+    "H4_baseline_selection_sha256": "1bbbbac404675bb1bfb5c85067e1504fda843fc2bc52151a60025f4e3c8b7a04",
+    "H5_LightGBM_config_sha256": "7fff8efbf51fc17ac2524ceeac30dbed6764d4ec55eaf1ea3993c47691dd21ea",
+    "H5_commit": "b3764bd791f1a843fc5aa8bf005d07e382d21059",
+    "checkpoint_bytes": 477930472,
+    "checkpoint_sha256": "ddcda3c7508bf2528087723e98a20707cc04b7f370ae275a9fd88078ddba4f42",
+    "covariates": [
+      "future-known calendar",
+      "historical observed-original CHP"
+    ],
+    "development_metrics": [
+      {
+        "bias_kw": -4.375232518745366,
+        "context_days": 14,
+        "coverage": 1.0,
+        "eligible_targets": 34281,
+        "fold": "FOLD_A",
+        "mae_kw": 115.53824631335563,
+        "mean_context_observed_fraction": 0.9790631802150573,
+        "mode": "U",
+        "model": "CHRONOS2",
+        "predicted_targets": 34281,
+        "rmse_kw": 158.66659885729842,
+        "valid_context_origins": 365
+      },
+      {
+        "bias_kw": -5.5004169504947305,
+        "context_days": 14,
+        "coverage": 1.0,
+        "eligible_targets": 34624,
+        "fold": "FOLD_B",
+        "mae_kw": 115.17259473606987,
+        "mean_context_observed_fraction": 0.9890338718738998,
+        "mode": "U",
+        "model": "CHRONOS2",
+        "predicted_targets": 34624,
+        "rmse_kw": 153.6896196590909,
+        "valid_context_origins": 362
+      },
+      {
+        "bias_kw": -4.94062524445308,
+        "context_days": 14,
+        "coverage": 1.0,
+        "eligible_targets": 68905,
+        "fold": "CONCATENATED",
+        "mae_kw": 115.3545104420554,
+        "mean_context_observed_fraction": 0.9840733424383469,
+        "mode": "U",
+        "model": "CHRONOS2",
+        "predicted_targets": 68905,
+        "rmse_kw": 156.18554708736744,
+        "valid_context_origins": 727
+      },
+      {
+        "bias_kw": -8.279181988960906,
+        "context_days": 14,
+        "coverage": 1.0,
+        "eligible_targets": 34281,
+        "fold": "FOLD_A",
+        "mae_kw": 104.25410909871916,
+        "mean_context_observed_fraction": 0.9790631802150573,
+        "mode": "C1",
+        "model": "CHRONOS2",
+        "predicted_targets": 34281,
+        "rmse_kw": 142.91395333722096,
+        "valid_context_origins": 365
+      },
+      {
+        "bias_kw": -7.296687789717429,
+        "context_days": 14,
+        "coverage": 1.0,
+        "eligible_targets": 34624,
+        "fold": "FOLD_B",
+        "mae_kw": 105.73040789959235,
+        "mean_context_observed_fraction": 0.9890338718738998,
+        "mode": "C1",
+        "model": "CHRONOS2",
+        "predicted_targets": 34624,
+        "rmse_kw": 143.0117951648737,
+        "valid_context_origins": 362
+      },
+      {
+        "bias_kw": -7.7854895260829435,
+        "context_days": 14,
+        "coverage": 1.0,
+        "eligible_targets": 68905,
+        "fold": "CONCATENATED",
+        "mae_kw": 104.9959329094939,
+        "mean_context_observed_fraction": 0.9840733424383469,
+        "mode": "C1",
+        "model": "CHRONOS2",
+        "predicted_targets": 68905,
+        "rmse_kw": 142.96312614288115,
+        "valid_context_origins": 727
+      }
+    ],
+    "development_selection_metric": "equal-target-weighted concatenated 2021+2022 MAE",
+    "device": "cuda",
+    "dtype": "float16",
+    "fine_tuning_performed": false,
+    "gradient_training_performed": false,
+    "license": "Apache-2.0",
+    "missing_context_policy": "native NaN mask",
+    "model_id": "amazon/chronos-2",
+    "package": "chronos-forecasting",
+    "package_version": "2.3.2",
+    "point_forecast_definition": "quantile 0.5 median",
+    "random_seed": 20261029,
+    "revision": "29ec3766d36d6f73f0696f85560a422f50e8498c",
+    "selected_context_days": 14,
+    "selected_development_mae_kw": 104.9959329094939,
+    "selected_mode": "C1",
+    "selection_status": "FROZEN_BEFORE_TEST",
+    "test_used_for_selection": false,
+    "tie_rule": "prefer univariate when covariate MAE improvement is below 0.5%"
+  },
+  "determinism": "CUDA inference rerun exactly on the recorded hardware/software stack; deterministic tabular analysis rerun byte-identically",
+  "deterministic_outputs": {
+    "config/honda_chronos2_zero_shot_frozen.json": {
+      "bytes": 3937,
+      "sha256": "5e305a40c85386f1941a78bd793d381aed3be905f67f66b1c8f70b64bc94decb"
+    },
+    "config/honda_timesfm_zero_shot_frozen.json": {
+      "bytes": 4021,
+      "sha256": "7d985e9f9eb21c824640ffb0e6bce000571cfbe1642004153a4a99b4dc088d54"
+    },
+    "reports/honda_foundation_model_benchmark.md": {
+      "bytes": 52371,
+      "sha256": "856fd0823d98bea2b1143d4b47148e9bae7f2ca045c523dbcdf99ff578720ddf"
+    },
+    "results/foundation/bootstrap_vs_b5.csv": {
+      "bytes": 302,
+      "sha256": "f7dcf26011a2cfd26b21aeec861190317fd567912097a9942b7561f1afb3cafb"
+    },
+    "results/foundation/bootstrap_vs_lgbm.csv": {
+      "bytes": 316,
+      "sha256": "f9061414d4cc4bc999834cf10807445284331dffca032c5c20f3d5bb36c23415"
+    },
+    "results/foundation/chronos2_context_selection.csv": {
+      "bytes": 957,
+      "sha256": "56fd232be17b205a1032b4c2e4b1f022d75ecdad5a3e0dfa707a1da61e1232cd"
+    },
+    "results/foundation/chronos2_covariate_ablation.csv": {
+      "bytes": 696,
+      "sha256": "7c5a2c4dddf8ca1d20d2fbce655c5bcc82c522640fa1c3fbcb38df205edafd41"
+    },
+    "results/foundation/chronos_environment_lock.txt": {
+      "bytes": 2945,
+      "sha256": "d6d9a6f58d98fc2fb99c4bd2512e2cc760412a44fa64a72d257a5b9d9a22b0e6"
+    },
+    "results/foundation/development_predictions_chronos2.parquet": {
+      "bytes": 1073672,
+      "sha256": "5c94eead4e83d8bea8a8f5c9b674a1b2918207e671244bde8fbcd085afb465cc"
+    },
+    "results/foundation/development_predictions_timesfm.parquet": {
+      "bytes": 1075960,
+      "sha256": "2000cc35ee97ba6b88d5adeca6b8e0311b1d1190d330eef1b2af10c08ef0e146"
+    },
+    "results/foundation/development_summary.csv": {
+      "bytes": 1205,
+      "sha256": "ef2ae2167e4beb428dfc39a2415d14e48c3c373171f5d9c6c51d3c2c58dde9d0"
+    },
+    "results/foundation/figures/accuracy_vs_runtime.png": {
+      "bytes": 21456,
+      "sha256": "f4ae5245e2fe26b49c9e971df175f105ebbe2e1b68b029de7b80a503feb9da06"
+    },
+    "results/foundation/figures/daily_mae_distribution.png": {
+      "bytes": 17313,
+      "sha256": "1c628cd407c7e2f8922a939e5aee9013c08a716e2229b869da380bf0f908453d"
+    },
+    "results/foundation/figures/development_mae.png": {
+      "bytes": 17273,
+      "sha256": "c8241b4c1e22eee8365e2d133cdc994de0dafba2f04383607427c12257819c40"
+    },
+    "results/foundation/figures/export_recall.png": {
+      "bytes": 14705,
+      "sha256": "862941dcb1b0388079cd34cef0686a6e6eb5e663545f6e4af6799e553bb5a973"
+    },
+    "results/foundation/figures/lead_band_mae.png": {
+      "bytes": 64567,
+      "sha256": "2255ddb68f4279cad07567fd0361b1684b9ccc679ae7e63e38981767a70cd8e6"
+    },
+    "results/foundation/figures/mae_vs_coverage.png": {
+      "bytes": 23202,
+      "sha256": "94c57362dbadf1a5575e6965ae2edc15b90345bf61481ff51aba3c79e4232c79"
+    },
+    "results/foundation/figures/monthly_mae.png": {
+      "bytes": 63851,
+      "sha256": "c4c1f15159cc1d8d446b366bad3d0b204abaac6fb68b9b94f471398381c18d16"
+    },
+    "results/foundation/figures/representative_days.png": {
+      "bytes": 218514,
+      "sha256": "13b4152b4d3ab8350e3f5a0792ff8051aa04036fac5973ac18d74cbbd294d1c7"
+    },
+    "results/foundation/figures/test_mae.png": {
+      "bytes": 14877,
+      "sha256": "c614c33e6635dd989e34cbb700b0d0f8b4704a8e08135d0b84d486b611199444"
+    },
+    "results/foundation/hardware_environment.json": {
+      "bytes": 454,
+      "sha256": "15261aa446dede22551ddf00380731d284480242ff08187b569cac77ef461d91"
+    },
+    "results/foundation/leakage_audit.csv": {
+      "bytes": 590,
+      "sha256": "9c9849d1928cb0c8eb13e171190568cbd4e91188ee2f8a10d1024b22ea6615d2"
+    },
+    "results/foundation/reproducibility_check.json": {
+      "bytes": 675,
+      "sha256": "82c6d93926d8dbeb07c4badff20db75cfb3ce062771868b8c99f7f8dc7a93b90"
+    },
+    "results/foundation/runtime_summary.csv": {
+      "bytes": 4463,
+      "sha256": "33b9c8da6b98fde1d959da6d589b220e38bde32227bc34bfe0aad9f0facdc4f7"
+    },
+    "results/foundation/test_calendar_summary.csv": {
+      "bytes": 2790,
+      "sha256": "887ccdcc768d03220a5b4f851dcf37818d390f0455b34bf8c049d8646da7440d"
+    },
+    "results/foundation/test_common_context_summary.csv": {
+      "bytes": 594,
+      "sha256": "035d02c04bde7246ebf47d0e6b90e6fa05272a0e9244426c27318b67dc1e5402"
+    },
+    "results/foundation/test_daily_by_day.csv": {
+      "bytes": 92443,
+      "sha256": "b78051a0ad9e74533ebf793d2e75ad5019a6a83994b20ce84cd4df847d83ecd4"
+    },
+    "results/foundation/test_daily_summary.csv": {
+      "bytes": 541,
+      "sha256": "073ae643eba174ead578a6e9b65e8f38247a840525a8df696fd55bcc796a3b1a"
+    },
+    "results/foundation/test_extreme_summary.csv": {
+      "bytes": 2022,
+      "sha256": "f1243744278c66ca59f0a05445a9e5f937b540a15b327b963e57d215b8650b12"
+    },
+    "results/foundation/test_grid_mode_summary.csv": {
+      "bytes": 502,
+      "sha256": "cbbbfab08bbc4ffcf41675f704408aa0c2cde4d1512b7ce4dd0a121b1d854697"
+    },
+    "results/foundation/test_lead_band_summary.csv": {
+      "bytes": 1662,
+      "sha256": "e1f4acfb832052ce4df8a1759de65019b4b74046295dd765440cd16a067aeb4c"
+    },
+    "results/foundation/test_monthly_summary.csv": {
+      "bytes": 5345,
+      "sha256": "c21fc11aa608f2da79b0bb7f63711ef002671bf71c95343239fa32516c01f0e8"
+    },
+    "results/foundation/test_predictions_2023.parquet": {
+      "bytes": 1948857,
+      "sha256": "4e94d131b3e2e4cba1b753a8aa3751d26e9e71ab8bd22f5b68ef4bda3143aacc"
+    },
+    "results/foundation/test_structural_summary.csv": {
+      "bytes": 1013,
+      "sha256": "29aae080673f561265f2cd4484f2c8ebf66903527158bca53bc3c647de1b8b01"
+    },
+    "results/foundation/test_summary.csv": {
+      "bytes": 598,
+      "sha256": "3665191a3349db2ff9db216d788dd2628cd21b95adabf1a60c2721b18ff0ddf4"
+    },
+    "results/foundation/timesfm_context_selection.csv": {
+      "bytes": 961,
+      "sha256": "69570ae07c6f9ea88945061fe48a14c203e7174f9cbca6a8e1ae809f9db53ff1"
+    },
+    "results/foundation/timesfm_covariate_ablation.csv": {
+      "bytes": 691,
+      "sha256": "e8a3d555d7df7794a18b6a4fd5f3e6f703c817989b9fb3dca510a2d2ec942a27"
+    },
+    "results/foundation/timesfm_environment_lock.txt": {
+      "bytes": 2783,
+      "sha256": "6038483e298852adc69b4a8d8a82406a1ac7f8b79107f9709db9c26751629fcb"
+    }
+  },
+  "fine_tuning_performed": false,
+  "frozen_config_hashes": {
+    "chronos": "5e305a40c85386f1941a78bd793d381aed3be905f67f66b1c8f70b64bc94decb",
+    "timesfm": "7d985e9f9eb21c824640ffb0e6bce000571cfbe1642004153a4a99b4dc088d54"
+  },
+  "gradient_training_performed": false,
+  "optimization_performed": false,
+  "package_lock_hashes": {
+    "chronos": "d6d9a6f58d98fc2fb99c4bd2512e2cc760412a44fa64a72d257a5b9d9a22b0e6",
+    "timesfm": "6038483e298852adc69b4a8d8a82406a1ac7f8b79107f9709db9c26751629fcb"
+  },
+  "probabilistic_calibration_performed": false,
+  "random_seed": 20261029,
+  "timegpt_called": false,
+  "timesfm": {
+    "H3_protocol_sha256": "281f49331bc3b3c31aec0d33b50f6a83a149261db93ce04a29d67479cb62676e",
+    "H4_baseline_selection_sha256": "1bbbbac404675bb1bfb5c85067e1504fda843fc2bc52151a60025f4e3c8b7a04",
+    "H5_LightGBM_config_sha256": "7fff8efbf51fc17ac2524ceeac30dbed6764d4ec55eaf1ea3993c47691dd21ea",
+    "H5_commit": "b3764bd791f1a843fc5aa8bf005d07e382d21059",
+    "checkpoint_bytes": 1322898824,
+    "checkpoint_sha256": "a7592b0a8432baee54483254e5647856911ce69e09d09a9bb65904b2d98f17da",
+    "covariates": [
+      "future-known calendar",
+      "historical observed-original CHP"
+    ],
+    "development_metrics": [
+      {
+        "bias_kw": -4.630835465598764,
+        "context_days": 28,
+        "coverage": 1.0,
+        "eligible_targets": 34281,
+        "fold": "FOLD_A",
+        "mae_kw": 112.56893715927258,
+        "mean_context_observed_fraction": 0.978491269980178,
+        "mode": "U",
+        "model": "TIMESFM3",
+        "predicted_targets": 34281,
+        "rmse_kw": 154.7672883096362,
+        "valid_context_origins": 365
+      },
+      {
+        "bias_kw": -3.4456963248458594,
+        "context_days": 28,
+        "coverage": 1.0,
+        "eligible_targets": 34624,
+        "fold": "FOLD_B",
+        "mae_kw": 112.59272622099387,
+        "mean_context_observed_fraction": 0.9884654353091167,
+        "mode": "U",
+        "model": "TIMESFM3",
+        "predicted_targets": 34624,
+        "rmse_kw": 150.48565138065092,
+        "valid_context_origins": 362
+      },
+      {
+        "bias_kw": -4.035316162073206,
+        "context_days": 28,
+        "coverage": 1.0,
+        "eligible_targets": 68905,
+        "fold": "CONCATENATED",
+        "mae_kw": 112.58089089953872,
+        "mean_context_observed_fraction": 0.9835031776842514,
+        "mode": "U",
+        "model": "TIMESFM3",
+        "predicted_targets": 68905,
+        "rmse_kw": 152.63082718918278,
+        "valid_context_origins": 727
+      },
+      {
+        "bias_kw": 2.5875523506793527,
+        "context_days": 28,
+        "coverage": 1.0,
+        "eligible_targets": 34281,
+        "fold": "FOLD_A",
+        "mae_kw": 92.21949752234553,
+        "mean_context_observed_fraction": 0.978491269980178,
+        "mode": "C1",
+        "model": "TIMESFM3",
+        "predicted_targets": 34281,
+        "rmse_kw": 128.7536531760458,
+        "valid_context_origins": 365
+      },
+      {
+        "bias_kw": 2.3749309155743346,
+        "context_days": 28,
+        "coverage": 1.0,
+        "eligible_targets": 34624,
+        "fold": "FOLD_B",
+        "mae_kw": 95.37168173930924,
+        "mean_context_observed_fraction": 0.9884654353091167,
+        "mode": "C1",
+        "model": "TIMESFM3",
+        "predicted_targets": 34624,
+        "rmse_kw": 130.50290217869923,
+        "valid_context_origins": 362
+      },
+      {
+        "bias_kw": 2.4807124323994576,
+        "context_days": 28,
+        "coverage": 1.0,
+        "eligible_targets": 68905,
+        "fold": "CONCATENATED",
+        "mae_kw": 93.80343520942412,
+        "mean_context_observed_fraction": 0.9835031776842514,
+        "mode": "C1",
+        "model": "TIMESFM3",
+        "predicted_targets": 68905,
+        "rmse_kw": 129.63558185867504,
+        "valid_context_origins": 727
+      }
+    ],
+    "development_selection_metric": "equal-target-weighted concatenated 2021+2022 MAE",
+    "device": "cuda",
+    "dtype": "float32",
+    "fine_tuning_performed": false,
+    "gradient_training_performed": false,
+    "license": "timesfm-non-commercial-license-v1.0",
+    "missing_context_policy": "official historical-only linear interpolation within pre-issuance context",
+    "model_id": "google/timesfm-3.0-pytorch",
+    "package": "timesfm",
+    "package_version": "3.0.2",
+    "point_forecast_definition": "official median forecast",
+    "random_seed": 20261029,
+    "revision": "43046b85ec22d584a13f8098c2ed39c889e129c2",
+    "selected_context_days": 28,
+    "selected_development_mae_kw": 93.80343520942412,
+    "selected_mode": "C1",
+    "selection_status": "FROZEN_BEFORE_TEST",
+    "test_used_for_selection": false,
+    "tie_rule": "prefer univariate when covariate MAE improvement is below 0.5%"
+  }
+}
