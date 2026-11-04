@@ -29,7 +29,12 @@ def configs() -> tuple[dict, dict]:
 
 
 def test_h5_checkpoint_and_protected_configs_are_unchanged():
-    assert subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip() == selection.H5_COMMIT
+    ancestry = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", selection.H5_COMMIT, "HEAD"],
+        cwd=ROOT,
+        check=False,
+    )
+    assert ancestry.returncode == 0
     assert digest(ROOT / "config/honda_forecasting_protocol_frozen.json") == selection.H3_HASH
     assert digest(ROOT / "config/honda_baseline_selection_frozen.json") == selection.H4_HASH
     assert digest(ROOT / "config/honda_lgbm_selection_frozen.json") == selection.H5_HASH

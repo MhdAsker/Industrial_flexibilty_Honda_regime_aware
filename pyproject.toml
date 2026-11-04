@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "honda-industrial-energy-audit"
 version = "0.1.0"
-description = "Forensic audit of the reduced Honda R&D Europe energy dataset"
+description = "Leakage-safe day-ahead forecasting benchmark for Honda signed grid exchange"
 requires-python = ">=3.10"
 dependencies = [
   "lxml",
