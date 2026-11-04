@@ -1,0 +1,31 @@
+{
+  "authoritative_sources": [
+    {
+      "claim": "EPEX day-ahead orders close at 12:00 CET and all hours of the following day were auctioned in the studied 2023/2024 years",
+      "url": "https://www.epexspot.com/en/basicspowermarket"
+    },
+    {
+      "claim": "Regular SDAC preliminary/final publication follows gate closure, with final results ordinarily around 12:55 and contingency delays possible",
+      "url": "https://www.epexspot.com/sites/default/files/download_center_files/sdac-fallback-manual.pdf"
+    },
+    {
+      "claim": "15-minute SDAC MTU became operational for delivery day 1 October 2025, after the 2023/2024 study periods",
+      "url": "https://www.nemo-committee.eu/assets/files/market-coupling-steering-committee-confirms-go-live-of-15-minute-mtu-in-sdac-on-trading-day-30-september-2025-for-delivery-day-1-october-2025.pdf"
+    }
+  ],
+  "Honda": {
+    "forecast_issue_local": "13:00 Europe/Berlin D-1",
+    "price_data_status": "NO_AUTHORITATIVE_LOCAL_2023_SERIES_FOUND",
+    "scheduling_decision": "undefined until price source/publication metadata is supplied",
+    "classification": "UNSUPPORTED_TIMING",
+    "measurement_cutoff": "interval_end_utc <= forecast_issue_time_utc"
+  },
+  "SPARK": {
+    "forecast_issue_local": "12:00 Europe/Berlin D-1",
+    "price_product_2024": "hourly DE-LU day-ahead price repeated across four 15-minute delivery intervals",
+    "publication_metadata_in_local_file": "absent",
+    "scheduling_decision": "after forecast issuance using ex-post complete day-ahead prices; no post-12:00 load observations",
+    "classification": "EX_POST_PRICE_AWARE",
+    "measurement_cutoff": "interval_end_utc <= forecast_issue_time_utc"
+  }
+}

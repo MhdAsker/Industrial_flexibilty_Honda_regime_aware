@@ -1,0 +1,24 @@
+{
+  "MKT0": {
+    "description": "Wholesale price exposure only",
+    "import_price": "known day-ahead wholesale EUR/kWh after unit conversion",
+    "export_price": "same only in explicitly labelled hypothetical symmetric pass-through",
+    "customer_tariff_claim": false
+  },
+  "MKT1": {
+    "description": "MKT0 plus fixed import/export connection constraints",
+    "grid_limit_mode_primary": "scenario_wise"
+  },
+  "MKT2": {
+    "description": "Hypothetical daily peak shadow-price sensitivity",
+    "peak_penalty_eur_per_kw_per_day": [0.0, 0.05, 0.2],
+    "actual_billing_tariff_claim": false
+  },
+  "MKT3": {
+    "description": "Separate hypothetical import and export remuneration",
+    "no_arbitrage_requirement": "import_price_eur_per_kwh >= export_price_eur_per_kwh for every interval",
+    "export_price_multipliers": [0.0, 0.5, 1.0]
+  },
+  "negative_price_policy": "preserve; reject tariff pairs that create simultaneous-buy/sell arbitrage",
+  "price_conversion": "EUR/MWh divided by 1000 equals EUR/kWh"
+}

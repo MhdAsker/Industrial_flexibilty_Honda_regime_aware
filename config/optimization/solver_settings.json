@@ -1,0 +1,9 @@
+{
+  "solver": "SciPy linprog HiGHS",
+  "method": "highs",
+  "feasibility_tolerance": 1e-07,
+  "objective_tolerance_eur": 1e-08,
+  "random_seed": 20261029,
+  "infeasibility_policy": "record solver failure; never substitute zero dispatch",
+  "floating_point_reproducibility": "numerical equality within declared tolerance; bitwise identity not claimed"
+}

@@ -1,0 +1,4 @@
+scenarios,intervals,variables_approx,solver_status,wall_seconds,solver
+1,96,386,optimal,0.006385700312,SciPy HiGHS
+10,96,2123,optimal,0.01907130005,SciPy HiGHS
+50,96,9843,optimal,0.1624236996,SciPy HiGHS

@@ -1,0 +1,17 @@
+{
+  "status": "PROSPECTIVELY_FROZEN_BEFORE_FULL_HISTORICAL_ECONOMIC_COMPARISON",
+  "holdout_disclosure": "Honda 2023 and SPARK 2024 were previously exposed; Stage 3 is exploratory/predeclared extension, not a pristine confirmatory test",
+  "forecast_policies": ["DETERMINISTIC_LIGHTGBM", "H7_S1_INDEPENDENT_RESIDUAL", "H7_S2_COHERENT", "H7_S3_CONDITIONAL_DIAGNOSTIC", "SPARK_LEGACY_MARGINAL_QUANTILES_DIAGNOSTIC"],
+  "flexibility_policies": ["SPARK_F0_LEGACY_ONLY", "F1_MEDIUM_PRIMARY", "F1_LOW_HIGH_SENSITIVITY", "F1_PLUS_F3", "F2_SYNTHETIC_SECONDARY_ONLY"],
+  "decision_objectives": ["EXPECTED_WHOLESALE_COST", "EXPECTED_COST_PLUS_PEAK_SHADOW_PRICE", "RISK_NEUTRAL_STOCHASTIC", "EXPECTED_COST_PLUS_CVAR"],
+  "risk_grid": {"alpha": [0.9, 0.95], "lambda": [0.0, 0.25, 1.0]},
+  "controlled_experiments": {
+    "E1": "Fix F1 MEDIUM and tariff; compare deterministic, S1 and frozen S2 policies",
+    "E2": "Fix frozen S2 and MKT0; compare F1 LOW/MEDIUM/HIGH",
+    "E3": "Fix forecast and F1 MEDIUM; compare MKT0/MKT1/MKT2/MKT3 assumptions",
+    "E4": "Fix forecast, physical model and tariff; compare risk-neutral with predeclared CVaR grid",
+    "E5": "Cross-site synthesis only where target and tariff semantics remain explicit"
+  },
+  "outcomes": ["realized_wholesale_energy_cost", "savings_versus_no_flex", "regret_versus_ORACLE_UPPER_BOUND", "energy_shifted", "state_utilization", "import_export_peak", "physical_cap_violation", "scenario_tail_cost", "cvar", "solver_feasibility"],
+  "prohibitions": ["no parameter selection from Honda 2023 economics", "no parameter selection from SPARK 2024 economics", "no scenario recalibration from optimization outcomes", "no customer bill savings claim"]
+}

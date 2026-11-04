@@ -1,0 +1,23 @@
+{
+  "bitwise_identical_core_outputs": [
+    "physical_parameter_catalog.csv",
+    "market_data_provenance.csv",
+    "market_timing_audit.csv",
+    "decision_eligibility_inventory.csv",
+    "feasibility_audit.csv",
+    "nonanticipativity_audit.csv",
+    "synthetic_solver_validation.csv",
+    "figures/f1_state.png",
+    "figures/f2_thermal_state.png",
+    "figures/import_cap.png",
+    "figures/signed_grid_exchange.png",
+    "figures/stochastic_shared_schedule.png"
+  ],
+  "floating_point_validation_tolerance": 1e-07,
+  "non_deterministic_metadata": [
+    "wall-clock runtime benchmark"
+  ],
+  "random_seed": 20261029,
+  "result": "PASS",
+  "solver_result_policy": "Numerical reproducibility is required within tolerance; bitwise floating-point solver identity is not claimed beyond the explicitly hash-matched artifacts."
+}

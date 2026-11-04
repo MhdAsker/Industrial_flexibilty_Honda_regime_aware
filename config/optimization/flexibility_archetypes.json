@@ -1,0 +1,53 @@
+{
+  "F0": {
+    "Honda": "DISABLED_NO_VALIDATED_NONNEGATIVE_DEMAND_BASELINE",
+    "SPARK": {
+      "flexible_fraction": 0.2,
+      "role": "LEGACY_COMPARATOR_ONLY",
+      "shift_window_hours": 2.0
+    }
+  },
+  "F1": {
+    "label": "SIMULATED_DEFERRABLE_PROCESS",
+    "primary_mode": "advance_and_deferral",
+    "state_equation": "x[t+1] = x[t] + u[t] * delta_t_hours",
+    "terminal_rule": "x[T] = x[0] = 0 kWh",
+    "exact_deadline_mode": "age-explicit source-to-destination energy-flow variables within recovery_horizon_intervals",
+    "parameter_grid": {
+      "Honda": {
+        "LOW": {"p_up_kw": 25.0, "p_down_kw": 25.0, "e_advance_kwh": 50.0, "e_backlog_kwh": 50.0, "recovery_horizon_hours": 4.0},
+        "MEDIUM": {"p_up_kw": 50.0, "p_down_kw": 50.0, "e_advance_kwh": 100.0, "e_backlog_kwh": 100.0, "recovery_horizon_hours": 4.0},
+        "HIGH": {"p_up_kw": 100.0, "p_down_kw": 100.0, "e_advance_kwh": 200.0, "e_backlog_kwh": 200.0, "recovery_horizon_hours": 4.0}
+      },
+      "SPARK": {
+        "LOW": {"p_up_kw": 2.0, "p_down_kw": 2.0, "e_advance_kwh": 4.0, "e_backlog_kwh": 4.0, "recovery_horizon_hours": 4.0},
+        "MEDIUM": {"p_up_kw": 5.0, "p_down_kw": 5.0, "e_advance_kwh": 10.0, "e_backlog_kwh": 10.0, "recovery_horizon_hours": 4.0},
+        "HIGH": {"p_up_kw": 10.0, "p_down_kw": 10.0, "e_advance_kwh": 20.0, "e_backlog_kwh": 20.0, "recovery_horizon_hours": 4.0}
+      }
+    },
+    "provenance": "Predeclared counterfactual engineering assumptions; not inferred asset capacities and not tuned on Honda 2023 or SPARK 2024 economic outcomes"
+  },
+  "F2": {
+    "label": "SIMULATED_THERMAL_BUFFER",
+    "historical_primary_status": "SECONDARY_SYNTHETIC_ONLY_UNTIL_THERMAL_DEMAND_AND_PARAMETERS_ARE_VALIDATED",
+    "parameter_grid": {
+      "LOW": {"p_electric_max_kw": 10.0, "thermal_capacity_kwh_th": 25.0, "cop": 2.5, "retention_per_15min": 0.995},
+      "MEDIUM": {"p_electric_max_kw": 25.0, "thermal_capacity_kwh_th": 75.0, "cop": 3.0, "retention_per_15min": 0.995},
+      "HIGH": {"p_electric_max_kw": 50.0, "thermal_capacity_kwh_th": 150.0, "cop": 3.5, "retention_per_15min": 0.995}
+    }
+  },
+  "F3": {
+    "grid_limit_modes": ["nominal", "scenario_wise", "chance_approximation", "soft"],
+    "peak_cost_semantics": "EUR/kW per simulated day shadow price; never represented as an actual customer demand charge",
+    "scenario_levels": {
+      "Honda": {"LOW": {"import_max_kw": 500.0, "export_max_kw": 250.0}, "MEDIUM": {"import_max_kw": 400.0, "export_max_kw": 200.0}, "HIGH": {"import_max_kw": 300.0, "export_max_kw": 150.0}},
+      "SPARK": {"LOW": {"import_max_kw": 40.0, "export_max_kw": 0.0}, "MEDIUM": {"import_max_kw": 30.0, "export_max_kw": 0.0}, "HIGH": {"import_max_kw": 20.0, "export_max_kw": 0.0}}
+    }
+  },
+  "BESS": {
+    "implementation_status": "FORMAL_INTERFACE_DEFERRED",
+    "required_future_fields": ["charge_power_kw", "discharge_power_kw", "energy_capacity_kwh", "soc_kwh", "charge_efficiency", "discharge_efficiency", "initial_soc", "terminal_soc", "throughput_cost_eur_per_kwh"],
+    "site_claim": "No Honda or SPARK battery installation is claimed"
+  },
+  "interval_hours_primary": 0.25
+}

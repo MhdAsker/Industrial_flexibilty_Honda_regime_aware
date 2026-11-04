@@ -1,0 +1,2 @@
+fixture,scenario_count,independent_oracle_schedules_differ,implemented_schedule_shared,implemented_schedule_kw,passed
+scenario_specific_oracles_would_differ,2,True,True,"[-0.0, -0.0]",True

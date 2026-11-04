@@ -1,0 +1,3 @@
+dataset,forecast_issue_local,price_publication,scheduling_decision,first_delivery,classification,evidence
+SPARK,12:00 Europe/Berlin D-1,source file has no publication timestamp; regular SDAC results occur after gate closure,ex-post complete-price vector with frozen 12:00 forecast; no later load data,00:00 local D,EX_POST_PRICE_AWARE,EPEX basics; SDAC fallback timeline
+HONDA,13:00 Europe/Berlin D-1,no accepted local price file/publication record,not defined for historical experiment,00:00 local D,UNSUPPORTED_TIMING,absence recorded; no fabricated timing

@@ -1,0 +1,3 @@
+dataset,year,complete_target_days,scenario_days,complete_price_days,timing_classification,stage3_decision_eligible_days,reason
+HONDA,2023,347,346,0,UNSUPPORTED_TIMING,0,authoritative Honda price input absent
+SPARK,2024,274,273,366,EX_POST_PRICE_AWARE,273,eligible only for explicitly ex-post price-aware exploratory Stage 3

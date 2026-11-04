@@ -1,0 +1,139 @@
+{
+  "H6_checkpoint": "24e86e95aa8e887ae19e17cac536a9b879207db9",
+  "artifacts": {
+    "config/optimization/flexibility_archetypes.json": {
+      "bytes": 3144,
+      "sha256": "ef1ad47b19d063ccdd2d73aaa08b54587a4d1fcf1d9f474ad5b144ab68a1c761"
+    },
+    "config/optimization/market_timing.json": {
+      "bytes": 1695,
+      "sha256": "ccb68856d0b454ec19db8709fbc473441fba983320ffd6dea64fba26f7db15a8"
+    },
+    "config/optimization/solver_settings.json": {
+      "bytes": 353,
+      "sha256": "262f9c5dc8136b1c1b7d006a0738b255bf14295fdceaf1793a7a8df6e095f3f7"
+    },
+    "config/optimization/stage3_experiment_design.json": {
+      "bytes": 1699,
+      "sha256": "148476605fe1d207cdbd399b7e7acb2b20ce60cb0010c9de2fdf6dab0d2648ca"
+    },
+    "config/optimization/tariff_scenarios.json": {
+      "bytes": 1018,
+      "sha256": "a623c94f789b1bbdb7f7a4dd3dcb49659532561aada56ba109da3dbcfbfe2609"
+    },
+    "reports/optimization/honda_stage2_flexibility_and_market_framework.md": {
+      "bytes": 27826,
+      "sha256": "6ec1de74fc98461436ee04618afe7fba9ae17158388ae2346e7789fb21d0a885"
+    },
+    "results/optimization/decision_eligibility_inventory.csv": {
+      "bytes": 324,
+      "sha256": "b70f7ec88ab322264e5a3cd7c77bd8d2a5b571d7a53c8c010c5675e788ef803f"
+    },
+    "results/optimization/feasibility_audit.csv": {
+      "bytes": 1534,
+      "sha256": "c6001fc87f6e3bcecd9df171df997cc59e4371cc505d0cf4cf33d9b9bd31eef1"
+    },
+    "results/optimization/figures/cvar_sensitivity.png": {
+      "bytes": 18671,
+      "sha256": "c62f0b25f2da294b9545236e64e4e83b7d7f7231cb22c765a1d7c0d31dae63ee"
+    },
+    "results/optimization/figures/f1_state.png": {
+      "bytes": 15338,
+      "sha256": "8cdf9bb36e1415061283b89c5f18fee7f01a770816dd194f3ae46f1d5dd4f39b"
+    },
+    "results/optimization/figures/f2_thermal_state.png": {
+      "bytes": 12153,
+      "sha256": "9e0e675ee23574feb9bffdabfaa9bd065d44aa40b67e3ad93ac839d8a17fb043"
+    },
+    "results/optimization/figures/import_cap.png": {
+      "bytes": 23300,
+      "sha256": "9b58a96224278f5582ad41cf8f2fe20ca8f357e17df10df5961f3cf5a284357d"
+    },
+    "results/optimization/figures/information_timeline.png": {
+      "bytes": 12437,
+      "sha256": "23db8b56b5ac46412e8f2b2a0564da6fced647c9a4192a932cf6ca1b842833a8"
+    },
+    "results/optimization/figures/price_driven_shift.png": {
+      "bytes": 21374,
+      "sha256": "e7255a5649feea2ea96014cea2f71a3d2f33d0a9baebc08d9c1711f7e0515837"
+    },
+    "results/optimization/figures/signed_grid_exchange.png": {
+      "bytes": 13694,
+      "sha256": "1ef3bb3eafdfe4c15d6d75a008dda219cc12dda7951dd7995579e2fa2c678b37"
+    },
+    "results/optimization/figures/stochastic_shared_schedule.png": {
+      "bytes": 14581,
+      "sha256": "da20cca4098462ec2dc196f8a0b6469f5dea173870f1dc28647893c9694baf44"
+    },
+    "results/optimization/market_data_provenance.csv": {
+      "bytes": 816,
+      "sha256": "6a2702774b072d7a65587fd49860569630997f2fe254d8e22e2076341c680a4b"
+    },
+    "results/optimization/market_timing_audit.csv": {
+      "bytes": 559,
+      "sha256": "bbca44d4575c82a74722cb8858090c6cb1ae473020c22974acb14e6f6440b3c4"
+    },
+    "results/optimization/nonanticipativity_audit.csv": {
+      "bytes": 189,
+      "sha256": "86ded9bf8daec8cbbb8d05f93b8506a0f8f3a7ba5c8d5d1991b14a68cd5ab428"
+    },
+    "results/optimization/physical_parameter_catalog.csv": {
+      "bytes": 2134,
+      "sha256": "bbc7a3c24df11976d9a73106fd19d7c2f192438863d2d2c6af884277a68fd55e"
+    },
+    "results/optimization/reproducibility_check.json": {
+      "bytes": 827,
+      "sha256": "478e4e585b3cdf4705cf040e5013b8e11501b0f7225746e1300772960f561e97"
+    },
+    "results/optimization/solver_runtime_benchmark.csv": {
+      "bytes": 204,
+      "sha256": "c2e22305a61710980a43afcdb469bebe84ad161781cc8d87feea42324887a27b"
+    },
+    "results/optimization/synthetic_solver_validation.csv": {
+      "bytes": 1285,
+      "sha256": "4bc07a2790b6f611fd5c01c4482e01f53a48ba596a5765f7dbd540dd21743f80"
+    }
+  },
+  "full_historical_economic_comparison_performed": false,
+  "package_versions": {
+    "matplotlib": "3.10.8",
+    "numpy": "2.0.1",
+    "pandas": "2.3.3",
+    "pyarrow": "23.0.1",
+    "scipy": "1.17.1"
+  },
+  "protected_hashes": {
+    "honda_h3_protocol": "281f49331bc3b3c31aec0d33b50f6a83a149261db93ce04a29d67479cb62676e",
+    "honda_h4_baseline_config": "1bbbbac404675bb1bfb5c85067e1504fda843fc2bc52151a60025f4e3c8b7a04",
+    "honda_h4_test_predictions": "d864bb88fdac94d5b7b3d214d5316a499f0dde702798607d14e657eba1866832",
+    "honda_h5_lgbm_config": "7fff8efbf51fc17ac2524ceeac30dbed6764d4ec55eaf1ea3993c47691dd21ea",
+    "honda_h5_test_predictions": "301cfe03fd824cb741f192179b5f6bcc14100c3120729653eaf49339da3e9a67",
+    "honda_h6_chronos_config": "5e305a40c85386f1941a78bd793d381aed3be905f67f66b1c8f70b64bc94decb",
+    "honda_h6_test_predictions": "4e94d131b3e2e4cba1b753a8aa3751d26e9e71ab8bd22f5b68ef4bda3143aacc",
+    "honda_h6_timesfm_config": "7d985e9f9eb21c824640ffb0e6bce000571cfbe1642004153a4a99b4dc088d54",
+    "honda_h7_development_scenarios": "be2a9276d10356bfde56e5bc6ae33133a85e02daa72f32574c6bfa4580276f71",
+    "honda_h7_diagnostic_scenarios": "1b4b7e7adf62a5428268345da09080146d273a7784416c26cffe9b61972de2ab",
+    "honda_h7_manifest": "c072fad2e5150291653b10a9fbcbb180321569e9cffcefa4af75cf49de213567",
+    "honda_h7_scenario_config": "790d3574d468f10fbc565bef1ed0eb492d45ff9db00436f2700a74b7069171ba",
+    "spark_h7_development_scenarios": "cbc47cca9ed5fce2d2edfdfcd62301a3fb93765ad0b3cb64269df81aa48c9ef1",
+    "spark_h7_diagnostic_scenarios": "8914336a0cc1dcd905ed5e2ed1587d0b58703856294be3631cfd9a087ab8dee0",
+    "spark_price": "e11233525e55afcafb47646925ae88b8c2ddde3996eb9385a15e215a6fd9fa02"
+  },
+  "python_version": "3.12.3",
+  "random_seed": 20261029,
+  "scipy_version": "1.17.1",
+  "solver": "SciPy linprog HiGHS",
+  "stage1_readiness": "READY_WITH_LIMITATIONS",
+  "stage1_scenario_config_sha256": "790d3574d468f10fbc565bef1ed0eb492d45ff9db00436f2700a74b7069171ba",
+  "starting_checkpoint": "bb0536df77f709a20452ed3c86ab16e66a5e0555",
+  "unit_contract": {
+    "cost": "EUR",
+    "energy": "kWh",
+    "interval": "hours",
+    "normalized_price": "EUR/kWh",
+    "power": "kW",
+    "source_price": "EUR/MWh",
+    "thermal_energy": "kWh_th",
+    "thermal_power": "kW_th"
+  }
+}

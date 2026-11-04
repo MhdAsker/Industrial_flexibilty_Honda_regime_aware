@@ -1,0 +1,16 @@
+archetype,dataset,level,p_up_kw,p_down_kw,e_advance_kwh,e_backlog_kwh,recovery_horizon_hours,provenance,p_electric_max_kw,thermal_capacity_kwh_th,cop,retention_per_15min,import_max_kw,export_max_kw
+F1,Honda,LOW,25,25,50,50,4,Predeclared counterfactual engineering assumptions; not inferred asset capacities and not tuned on Honda 2023 or SPARK 2024 economic outcomes,,,,,,
+F1,Honda,MEDIUM,50,50,100,100,4,Predeclared counterfactual engineering assumptions; not inferred asset capacities and not tuned on Honda 2023 or SPARK 2024 economic outcomes,,,,,,
+F1,Honda,HIGH,100,100,200,200,4,Predeclared counterfactual engineering assumptions; not inferred asset capacities and not tuned on Honda 2023 or SPARK 2024 economic outcomes,,,,,,
+F1,SPARK,LOW,2,2,4,4,4,Predeclared counterfactual engineering assumptions; not inferred asset capacities and not tuned on Honda 2023 or SPARK 2024 economic outcomes,,,,,,
+F1,SPARK,MEDIUM,5,5,10,10,4,Predeclared counterfactual engineering assumptions; not inferred asset capacities and not tuned on Honda 2023 or SPARK 2024 economic outcomes,,,,,,
+F1,SPARK,HIGH,10,10,20,20,4,Predeclared counterfactual engineering assumptions; not inferred asset capacities and not tuned on Honda 2023 or SPARK 2024 economic outcomes,,,,,,
+F2,SYNTHETIC,LOW,,,,,,Counterfactual engineering validation assumptions,10,25,2.5,0.995,,
+F2,SYNTHETIC,MEDIUM,,,,,,Counterfactual engineering validation assumptions,25,75,3,0.995,,
+F2,SYNTHETIC,HIGH,,,,,,Counterfactual engineering validation assumptions,50,150,3.5,0.995,,
+F3,Honda,LOW,,,,,,Predeclared connection-cap sensitivity; not a documented site contract,,,,,500,250
+F3,Honda,MEDIUM,,,,,,Predeclared connection-cap sensitivity; not a documented site contract,,,,,400,200
+F3,Honda,HIGH,,,,,,Predeclared connection-cap sensitivity; not a documented site contract,,,,,300,150
+F3,SPARK,LOW,,,,,,Predeclared connection-cap sensitivity; not a documented site contract,,,,,40,0
+F3,SPARK,MEDIUM,,,,,,Predeclared connection-cap sensitivity; not a documented site contract,,,,,30,0
+F3,SPARK,HIGH,,,,,,Predeclared connection-cap sensitivity; not a documented site contract,,,,,20,0
