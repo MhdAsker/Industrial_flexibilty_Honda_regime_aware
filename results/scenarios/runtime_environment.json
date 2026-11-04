@@ -1,0 +1,7 @@
+{
+  "cpu": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+  "gpu_used": false,
+  "peak_rss_bytes": 1407029248,
+  "python": "3.12.7",
+  "runtime_seconds": 658.385154100135
+}

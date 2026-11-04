@@ -1,0 +1,12 @@
+{
+  "runtime_seconds": 957.228655599989,
+  "selected_method_candidate": "S2",
+  "selected_scenario_count_candidate": 50,
+  "source_hashes": {
+    "honda_development_predictions": "4db493c883da4b33cc25a058e9a1a6d81c24dca32861251ab09eac6ccd2378e7",
+    "honda_test_predictions": "301cfe03fd824cb741f192179b5f6bcc14100c3120729653eaf49339da3e9a67",
+    "spark_deterministic_predictions": "f6a7099f18656124b9c1bcd1f308831835e1b23d2febd8d397cebcb0dfb9c309",
+    "spark_probabilistic_predictions": "870e3eb694320b3c7f197704220203850359d601b02868ee103bf1372e41ef99"
+  },
+  "status": "DEVELOPMENT_COMPLETE_TEST_NOT_SCORED"
+}

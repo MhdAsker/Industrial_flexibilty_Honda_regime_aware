@@ -1,0 +1,66 @@
+{
+  "checked_at_stage": "H7 final verification",
+  "development_artifacts": {
+    "honda_development_scenarios.parquet": {
+      "byte_identical": true,
+      "sha256": "be2a9276d10356bfde56e5bc6ae33133a85e02daa72f32574c6bfa4580276f71"
+    },
+    "scenario_calibration_summary.csv": {
+      "byte_identical": true
+    },
+    "scenario_development_daily_scores.csv": {
+      "byte_identical": true
+    },
+    "scenario_development_scores.csv": {
+      "byte_identical": true
+    },
+    "scenario_selection_ranking.csv": {
+      "byte_identical": true
+    },
+    "spark_development_scenarios.parquet": {
+      "byte_identical": true,
+      "sha256": "cbc47cca9ed5fce2d2edfdfcd62301a3fb93765ad0b3cb64269df81aa48c9ef1"
+    },
+    "temporal_dependence_summary.csv": {
+      "byte_identical": true
+    }
+  },
+  "diagnostic_artifacts": {
+    "honda_2023_diagnostic_scenarios.parquet": {
+      "byte_identical": true,
+      "sha256": "1b4b7e7adf62a5428268345da09080146d273a7784416c26cffe9b61972de2ab"
+    },
+    "honda_export_probability_diagnostics.csv": {
+      "byte_identical": true
+    },
+    "scenario_bootstrap_comparisons.csv": {
+      "byte_identical": true
+    },
+    "scenario_diagnostic_daily_scores.csv": {
+      "byte_identical": true
+    },
+    "scenario_diagnostic_scores.csv": {
+      "byte_identical": true
+    },
+    "spark_2024_diagnostic_scenarios.parquet": {
+      "byte_identical": true,
+      "sha256": "8914336a0cc1dcd905ed5e2ed1587d0b58703856294be3631cfd9a087ab8dee0"
+    },
+    "spark_extreme_demand_diagnostics.csv": {
+      "byte_identical": true
+    },
+    "spark_legacy_marginal_quantile_comparison.csv": {
+      "byte_identical": true
+    }
+  },
+  "frozen_configuration": {
+    "byte_identical": true,
+    "sha256": "790d3574d468f10fbc565bef1ed0eb492d45ff9db00436f2700a74b7069171ba"
+  },
+  "non_deterministic_metadata": [
+    "runtime_seconds",
+    "recorded process RSS"
+  ],
+  "result": "PASS",
+  "seed": 20261029
+}

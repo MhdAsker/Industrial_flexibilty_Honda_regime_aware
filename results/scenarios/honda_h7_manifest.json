@@ -1,0 +1,103 @@
+{
+  "H6_commit": "24e86e95aa8e887ae19e17cac536a9b879207db9",
+  "artifacts": {
+    "config/scenarios/scenario_method_frozen.json": {
+      "bytes": 23962,
+      "sha256": "790d3574d468f10fbc565bef1ed0eb492d45ff9db00436f2700a74b7069171ba"
+    },
+    "reports/scenarios/honda_h7_coherent_scenario_study.md": {
+      "bytes": 38495,
+      "sha256": "c298193d2689f7b0171ca7d7df586fc6cb325e3a9eb6a23960673b2d4d4c4a18"
+    },
+    "results/scenarios/honda_2023_diagnostic_scenarios.parquet": {
+      "bytes": 20859722,
+      "sha256": "1b4b7e7adf62a5428268345da09080146d273a7784416c26cffe9b61972de2ab"
+    },
+    "results/scenarios/honda_development_scenarios.parquet": {
+      "bytes": 18403351,
+      "sha256": "be2a9276d10356bfde56e5bc6ae33133a85e02daa72f32574c6bfa4580276f71"
+    },
+    "results/scenarios/honda_export_probability_diagnostics.csv": {
+      "bytes": 154076,
+      "sha256": "472e071d2a43aedd30b2348b9c9cd4ca6d63b48a9729995e7df38f5ea5ae1734"
+    },
+    "results/scenarios/reproducibility_check.json": {
+      "bytes": 1942,
+      "sha256": "348cff8eb1c1da64609769aef6f87afac20c6a3cee2a8102930efc46813bc94a"
+    },
+    "results/scenarios/residual_library_inventory.csv": {
+      "bytes": 55554,
+      "sha256": "0d4984c1929cc70d60147b4de873f388a4f4b025bf312445b558ba2ac7ec6e7c"
+    },
+    "results/scenarios/scenario_bootstrap_comparisons.csv": {
+      "bytes": 514,
+      "sha256": "4fd1c1c39ae244dd40c511d139e8a8f091b14612437cdcdc5e0f7b2a92641a09"
+    },
+    "results/scenarios/scenario_calibration_summary.csv": {
+      "bytes": 3168,
+      "sha256": "2389abf0b900b9dfc39af7766be3b9df2f871f830f18f494f20582d6aa9fdbbc"
+    },
+    "results/scenarios/scenario_development_scores.csv": {
+      "bytes": 5315,
+      "sha256": "883b3008ae92f947a016af67f4cc5b4532e6ea8f29740b1346b7fed9e75cbfcd"
+    },
+    "results/scenarios/scenario_diagnostic_scores.csv": {
+      "bytes": 2296,
+      "sha256": "aa0546058832abbaf95d53abfcccdaf61c00ea86c2b98855e2406a71f1079e6f"
+    },
+    "results/scenarios/source_artifact_inventory.csv": {
+      "bytes": 2998,
+      "sha256": "b674cdc63fe327b9b665f0c260bd66cd6c90c2111ddb0d0960779b62ed14c7c0"
+    },
+    "results/scenarios/spark_2024_diagnostic_scenarios.parquet": {
+      "bytes": 13649221,
+      "sha256": "8914336a0cc1dcd905ed5e2ed1587d0b58703856294be3631cfd9a087ab8dee0"
+    },
+    "results/scenarios/spark_development_scenarios.parquet": {
+      "bytes": 9660313,
+      "sha256": "cbc47cca9ed5fce2d2edfdfcd62301a3fb93765ad0b3cb64269df81aa48c9ef1"
+    },
+    "results/scenarios/spark_extreme_demand_diagnostics.csv": {
+      "bytes": 22364,
+      "sha256": "98369ca5a48eaf1b163dfc37fcd8ebc90009e9aaaecafa8d9c418888ea0a92bd"
+    },
+    "results/scenarios/temporal_dependence_summary.csv": {
+      "bytes": 2230,
+      "sha256": "16379abc7cf5d4b55ceeb58e6bc1fabcdde1634f99cc5ff9a36679e42242259e"
+    }
+  },
+  "bootstrap_resamples": 2000,
+  "current_base_commit": "1be35aa6845902d11992f8691795706317a76744",
+  "experimental_date_ranges": {
+    "Honda_development_donors": "2021",
+    "Honda_development_evaluation": "2022",
+    "Honda_diagnostic": "2023",
+    "SPARK_diagnostic": "2024",
+    "SPARK_rolling_development": "2023"
+  },
+  "flexibility_optimization_performed": false,
+  "honda_lgbm_config_sha256": "7fff8efbf51fc17ac2524ceeac30dbed6764d4ec55eaf1ea3993c47691dd21ea",
+  "honda_prediction_hashes": {
+    "honda_development_predictions": "4db493c883da4b33cc25a058e9a1a6d81c24dca32861251ab09eac6ccd2378e7",
+    "honda_test_predictions": "301cfe03fd824cb741f192179b5f6bcc14100c3120729653eaf49339da3e9a67",
+    "spark_deterministic_predictions": "f6a7099f18656124b9c1bcd1f308831835e1b23d2febd8d397cebcb0dfb9c309",
+    "spark_probabilistic_predictions": "870e3eb694320b3c7f197704220203850359d601b02868ee103bf1372e41ef99"
+  },
+  "honda_protocol_sha256": "281f49331bc3b3c31aec0d33b50f6a83a149261db93ce04a29d67479cb62676e",
+  "package_versions": {
+    "matplotlib": "3.9.2",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "pyarrow": "23.0.1",
+    "scikit-learn": "1.5.1",
+    "scipy": "1.13.1"
+  },
+  "previously_exposed_holdouts": [
+    "Honda 2023",
+    "SPARK 2024"
+  ],
+  "python_version": "3.12.7",
+  "random_seed": 20261029,
+  "scenario_config_sha256": "790d3574d468f10fbc565bef1ed0eb492d45ff9db00436f2700a74b7069171ba",
+  "spark_repository_commit": "32cff65f7f5384d08095d8d0325c45e8ce002ec3"
+}

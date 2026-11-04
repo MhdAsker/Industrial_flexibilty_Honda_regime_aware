@@ -1,0 +1,3 @@
+dataset_id,comparison,scenario_count,common_days,mean_difference_kw,ci95_lower_kw,ci95_upper_kw,S3_win_fraction
+HONDA,S3_minus_S2_energy_score,50,354,-0.08211720874,-1.108234453,1.00344418,0.5310734463
+SPARK,S3_minus_S2_energy_score,50,218,-0.02821688831,-0.07195210884,0.01214776308,0.5137614679
