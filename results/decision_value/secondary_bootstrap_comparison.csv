@@ -1,0 +1,2 @@
+comparison,policy_A,policy_B,interpretation,common_days,mean_cost_A_minus_B_eur,median_cost_A_minus_B_eur,ci95_lower_eur,ci95_upper_eur,block_ci95_lower_eur,block_ci95_upper_eur,policy_B_daily_win_fraction,lag1_daily_difference,mean_without_top1pct_abs_outliers_eur,two_sided_bootstrap_p,bootstrap_resamples,block_length,seed
+P4_minus_P6,P4_S2_COHERENT,P6_S2_CVAR,positive difference means policy B has lower realized cost,273,1.180374479e-16,0,-2.047049953e-16,4.530106449e-16,-1.835604318e-16,4.274485731e-16,0.1318681319,-0.1449420051,1.180374479e-16,0.502,2000,7,20261029

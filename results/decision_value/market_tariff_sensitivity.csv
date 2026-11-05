@@ -1,0 +1,4 @@
+case,export_multiplier,available_days,valid_days,infeasible_or_failed_days,mean_cost_eur_day,mean_savings_eur_day,median_savings_eur_day,negative_savings_fraction,mean_peak_import_kw,mean_shifted_energy_kwh,mean_backlog_utilization,import_violation_days,export_violation_days,median_runtime_seconds
+SYMMETRIC,1,273,273,0,26.70005753,1.74753612,1.6931,0,29.44351541,42.60914145,0.947018763,0,11,0.2475473997
+HALF_EXPORT,0.5,273,273,0,26.7005904,1.747003253,1.6931,0,29.44351541,42.60914145,0.947018763,0,11,0.2389028999
+ZERO_EXPORT,0,273,273,0,26.70112327,1.746470387,1.6931,0,29.44351541,42.60914145,0.947018763,0,11,0.2378384001

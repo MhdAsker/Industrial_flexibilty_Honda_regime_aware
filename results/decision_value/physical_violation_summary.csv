@@ -1,0 +1,7 @@
+policy,import_violation_days,export_violation_days,max_import_violation_kw,max_export_violation_kw,mean_terminal_residual_kwh
+P0_NO_FLEX,0,0,0,0,0
+P2_LGBM_DETERMINISTIC,0,82,0,1.125912409,0
+P3_S1_INDEPENDENT,0,16,0,0.5016666667,0
+P4_S2_COHERENT,0,11,0,0.4599275362,0
+P6_S2_CVAR,0,11,0,0.4599275362,0
+P7_ORACLE_UPPER_BOUND,0,0,0,0,0

@@ -1,0 +1,4 @@
+level,p_up_down_kw,energy_capacity_each_direction_kwh,available_days,valid_days,infeasible_or_failed_days,mean_cost_eur_day,mean_savings_eur_day,median_savings_eur_day,negative_savings_fraction,mean_peak_import_kw,mean_shifted_energy_kwh,mean_backlog_utilization,import_violation_days,export_violation_days,median_runtime_seconds
+LOW,2,4,273,273,0,27.70682742,0.7407662345,0.70318,0,27.02855435,18.63392487,0.9644405385,0,0,0.2364984001
+MEDIUM,5,10,273,273,0,26.70005753,1.74753612,1.6931,0,29.44351541,42.60914145,0.947018763,0,11,0.2475473997
+HIGH,10,20,273,273,0,25.3899471,3.05764655,2.945953347,0,34.04113963,71.78514648,0.9307433078,0,54,0.2382894

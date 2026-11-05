@@ -1,0 +1,22 @@
+{
+  "absolute_tolerance": 1e-09,
+  "all_primary_metrics_within_tolerance": true,
+  "canonical_daily_economic_sha256_excluding_runtime": "e04e9a1655b399dfa0f7be574d9f8a36d4efe1ae950898c333fd80adcd8244f6",
+  "first_pass_reference": {
+    "P2_mean_savings_eur_day": 1.999617184,
+    "P2_minus_P4_mean_eur_day": -0.2520810643,
+    "P3_mean_savings_eur_day": 1.800670999,
+    "P3_minus_P4_mean_eur_day": -0.05313487922,
+    "P4_mean_savings_eur_day": 1.74753612
+  },
+  "method": "independent second full pipeline execution with identical frozen inputs",
+  "runtime_fields_excluded": true,
+  "second_pass_observed": {
+    "P2_mean_savings_eur_day": 1.999617184,
+    "P2_minus_P4_mean_eur_day": -0.2520810643,
+    "P3_mean_savings_eur_day": 1.800670999,
+    "P3_minus_P4_mean_eur_day": -0.05313487922,
+    "P4_mean_savings_eur_day": 1.74753612
+  },
+  "solver_output_policy": "economic quantities deterministic within tolerance; wall-clock runtime is not byte deterministic"
+}

@@ -1,0 +1,3 @@
+dataset,status,policy,days,mean_savings_eur_day,mean_savings_eur_per_mwh_site
+SPARK,EVALUATED_EX_POST_PRICE_AWARE,P4_S2_COHERENT,273,1.74753612,4.771877844
+HONDA,NOT_EVALUABLE_NO_AUTHORITATIVE_PRICE,P4_S2_COHERENT,0,,

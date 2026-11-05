@@ -1,0 +1,510 @@
+{
+  "H6_ancestor": "24e86e95aa8e887ae19e17cac536a9b879207db9",
+  "Honda_economic_status": "NOT_EVALUABLE_NO_AUTHORITATIVE_PRICE",
+  "amendment_001_sha256": "5e59ce24e6b9f22b17008e72dced4619edd65adf47b871daa6eb8579c629f028",
+  "artifacts": {
+    "config/decision_value/stage3_experiment_amendment_001.json": {
+      "bytes": 1414,
+      "sha256": "5e59ce24e6b9f22b17008e72dced4619edd65adf47b871daa6eb8579c629f028"
+    },
+    "config/decision_value/stage3_experiment_frozen.json": {
+      "bytes": 3515,
+      "sha256": "e8903167aa9288b50f883142130e84732c37082a735073d01c4bab346dc20d02"
+    },
+    "reports/decision_value/executive_research_summary.md": {
+      "bytes": 1572,
+      "sha256": "13f5fbfa2b7f66147af12dd78a3f90417d9eb9eb815fa8af344999c442ce9e62"
+    },
+    "reports/decision_value/industrial_flexibility_decision_value_study.md": {
+      "bytes": 38030,
+      "sha256": "bdd06de944916cadea92a3a1aa583356dc1f35127d87c82cc9fe0da446a73009"
+    },
+    "reports/decision_value/thesis_contribution_assessment.md": {
+      "bytes": 1941,
+      "sha256": "d9a3a35b0afc72f359fd37bf51221c7fa62abbc7640e8115eb7b00a521e527c6"
+    },
+    "results/decision_value/adversarial_scientific_audit.csv": {
+      "bytes": 1149,
+      "sha256": "6655a9e4b829443e5a4ffe4a870fefa87f0afbfc9379828a2db64d8d82e78526"
+    },
+    "results/decision_value/compute_runtime_summary.csv": {
+      "bytes": 450,
+      "sha256": "25ab489ebaff993f28aa961ade209468ab33d23321e5f4e52d974e7ce1d44b2b"
+    },
+    "results/decision_value/cross_dataset_normalized_comparison.csv": {
+      "bytes": 218,
+      "sha256": "e16c25c1de47ec3f9f6b652f854455dc1d065d3d661e68938ccc908946ee529f"
+    },
+    "results/decision_value/development_dry_run.csv": {
+      "bytes": 587,
+      "sha256": "a15708074c97b9574e5244d5f4ecfd0695f3de5cc6c21556fe087a090e620c5a"
+    },
+    "results/decision_value/development_dry_run.json": {
+      "bytes": 259,
+      "sha256": "53cabc0752b079290f6f9273cbcf0820c89f8cd1ec227156a7c720a89f2d9042"
+    },
+    "results/decision_value/evaluation_day_eligibility.csv": {
+      "bytes": 293,
+      "sha256": "885aa7df89b12b067183d38248dbad949d5734cfc3d20f13572d8b901a87a297"
+    },
+    "results/decision_value/figures/coherent_independent_schedule.png": {
+      "bytes": 57362,
+      "sha256": "c117d5e8d8af38edfe2aa37678ace7ef0514bbdf13140cc49df755af6a71e395"
+    },
+    "results/decision_value/figures/cross_dataset_normalized.png": {
+      "bytes": 17816,
+      "sha256": "f5a5cda6e773d038bfa9b831c520c14f0603bb7aedf388b085b4324b7877a144"
+    },
+    "results/decision_value/figures/information_timeline.png": {
+      "bytes": 12678,
+      "sha256": "2ba627a5575ae7dddd7e4765fa07effa603464791e9eafdb1d02ceb62e91c104"
+    },
+    "results/decision_value/figures/paired_cost_difference.png": {
+      "bytes": 17005,
+      "sha256": "6af3dcd383c5ae8d8645e40425a3b755f1817aa2e42646208393ecf0dbf824f1"
+    },
+    "results/decision_value/figures/peak_constraint_sensitivity.png": {
+      "bytes": 27513,
+      "sha256": "bfe870627bd13ad2e608f7590fbb9968aef485aa5f4d45e08e118ec16d9dcb96"
+    },
+    "results/decision_value/figures/physical_capacity_sensitivity.png": {
+      "bytes": 26795,
+      "sha256": "0ec1c97ef96a8f15753117cb56afba4c9dd01190fc6056ef2f073d68140eb7a1"
+    },
+    "results/decision_value/figures/policy_regret.png": {
+      "bytes": 19100,
+      "sha256": "8db3862adac0a0df21edb78a88bace1fd54d5972d784da906fb84770552cb18c"
+    },
+    "results/decision_value/figures/policy_savings.png": {
+      "bytes": 19754,
+      "sha256": "a3939123e5411b9c91b8e86ddc30aa728af888241b06e77068678ae6488b1f16"
+    },
+    "results/decision_value/figures/risk_return.png": {
+      "bytes": 19951,
+      "sha256": "4a94c56348b812eefe720d3e515a5c487d5afb7fe0f590df456bc91dfa74e629"
+    },
+    "results/decision_value/figures/spark_high_demand_schedule.png": {
+      "bytes": 44374,
+      "sha256": "134169b0e224b79637a451406bda0cf85254ac8bddf3baf9e427d6d9c7a3ce38"
+    },
+    "results/decision_value/hypothesis_verdicts.csv": {
+      "bytes": 888,
+      "sha256": "cd293438c4015b4901d204f5ac568e384203bf2badb0bcc6105623958ec59c79"
+    },
+    "results/decision_value/market_tariff_sensitivity.csv": {
+      "bytes": 630,
+      "sha256": "9dd530491eee077e8d46d05ad8994d6a6f84c43234453db733981eb2f87fe52a"
+    },
+    "results/decision_value/negative_control_results.csv": {
+      "bytes": 541,
+      "sha256": "40c8f00c9deaf99ceccd3a0011b3641ff0fb1ca6875fc94727209ddede36e1f9"
+    },
+    "results/decision_value/operationally_feasible_bootstrap_comparison.csv": {
+      "bytes": 986,
+      "sha256": "6137c45c18e571088cf61690f9ec5062393ce0ba9db07cda9c7d69a40cb5464e"
+    },
+    "results/decision_value/operationally_feasible_policy_summary.csv": {
+      "bytes": 2170,
+      "sha256": "5b72259fe8bc2bca12c0c4f16b59cd41a1058c50b36f82863de9b76d12711cea"
+    },
+    "results/decision_value/peak_constraint_sensitivity.csv": {
+      "bytes": 992,
+      "sha256": "ca7c7c308bbe61d327377e4aebbb2ae28a3b97ccb2b8fa5deade0a0957d4f365"
+    },
+    "results/decision_value/physical_sensitivity.csv": {
+      "bytes": 654,
+      "sha256": "20d08961a1e83f9e4f6cbc3b1a38772ae94b3d7bc17a3fa3ade86cc473ead949"
+    },
+    "results/decision_value/physical_violation_summary.csv": {
+      "bytes": 332,
+      "sha256": "936418a075497313663e523ba93a24b424fdcaf66954eeff5e75fda554850489"
+    },
+    "results/decision_value/policy_daily_metrics.parquet": {
+      "bytes": 168032,
+      "sha256": "9adbf3efa9c88dd20f496533328f7f521965195bfb9451825e15ed07ca3e088c"
+    },
+    "results/decision_value/policy_decisions.parquet": {
+      "bytes": 417622,
+      "sha256": "f309b856149d8b4e4be0b2856b9feb22ade58810f2b36b767fd4ea79b7351e20"
+    },
+    "results/decision_value/primary_bootstrap_comparison.csv": {
+      "bytes": 866,
+      "sha256": "04ca9945b58e9190a2d0b4169cb8dc736d7b07d371544085bf33cb364e10deeb"
+    },
+    "results/decision_value/primary_policy_comparison.csv": {
+      "bytes": 1794,
+      "sha256": "3ba01431c996edb6e118c58416201061a524bf9b9094786a2fd7ad6ab654b2ba"
+    },
+    "results/decision_value/protected_artifact_audit.csv": {
+      "bytes": 1245,
+      "sha256": "0f6097a4ca615329941eb1cc0fdcbadb811515b97b6177c57c226ae1e98bdcc5"
+    },
+    "results/decision_value/reproducibility_check.json": {
+      "bytes": 991,
+      "sha256": "7f8dcbe38b08e97467fc10daadd9674b42a6d827cd07c157fd143e0ff6b81e1c"
+    },
+    "results/decision_value/risk_aversion_sensitivity.csv": {
+      "bytes": 1123,
+      "sha256": "bb8f943877f0bd9cc8d9d16fe7a93d8d29dabb210306fbac8ed32bda2ad20fbe"
+    },
+    "results/decision_value/secondary_bootstrap_comparison.csv": {
+      "bytes": 576,
+      "sha256": "4817a3017f4a9d34cafda3ac17d5910692bbe7affdbaf0f0048ba539ff126989"
+    },
+    "results/decision_value/solver_coverage.csv": {
+      "bytes": 248,
+      "sha256": "7828789d380da0c5a9a547729c452a8dec66672f8c2aeab6115e4b1fe584bb6a"
+    },
+    "results/decision_value/source_provenance.csv": {
+      "bytes": 1494,
+      "sha256": "ecd62b4d6db307b4cf29a258a22cb535c33ec20a06577030c4e55d8f645cc027"
+    },
+    "results/decision_value/spark_conditional_findings.csv": {
+      "bytes": 930,
+      "sha256": "ea96ceb76f46aa5b58c82f4e3bc13414d39999fd0555b9309cc48e628f5dab80"
+    }
+  },
+  "bootstrap_resamples": 2000,
+  "evaluation_dates": [
+    "2024-01-06",
+    "2024-01-07",
+    "2024-01-08",
+    "2024-01-09",
+    "2024-01-11",
+    "2024-01-12",
+    "2024-01-13",
+    "2024-01-14",
+    "2024-01-15",
+    "2024-01-17",
+    "2024-01-18",
+    "2024-01-19",
+    "2024-01-20",
+    "2024-01-21",
+    "2024-01-22",
+    "2024-01-23",
+    "2024-01-24",
+    "2024-01-25",
+    "2024-01-27",
+    "2024-01-28",
+    "2024-01-29",
+    "2024-01-30",
+    "2024-01-31",
+    "2024-02-02",
+    "2024-02-03",
+    "2024-02-05",
+    "2024-02-06",
+    "2024-02-07",
+    "2024-02-08",
+    "2024-02-09",
+    "2024-02-10",
+    "2024-02-11",
+    "2024-02-13",
+    "2024-02-16",
+    "2024-02-17",
+    "2024-02-18",
+    "2024-02-19",
+    "2024-02-21",
+    "2024-02-24",
+    "2024-02-25",
+    "2024-02-26",
+    "2024-02-27",
+    "2024-02-28",
+    "2024-03-05",
+    "2024-03-07",
+    "2024-03-08",
+    "2024-03-09",
+    "2024-03-11",
+    "2024-03-12",
+    "2024-03-13",
+    "2024-03-14",
+    "2024-03-15",
+    "2024-03-16",
+    "2024-03-18",
+    "2024-03-19",
+    "2024-03-20",
+    "2024-03-21",
+    "2024-03-22",
+    "2024-03-23",
+    "2024-03-24",
+    "2024-03-26",
+    "2024-03-27",
+    "2024-03-29",
+    "2024-03-30",
+    "2024-04-01",
+    "2024-04-02",
+    "2024-04-03",
+    "2024-04-04",
+    "2024-04-05",
+    "2024-04-06",
+    "2024-04-07",
+    "2024-04-08",
+    "2024-04-12",
+    "2024-04-13",
+    "2024-04-14",
+    "2024-04-16",
+    "2024-04-17",
+    "2024-04-18",
+    "2024-04-19",
+    "2024-04-20",
+    "2024-04-22",
+    "2024-04-23",
+    "2024-04-24",
+    "2024-04-25",
+    "2024-04-26",
+    "2024-04-28",
+    "2024-04-29",
+    "2024-04-30",
+    "2024-05-01",
+    "2024-05-03",
+    "2024-05-04",
+    "2024-05-05",
+    "2024-05-06",
+    "2024-05-07",
+    "2024-05-08",
+    "2024-05-09",
+    "2024-05-10",
+    "2024-05-11",
+    "2024-05-12",
+    "2024-05-14",
+    "2024-05-15",
+    "2024-05-16",
+    "2024-05-17",
+    "2024-05-18",
+    "2024-05-19",
+    "2024-05-20",
+    "2024-05-21",
+    "2024-05-22",
+    "2024-05-23",
+    "2024-05-25",
+    "2024-05-26",
+    "2024-05-27",
+    "2024-05-28",
+    "2024-05-29",
+    "2024-05-30",
+    "2024-05-31",
+    "2024-06-01",
+    "2024-06-02",
+    "2024-06-03",
+    "2024-06-05",
+    "2024-06-06",
+    "2024-06-07",
+    "2024-06-08",
+    "2024-06-09",
+    "2024-06-11",
+    "2024-06-12",
+    "2024-06-13",
+    "2024-06-14",
+    "2024-06-15",
+    "2024-06-16",
+    "2024-06-17",
+    "2024-06-18",
+    "2024-06-19",
+    "2024-06-20",
+    "2024-06-21",
+    "2024-06-23",
+    "2024-06-24",
+    "2024-06-25",
+    "2024-06-26",
+    "2024-06-27",
+    "2024-06-29",
+    "2024-06-30",
+    "2024-07-01",
+    "2024-07-02",
+    "2024-07-03",
+    "2024-07-04",
+    "2024-07-06",
+    "2024-07-07",
+    "2024-07-08",
+    "2024-07-09",
+    "2024-07-10",
+    "2024-07-12",
+    "2024-07-14",
+    "2024-07-15",
+    "2024-07-16",
+    "2024-07-18",
+    "2024-07-21",
+    "2024-07-22",
+    "2024-07-23",
+    "2024-07-24",
+    "2024-07-25",
+    "2024-07-26",
+    "2024-07-27",
+    "2024-07-28",
+    "2024-07-30",
+    "2024-07-31",
+    "2024-08-01",
+    "2024-08-02",
+    "2024-08-03",
+    "2024-08-04",
+    "2024-08-05",
+    "2024-08-06",
+    "2024-08-07",
+    "2024-08-08",
+    "2024-08-09",
+    "2024-08-11",
+    "2024-08-12",
+    "2024-08-13",
+    "2024-08-14",
+    "2024-08-15",
+    "2024-08-16",
+    "2024-08-17",
+    "2024-08-18",
+    "2024-08-19",
+    "2024-08-20",
+    "2024-08-21",
+    "2024-08-23",
+    "2024-08-24",
+    "2024-08-25",
+    "2024-08-26",
+    "2024-08-27",
+    "2024-08-29",
+    "2024-08-30",
+    "2024-08-31",
+    "2024-09-01",
+    "2024-09-02",
+    "2024-09-03",
+    "2024-09-04",
+    "2024-09-05",
+    "2024-09-06",
+    "2024-09-07",
+    "2024-09-08",
+    "2024-09-09",
+    "2024-09-10",
+    "2024-09-12",
+    "2024-09-13",
+    "2024-09-14",
+    "2024-09-15",
+    "2024-09-16",
+    "2024-09-17",
+    "2024-09-18",
+    "2024-09-19",
+    "2024-09-20",
+    "2024-09-21",
+    "2024-09-22",
+    "2024-09-23",
+    "2024-09-25",
+    "2024-09-26",
+    "2024-09-27",
+    "2024-09-28",
+    "2024-09-29",
+    "2024-09-30",
+    "2024-10-02",
+    "2024-10-03",
+    "2024-10-04",
+    "2024-10-05",
+    "2024-10-06",
+    "2024-10-07",
+    "2024-10-08",
+    "2024-10-10",
+    "2024-10-11",
+    "2024-10-12",
+    "2024-10-13",
+    "2024-10-14",
+    "2024-10-15",
+    "2024-10-17",
+    "2024-10-18",
+    "2024-10-19",
+    "2024-10-20",
+    "2024-10-21",
+    "2024-10-22",
+    "2024-10-24",
+    "2024-10-26",
+    "2024-10-28",
+    "2024-10-29",
+    "2024-10-30",
+    "2024-11-01",
+    "2024-11-02",
+    "2024-11-03",
+    "2024-11-04",
+    "2024-11-05",
+    "2024-11-06",
+    "2024-11-08",
+    "2024-11-09",
+    "2024-11-10",
+    "2024-11-11",
+    "2024-11-12",
+    "2024-11-13",
+    "2024-11-14",
+    "2024-11-16",
+    "2024-11-17",
+    "2024-11-18",
+    "2024-11-19",
+    "2024-11-20",
+    "2024-11-21",
+    "2024-11-22",
+    "2024-11-24",
+    "2024-11-25",
+    "2024-11-26",
+    "2024-11-27",
+    "2024-11-28",
+    "2024-11-29",
+    "2024-12-01"
+  ],
+  "evidence_class": "PREVIOUSLY_EXPOSED_HOLDOUT_DIAGNOSTIC",
+  "frozen_experiment_sha256": "e8903167aa9288b50f883142130e84732c37082a735073d01c4bab346dc20d02",
+  "hardware": {
+    "cpu": "Intel Core i5-12450H",
+    "gpu": "NVIDIA GTX 1650 4GB",
+    "optimization_device": "CPU",
+    "ram_gb": 16
+  },
+  "market_timing": "EX_POST_PRICE_AWARE",
+  "moving_block_length_days": 7,
+  "package_versions": {
+    "matplotlib": "3.10.8",
+    "numpy": "2.0.1",
+    "pandas": "2.3.3",
+    "pyarrow": "23.0.1",
+    "scipy": "1.17.1"
+  },
+  "protected_hashes": {
+    "H3_protocol": "281f49331bc3b3c31aec0d33b50f6a83a149261db93ce04a29d67479cb62676e",
+    "H5_predictions": "301cfe03fd824cb741f192179b5f6bcc14100c3120729653eaf49339da3e9a67",
+    "H7_config": "790d3574d468f10fbc565bef1ed0eb492d45ff9db00436f2700a74b7069171ba",
+    "H7_manifest": "c072fad2e5150291653b10a9fbcbb180321569e9cffcefa4af75cf49de213567",
+    "H7_spark_S2": "8914336a0cc1dcd905ed5e2ed1587d0b58703856294be3631cfd9a087ab8dee0",
+    "SPARK_predictions": "f6a7099f18656124b9c1bcd1f308831835e1b23d2febd8d397cebcb0dfb9c309",
+    "SPARK_prices": "e11233525e55afcafb47646925ae88b8c2ddde3996eb9385a15e215a6fd9fa02",
+    "Stage2_contracts_source": "92c58dea5f5099ebdd54fb736bcdec84085261638b60626bbed51a9f64871cf6",
+    "Stage2_flexibility": "ef1ad47b19d063ccdd2d73aaa08b54587a4d1fcf1d9f474ad5b144ab68a1c761",
+    "Stage2_manifest": "ee9413ee996cda94470303c3cfa186d2f130ac3cd5c6e7e42cf22b6c54823c78",
+    "Stage2_optimizer_source": "7fb922f90258b015477dfe8cc21b91d0a43a9e4db31450ebf15fdf42ae5e57a3",
+    "Stage2_tariffs": "a623c94f789b1bbdb7f7a4dd3dcb49659532561aada56ba109da3dbcfbfe2609"
+  },
+  "python_version": "3.12.3",
+  "random_seed": 20261029,
+  "reproducibility": {
+    "absolute_tolerance": 1e-09,
+    "all_primary_metrics_within_tolerance": true,
+    "canonical_daily_economic_sha256_excluding_runtime": "e04e9a1655b399dfa0f7be574d9f8a36d4efe1ae950898c333fd80adcd8244f6",
+    "first_pass_reference": {
+      "P2_mean_savings_eur_day": 1.999617184,
+      "P2_minus_P4_mean_eur_day": -0.2520810643,
+      "P3_mean_savings_eur_day": 1.800670999,
+      "P3_minus_P4_mean_eur_day": -0.05313487922,
+      "P4_mean_savings_eur_day": 1.74753612
+    },
+    "method": "independent second full pipeline execution with identical frozen inputs",
+    "runtime_fields_excluded": true,
+    "second_pass_observed": {
+      "P2_mean_savings_eur_day": 1.999617184,
+      "P2_minus_P4_mean_eur_day": -0.2520810643,
+      "P3_mean_savings_eur_day": 1.800670999,
+      "P3_minus_P4_mean_eur_day": -0.05313487922,
+      "P4_mean_savings_eur_day": 1.74753612
+    },
+    "solver_output_policy": "economic quantities deterministic within tolerance; wall-clock runtime is not byte deterministic"
+  },
+  "scipy_version": "1.17.1",
+  "solver": "SciPy linprog HiGHS",
+  "source_code_hashes": {
+    "src/honda/decision_value/__init__.py": "e2a1bc824e76bfa763a66ff0c4e095b3ea24485aca18d374e84c769b13528783",
+    "src/honda/decision_value/data.py": "cc9d4f4b1df7e8013cf702ca008d4fbd3a3eb500fe22f91ea06d30b59844f6fc",
+    "src/honda/decision_value/evaluation.py": "10f9fc44d66f138cab994ac551a93ba747001c9f1c1d66e0caff023f144035a8",
+    "src/honda/decision_value/pipeline.py": "8928a68765b39fde3ef51fa9250e5125bb9b4b40718efa03d3a2287738f1c5e3",
+    "src/honda/decision_value/statistics.py": "8ced5a9feae97a11dcab434f6b667485bc16b49b853bc4a166706222bb168ae9"
+  },
+  "stage1_commit": "bb0536df77f709a20452ed3c86ab16e66a5e0555",
+  "stage2_commit": "aff0c9335f5e00985269e2a1aa6c27a112c6888d",
+  "starting_checkpoint": "aff0c9335f5e00985269e2a1aa6c27a112c6888d"
+}

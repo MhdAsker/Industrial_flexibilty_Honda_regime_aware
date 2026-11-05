@@ -1,0 +1,8 @@
+hypothesis,verdict,evidence,limitation
+H1_COHERENT_VS_INDEPENDENT,NOT_SUPPORTED,"P3-P4 mean -0.053135 EUR/day; CI [-0.109641,-0.011827]",ex-post exposed 2024
+H2_PROBABILISTIC_VALUE,NOT_SUPPORTED,"P2-P4 mean -0.252081 EUR/day; CI [-0.315669,-0.199605]",ex-post exposed 2024
+H3_PHYSICAL_FLEXIBILITY_DOMINATES,SUPPORTED,physical savings range 2.316880 vs P2-P4 effect 0.252081 EUR/day,counterfactual capacities
+H4_MARKET_STRUCTURE_DEPENDENCE,PARTIALLY_SUPPORTED,peak/grid savings range 0.418404; tariff range 0.001066,hypothetical tariffs
+H5_CVAR_RISK_AWARE,NOT_SUPPORTED,P4-P6 mean realized cost difference 0.000000 EUR/day,273 exposed days; tail inference descriptive
+H6_CROSS_DATASET_HETEROGENEITY,NOT_EVALUABLE,Honda authoritative price input absent,single economically evaluated dataset
+H7_HONDA_EXPORT_STATE_VALUE,NOT_EVALUABLE,Honda economic settlement blocked,no price/timing series

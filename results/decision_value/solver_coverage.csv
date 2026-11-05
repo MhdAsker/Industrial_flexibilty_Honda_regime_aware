@@ -1,0 +1,7 @@
+policy,available_days,valid_days,infeasible_or_failed_days,scenario_coverage
+P0_NO_FLEX,273,273,0,1
+P2_LGBM_DETERMINISTIC,273,273,0,1
+P3_S1_INDEPENDENT,273,273,0,1
+P4_S2_COHERENT,273,273,0,1
+P6_S2_CVAR,273,273,0,1
+P7_ORACLE_UPPER_BOUND,273,273,0,1

@@ -1,0 +1,11 @@
+control,passed,detail
+N0_NO_FLEX,True,zero control
+N1_IDENTICAL_SCENARIOS,True,deterministic/stochastic equivalence
+N2_FLAT_PRICE,True,no lossless arbitrage
+N3_ZERO_ENERGY,True,no shifting
+N4_FUTURE_INFORMATION,True,actual absent from optimizer contract
+N5_ORACLE_SEPARATION,True,oracle requires explicit P7 label and actual argument
+N6_SIGN_INVERSION,True,signed grid split
+N7_REPRODUCIBLE_IDENTICAL_INPUT,True,fixed solver input
+N8_SCENARIO_PERMUTATION,True,order invariance
+N9_COST_CONSISTENCY,True,optimizer versus standalone settlement

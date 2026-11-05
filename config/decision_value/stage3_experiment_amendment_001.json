@@ -1,0 +1,23 @@
+{
+  "amendment_id": "STAGE3_AMENDMENT_001",
+  "created_after_outcome_analysis": true,
+  "reason": "Final source-date audit found that the immutable H7 SPARK 2024 scenario artifact ends on 2024-12-01, while the frozen configuration's descriptive primary_period text stated 2024-12-24.",
+  "original_frozen_configuration_sha256": "e8903167aa9288b50f883142130e84732c37082a735073d01c4bab346dc20d02",
+  "correction": {
+    "field": "evaluation.primary_period",
+    "original_description": "2024-01-06/2024-12-24 common complete S2/price/target days",
+    "corrected_description": "2024-01-06/2024-12-01 artifact-derived common complete S2/price/target days"
+  },
+  "actual_common_day_count": 273,
+  "actual_interval_counts": {
+    "96": 273,
+    "92": 0,
+    "100": 0
+  },
+  "scientific_impact": "Documentation-only. The implementation always used the exact intersection of immutable scenario, target and price timestamps. No day, policy, parameter, scenario, objective, statistic or outcome was added, removed or recomputed because of this amendment.",
+  "dst_note": "No spring/autumn DST transition day survives the Stage 1 common scenario interface. DST formulations remain covered by upstream and synthetic tests but have no Stage 3 historical economic result.",
+  "prohibitions": [
+    "do not rewrite the original frozen configuration",
+    "do not reinterpret this amendment as outcome-driven reselection"
+  ]
+}

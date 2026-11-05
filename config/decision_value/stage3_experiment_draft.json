@@ -1,0 +1,66 @@
+{
+  "status": "DRAFT_FOR_DEVELOPMENT_DRY_RUN_ONLY",
+  "research_stage": "3_of_3",
+  "starting_commit": "aff0c9335f5e00985269e2a1aa6c27a112c6888d",
+  "evaluation": {
+    "primary_dataset": "SPARK",
+    "primary_period": "2024-01-06/2024-12-24 common complete S2/price/target days",
+    "evidence_class": "PREVIOUSLY_EXPOSED_HOLDOUT_DIAGNOSTIC",
+    "timing_classification": "EX_POST_PRICE_AWARE",
+    "Honda_2023": "NOT_EVALUABLE_NO_AUTHORITATIVE_PRICE_SERIES"
+  },
+  "primary_E1": {
+    "archetype": "F1_MEDIUM_SIMULATED_DEFERRABLE_PROCESS",
+    "p_up_kw": 5.0,
+    "p_down_kw": 5.0,
+    "e_advance_kwh": 10.0,
+    "e_backlog_kwh": 10.0,
+    "initial_terminal_state_kwh": 0.0,
+    "recovery": "daily_terminal",
+    "ramp_limit": null,
+    "export_cap_kw": 0.0,
+    "import_cap_kw": null,
+    "tariff": "MKT0_SYMMETRIC_WHOLESALE_PASS_THROUGH_HYPOTHETICAL",
+    "policies": ["P0_NO_FLEX", "P2_LGBM_DETERMINISTIC", "P3_S1_INDEPENDENT", "P4_S2_COHERENT", "P6_S2_CVAR", "P7_ORACLE_UPPER_BOUND"],
+    "scenario_count": 50,
+    "risk_neutral": true
+  },
+  "risk_primary": {"alpha": 0.9, "lambda": 0.25},
+  "risk_sensitivity": [
+    {"alpha": 0.9, "lambda": 0.25},
+    {"alpha": 0.9, "lambda": 1.0},
+    {"alpha": 0.95, "lambda": 0.25},
+    {"alpha": 0.95, "lambda": 1.0}
+  ],
+  "physical_sensitivity": ["SPARK_F1_LOW", "SPARK_F1_MEDIUM", "SPARK_F1_HIGH"],
+  "peak_grid_sensitivity": [
+    {"label": "NO_IMPORT_CAP", "import_cap_kw": null, "peak_penalty_eur_per_kw_day": 0.0},
+    {"label": "IMPORT_CAP_40", "import_cap_kw": 40.0, "peak_penalty_eur_per_kw_day": 0.0},
+    {"label": "IMPORT_CAP_30", "import_cap_kw": 30.0, "peak_penalty_eur_per_kw_day": 0.0},
+    {"label": "IMPORT_CAP_20", "import_cap_kw": 20.0, "peak_penalty_eur_per_kw_day": 0.0},
+    {"label": "PEAK_SHADOW_0_05", "import_cap_kw": null, "peak_penalty_eur_per_kw_day": 0.05},
+    {"label": "PEAK_SHADOW_0_20", "import_cap_kw": null, "peak_penalty_eur_per_kw_day": 0.2}
+  ],
+  "tariff_sensitivity": [
+    {"label": "SYMMETRIC", "export_multiplier": 1.0},
+    {"label": "HALF_EXPORT", "export_multiplier": 0.5},
+    {"label": "ZERO_EXPORT", "export_multiplier": 0.0}
+  ],
+  "statistics": {
+    "primary_pairs": ["P2_minus_P4", "P3_minus_P4"],
+    "bootstrap_unit": "whole_local_calendar_day",
+    "bootstrap_resamples": 2000,
+    "moving_block_length_days": 7,
+    "seed": 20261029,
+    "multiplicity": "Holm adjustment for two primary comparisons; sensitivity/subgroup results exploratory"
+  },
+  "failure_policy": "No fallback dispatch; record INVALID_INPUT, MISSING_PRICE, MISSING_SCENARIO, PHYSICALLY_INFEASIBLE, or SOLVER_FAILURE separately",
+  "computational_budget": "CPU-only; at most 50 scenarios, three physical levels, six grid/peak cases, four nonzero CVaR settings",
+  "prohibitions": [
+    "no Honda economics without authoritative price data",
+    "no Stage 1 scenario recalibration",
+    "no Stage 2 physical parameter tuning",
+    "no post-outcome rewrite of frozen specification",
+    "no actual customer bill or trading P&L claim"
+  ]
+}

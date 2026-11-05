@@ -1,0 +1,21 @@
+audit_issue,status,evidence
+future target in forecast,PASS,DecisionDay contains no actual
+price timing,LIMITATION,SPARK is explicitly EX_POST_PRICE_AWARE
+scenario causality,PASS,H7 development-only residual donors
+TEST residual fitting,PASS,none
+identical physical rules,PASS,primary P2/P3/P4 fixed F1/MKT0
+Honda signed exports,NOT_EVALUABLE,Honda economics blocked
+PV/CHP double count,PASS,no component subtraction
+import/export arbitrage,PASS,tariff dominance plus canonical split
+free backlog energy,PASS,terminal state fixed
+terminal conditions,PASS,audited
+grid-cap provenance,LIMITATION,hypothetical Stage 2 capacities
+hidden infeasibility,PASS,"reported, no fallback"
+realized feasibility,PASS,"violations retained, never clipped"
+oracle comparability,PASS,same F1/grid/tariff
+serial dependence,PASS,lag-1 plus 7-day block bootstrap
+tail sample size,LIMITATION,273 days
+exposed-year tuning,LIMITATION,frozen design but previously exposed 2024
+market product resolution,PASS,"hourly price repeated, not called 15-min clearing"
+commercial P&L label,PASS,counterfactual wholesale cost only
+claim scope,LIMITATION,one economically evaluated site

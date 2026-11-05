@@ -1,0 +1,8 @@
+{
+  "all_optimal": true,
+  "development_days": 5,
+  "development_high_demand_q90_kw": 25.43082521786493,
+  "draft_config_sha256": "15eb76d579fdf7537acdb3c170f5fcafcb547bcd94b908b2236ce055d6f76dac",
+  "max_terminal_residual_kwh": 0.0,
+  "solves": 10
+}
