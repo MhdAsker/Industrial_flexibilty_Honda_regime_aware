@@ -73,6 +73,8 @@ def evaluate_experiment(config_or_path: ExperimentConfig | str | Path, output: s
         "independent": data.independent_scenarios_kw,
         "coherent": data.coherent_scenarios_kw,
     }
+    if config.coherent_calibration_scale is not None:
+        scenario_map["calibrated_coherent"] = data.point_forecast_kw[None, :] + config.coherent_calibration_scale * (data.coherent_scenarios_kw - data.point_forecast_kw[None, :])
     no_flex = settle_schedule(np.zeros(len(data.actual_kw)), data.actual_kw, np.full(len(data.actual_kw), .25), tariff)
     no_flex_peak_charge = config.grid.peak_penalty_eur_per_kw_per_day * float(np.max(no_flex["import_kw"]))
     no_flex_total_cost = float(no_flex["cost_eur"]) + no_flex_peak_charge
@@ -119,7 +121,18 @@ def evaluate_experiment(config_or_path: ExperimentConfig | str | Path, output: s
         "unsupported_claims": list(config.unsupported_claims),
     }
     stable_json(output / "summary.json", summary)
-    dashboard = {"experiment": {k: summary[k] for k in ("experiment_id", "dataset_id", "target_day_local", "target_semantics", "timing_classification", "asset_label", "tariff_label")}, "policies": policy_frame.to_dict("records"), "labels": {"supported": list(config.supported_claims), "unsupported": list(config.unsupported_claims)}}
+    schedule_frame = pd.DataFrame(schedules)
+    schedule_pivot = schedule_frame.pivot(index="timestamp_utc", columns="policy", values="schedule_kw").reindex(data.timestamps_utc)
+    dashboard = {
+        "experiment": {k: summary[k] for k in ("experiment_id", "dataset_id", "target_day_local", "target_semantics", "timing_classification", "asset_label", "tariff_label")},
+        "policies": policy_frame.to_dict("records"),
+        "trajectory": {
+            "timestamp_utc": list(data.timestamps_utc), "actual_kw": data.actual_kw.tolist(), "forecast_kw": data.point_forecast_kw.tolist(),
+            "coherent_q10_kw": np.quantile(data.coherent_scenarios_kw, .1, axis=0).tolist(), "coherent_q90_kw": np.quantile(data.coherent_scenarios_kw, .9, axis=0).tolist(),
+            "schedules_kw": {column: schedule_pivot[column].tolist() for column in schedule_pivot.columns},
+        },
+        "labels": {"supported": list(config.supported_claims), "unsupported": list(config.unsupported_claims)},
+    }
     stable_json(output / "dashboard.json", dashboard)
     manifest = manifest_for(output, experiment=config.as_dict(), provenance=data.provenance, supported=list(config.supported_claims), unsupported=list(config.unsupported_claims))
     stable_json(output / "manifest.json", manifest)

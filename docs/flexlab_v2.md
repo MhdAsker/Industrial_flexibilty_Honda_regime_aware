@@ -67,6 +67,8 @@ The module also reports:
 
 The scale must be fitted on chronological development observations. It must not use Honda 2023, SPARK 2024 economic outcomes, or optimizer results for tuning.
 
+Once frozen, set `coherent_calibration_scale` in the experiment YAML and include `calibrated_coherent` in `policies`. FlexLab retains deterministic, independent, and unscaled coherent policies as controls.
+
 ## Grid formulations
 
 The existing optimizer supports the common v2 contract:

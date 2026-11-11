@@ -130,6 +130,7 @@ class ExperimentConfig:
     tariff: TariffConfigV2
     timing: TimingConfig
     policies: tuple[str, ...] = ("deterministic", "independent", "coherent")
+    coherent_calibration_scale: float | None = None
     risk_lambda: float = 0.0
     cvar_alpha: float = 0.95
     schema_version: str = "flexlab.experiment.v2"
@@ -143,9 +144,13 @@ class ExperimentConfig:
         if not self.experiment_id.strip():
             raise ConfigError("experiment_id cannot be empty")
         self.site.validate(); self.asset.validate(); self.grid.validate(); self.timing.validate()
-        allowed = {"deterministic", "independent", "coherent"}
+        allowed = {"deterministic", "independent", "coherent", "calibrated_coherent"}
         if not self.policies or not set(self.policies).issubset(allowed):
-            raise ConfigError("Policies must be selected from deterministic, independent, coherent")
+            raise ConfigError("Unknown policy in experiment configuration")
+        if "calibrated_coherent" in self.policies and self.coherent_calibration_scale is None:
+            raise ConfigError("calibrated_coherent requires coherent_calibration_scale fitted on development data")
+        if self.coherent_calibration_scale is not None and self.coherent_calibration_scale <= 0:
+            raise ConfigError("coherent_calibration_scale must be positive")
         if self.risk_lambda < 0 or not 0 < self.cvar_alpha < 1:
             raise ConfigError("Invalid CVaR settings")
 
@@ -160,7 +165,7 @@ class ExperimentConfig:
         raw = yaml.safe_load(source.read_text(encoding="utf-8"))
         if not isinstance(raw, dict):
             raise ConfigError("Experiment YAML must contain a mapping")
-        _only(raw, {"schema_version", "experiment_id", "site", "asset", "grid", "tariff", "timing", "policies", "risk_lambda", "cvar_alpha", "supported_claims", "unsupported_claims"}, "experiment")
+        _only(raw, {"schema_version", "experiment_id", "site", "asset", "grid", "tariff", "timing", "policies", "coherent_calibration_scale", "risk_lambda", "cvar_alpha", "supported_claims", "unsupported_claims"}, "experiment")
         section_types = {"site": SiteConfig, "asset": AssetConfig, "grid": GridConfig, "tariff": TariffConfigV2, "timing": TimingConfig}
         sections: dict[str, Any] = {}
         for name, kind in section_types.items():
@@ -177,6 +182,7 @@ class ExperimentConfig:
             experiment_id=str(raw.get("experiment_id", "")),
             schema_version=str(raw.get("schema_version", "flexlab.experiment.v2")),
             policies=tuple(raw.get("policies", ("deterministic", "independent", "coherent"))),
+            coherent_calibration_scale=None if raw.get("coherent_calibration_scale") is None else float(raw["coherent_calibration_scale"]),
             risk_lambda=float(raw.get("risk_lambda", 0.0)), cvar_alpha=float(raw.get("cvar_alpha", 0.95)),
             supported_claims=tuple(raw.get("supported_claims", ("SYNTHETIC_COUNTERFACTUAL",))),
             unsupported_claims=tuple(raw.get("unsupported_claims", ("CUSTOMER_SAVINGS", "PLANT_VALIDATION"))),

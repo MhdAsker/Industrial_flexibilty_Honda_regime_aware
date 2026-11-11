@@ -32,7 +32,8 @@ timing:
   decision_time_local: "13:00"
   price_publication_local: "12:45"
   classification: OPERATIONAL_TIMING_VERIFIED
-policies: [deterministic, independent, coherent]
+policies: [deterministic, independent, coherent, calibrated_coherent]
+coherent_calibration_scale: 1.25
 risk_lambda: 0.0
 cvar_alpha: 0.95
 supported_claims: [SYNTHETIC_COUNTERFACTUAL, REPRODUCIBLE_METHOD_COMPARISON]

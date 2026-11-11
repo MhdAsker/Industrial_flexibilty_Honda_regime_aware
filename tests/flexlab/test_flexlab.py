@@ -69,14 +69,24 @@ def test_end_to_end_bundle_is_complete_and_reproducible(tmp_path):
     expected = {"experiment.yaml", "policy_summary.csv", "schedules.csv", "states.csv", "summary.json", "dashboard.json", "manifest.json"}
     assert expected == {x.name for x in output.iterdir()}
     policies = pd.read_csv(output / "policy_summary.csv")
-    assert set(policies.policy) == {"deterministic", "independent", "coherent"}
+    assert set(policies.policy) == {"deterministic", "independent", "coherent", "calibrated_coherent"}
     assert policies.solver_status.eq("optimal").all()
     assert policies.terminal_residual_kwh.max() < 1e-7
     manifest = json.loads((output / "manifest.json").read_text(encoding="utf-8"))
     assert manifest["manifest_schema_version"] == "flexlab.manifest.v2"
     assert manifest["unsupported_claims"] == ["CUSTOMER_SAVINGS", "TRADING_PROFIT", "PLANT_VALIDATION"]
     assert summary["timing_classification"] == "OPERATIONAL_TIMING_VERIFIED"
+    dashboard = json.loads((output / "dashboard.json").read_text(encoding="utf-8"))
+    assert len(dashboard["trajectory"]["timestamp_utc"]) == 96
+    assert set(dashboard["trajectory"]["schedules_kw"]) == set(policies.policy)
     assert reproduce_experiment(EXAMPLE)["passed"] is True
+
+
+def test_calibrated_policy_requires_development_fitted_scale(tmp_path):
+    value = yaml.safe_load(EXAMPLE.read_text(encoding="utf-8")); value.pop("coherent_calibration_scale")
+    path = tmp_path / "bad.yaml"; path.write_text(yaml.safe_dump(value), encoding="utf-8")
+    with pytest.raises(ConfigError, match="requires coherent_calibration_scale"):
+        ExperimentConfig.load(path)
 
 
 def test_global_calibration_improves_underdispersed_ensemble():
