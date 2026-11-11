@@ -70,7 +70,16 @@ def test_h7_checkpoint_is_ancestor_and_config_preserved():
 
 def test_h1_h6_protected_artifacts_unchanged():
     changed = subprocess.check_output(["git", "diff", "--name-only", H7_COMMIT, "--", "reports", "config", "results"], cwd=ROOT, text=True)
-    assert all(x.startswith(("reports/optimization/", "config/optimization/", "results/optimization/")) for x in changed.splitlines())
+    # H7 remains protected.  Later committed work is deliberately isolated in
+    # Stage 2, Stage 3, and the separately named Stage 3 replication namespaces.
+    allowed = (
+        "reports/optimization/", "config/optimization/", "results/optimization/",
+        "reports/decision_value/", "config/decision_value/", "results/decision_value/",
+        "config/decision_value_replication/", "results/decision_value_replication/",
+        "reports/paper_overleaf/", "reports/progress_overleaf/",
+        "reports/progress_overleaf_upload.zip", "reports/research_checkpoint/",
+    )
+    assert all(x.startswith(allowed) for x in changed.splitlines())
 
 
 def test_spark_repository_is_read_only_and_clean():

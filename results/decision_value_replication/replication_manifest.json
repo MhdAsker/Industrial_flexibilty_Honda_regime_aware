@@ -1,0 +1,59 @@
+{
+  "bootstrap_resamples": 2000,
+  "bootstrap_seed": 20261029,
+  "candidate_days": 273,
+  "experiment_id": "SPARK_STAGE3_FEASIBILITY_TIMING_REPLICATION_V1",
+  "frozen_config_sha256": "f00a24c55072cce5ec9399d506231d6f7fe67d29ae50448a8ea9ba1d3e39c0c3",
+  "labels": [
+    "SYNTHETIC_COUNTERFACTUAL_WHOLESALE_COST_DIFFERENCE",
+    "NOT_CUSTOMER_SAVINGS",
+    "NOT_TRADING_PROFIT",
+    "NOT_PLANT_VALIDATION",
+    "POST_PUBLICATION_TIMING_ASSUMED",
+    "EX_POST_PRICE_AWARE",
+    "UNSUPPORTED_TIMING",
+    "READY_WITH_LIMITATIONS",
+    "CATEGORY_C_EXPLORATORY",
+    "PRE_REGISTERED_PRIMARY",
+    "PRE_SPECIFIED_SECONDARY",
+    "EXPLORATORY_DIAGNOSTIC"
+  ],
+  "output_hashes": {
+    "results/decision_value_replication/binding_constraint_diagnostics.csv": "6278be55e527c15fa257e6e1efd9c15f318d66b916d74af6c4761ca1c0fb222e",
+    "results/decision_value_replication/binding_effect_diagnostics.csv": "f5cad5ef221cd4362cadd0dc55ada814184a8d1334fa6ee12fd84feb2d91f102",
+    "results/decision_value_replication/day_level_replication_metrics.parquet": "b6372a97671fa21cc88fc8310267daa2371d50fe3f5059303d91b679df631c10",
+    "results/decision_value_replication/feasibility_diagnostics.csv": "ccf4291e36de30a315db066342603ae5c7234160ffcc254f6230710a1256c995",
+    "results/decision_value_replication/nominal_all_day_diagnostic_comparisons.csv": "03ae725fdde0883520536f128ea35b312625cdcc4d7408c6b4eda34c09bb6b80",
+    "results/decision_value_replication/primary_common_feasible_comparisons.csv": "30819f4ecb7ee452bbdec74776504818ac20f59f559d723d07057127a129083a",
+    "results/decision_value_replication/replication_policy_summary.csv": "7e4c5d5d6d8f97913a69d697033d5ad2a7266b348684adc3c9e1b9127bcc49fa",
+    "results/decision_value_replication/secondary_corrected_comparisons.csv": "577a7ceea27781051f2df78c9985a04acf245fb8b0a535abaa84582de48f4160",
+    "results/decision_value_replication/violation_day_overlap.csv": "0078accc329dd5e7999dc24344fb6cf17533fbb3006b1a75f5f6cfa3d579f013"
+  },
+  "packages": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "pyarrow": "23.0.1",
+    "pytest": "8.4.2",
+    "scipy": "1.13.1"
+  },
+  "policies": [
+    "P2_LGBM_DETERMINISTIC",
+    "P3_S1_INDEPENDENT",
+    "P4_S2_COHERENT"
+  ],
+  "python": "3.12.7",
+  "reproducibility_claim": "Deterministic table generation from immutable schedules, actuals, and prices; no optimization or scenario regeneration.",
+  "source_hashes": {
+    "spark_point_forecast_and_actual": "f6a7099f18656124b9c1bcd1f308831835e1b23d2febd8d397cebcb0dfb9c309",
+    "spark_prices": "e11233525e55afcafb47646925ae88b8c2ddde3996eb9385a15e215a6fd9fa02",
+    "stage1_scenario_config": "790d3574d468f10fbc565bef1ed0eb492d45ff9db00436f2700a74b7069171ba",
+    "stage2_flexibility_config": "ef1ad47b19d063ccdd2d73aaa08b54587a4d1fcf1d9f474ad5b144ab68a1c761",
+    "stage2_tariff_config": "a623c94f789b1bbdb7f7a4dd3dcb49659532561aada56ba109da3dbcfbfe2609",
+    "stage3_committed_schedules": "f309b856149d8b4e4be0b2856b9feb22ade58810f2b36b767fd4ea79b7351e20",
+    "stage3_daily_metrics": "9adbf3efa9c88dd20f496533328f7f521965195bfb9451825e15ed07ca3e088c",
+    "stage3_experiment_config": "e8903167aa9288b50f883142130e84732c37082a735073d01c4bab346dc20d02"
+  },
+  "spark_commit": "32cff65f7f5384d08095d8d0325c45e8ce002ec3",
+  "starting_honda_commit": "be5ddb47ab58e43f70c72400c3eb09391a1b54a5",
+  "timing_classification": "POST_PUBLICATION_TIMING_ASSUMED"
+}

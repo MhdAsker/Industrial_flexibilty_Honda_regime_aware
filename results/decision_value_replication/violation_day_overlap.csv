@@ -1,0 +1,6 @@
+P2_violation,P3_violation,P4_violation,days,classification
+False,False,False,191,EXPLORATORY_DIAGNOSTIC
+True,False,False,65,EXPLORATORY_DIAGNOSTIC
+True,False,True,1,EXPLORATORY_DIAGNOSTIC
+True,True,False,6,EXPLORATORY_DIAGNOSTIC
+True,True,True,10,EXPLORATORY_DIAGNOSTIC

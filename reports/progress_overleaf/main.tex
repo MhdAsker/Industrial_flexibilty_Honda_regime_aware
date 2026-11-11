@@ -1,0 +1,313 @@
+% Overleaf-ready three-page research progress paper.
+% Audience: company stakeholders, research supervisors, and technical partners.
+% Compile with pdfLaTeX. All figures are drawn from verified project artifacts;
+% no external citations are asserted in this progress brief.
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=12mm]{geometry}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{titlesec}
+
+\definecolor{navy}{HTML}{17365D}
+\definecolor{bluegray}{HTML}{EAF0F6}
+\definecolor{greenbox}{HTML}{EAF4EA}
+\definecolor{amberbox}{HTML}{FFF4D6}
+\hypersetup{colorlinks=true,linkcolor=navy,urlcolor=navy}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.5pt}
+\setlist{nosep,leftmargin=1.4em}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.06}
+\renewcommand{\baselinestretch}{0.96}
+\titlespacing*{\section}{0pt}{6pt}{2pt}
+\titlespacing*{\subsection}{0pt}{4pt}{1pt}
+
+\newcommand{\status}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\infobox}[2]{%
+  \begin{center}
+  \colorbox{#1}{\begin{minipage}{0.95\textwidth}\small #2\end{minipage}}
+  \end{center}}
+
+\title{\vspace{-1.5em}\textbf{Industrial Energy Forecasting and Flexibility Research}\\
+\large Current Progress, Verified Achievements, Limitations, and Decisions Ahead}
+\author{Author Name \quad | \quad MSc Digital Engineering, Bauhaus-Universit\"at Weimar\\
+\small Prepared for company and research feedback}
+\date{November 2026}
+
+\begin{document}
+\maketitle
+\vspace{-1.5em}
+\small
+
+\infobox{bluegray}{\textbf{Purpose of this brief.} This document summarizes
+what has been built and tested across two public industrial-energy datasets,
+what the results actually establish, what did not work, and which questions
+now require industrial or academic feedback. It is a progress report, not a
+claim of plant deployment or commercial savings.}
+
+\section*{1. Research Goal and Current Position}
+
+The project asks a practical question: \emph{when do better forecasts and more
+realistic uncertainty scenarios improve constrained industrial-energy
+decisions?} The work progressed from data-quality forensics to leakage-safe
+forecasting, probabilistic scenarios, physically constrained optimization, and
+economic decision evaluation. The central lesson is that forecast quality and
+decision value are related but not equivalent.
+
+The technical pipeline is now mature enough to support a bounded conference
+paper and company discussion. It is classified as
+\status{READY_WITH_LIMITATIONS} and \status{CATEGORY_C_EXPLORATORY}: software,
+chronology, provenance, and numerical checks are strong, but the flexibility
+asset and tariff remain counterfactual and no real factory schedule has been
+validated.
+
+\section*{2. Datasets and Why They Matter}
+
+\begin{tabularx}{\textwidth}{p{0.16\textwidth}p{0.35\textwidth}X}
+\toprule
+Dataset & Physical target and period & Research role and key caution\\
+\midrule
+KIT SPARK & Positive facility electricity demand; 15-minute means; 2021--2024;
+forecast at 12:00 Europe/Berlin on D-1 & Data-quality validation, deterministic
+and probabilistic forecasting, scenarios, and the economic decision study.
+Raw availability is incomplete and PV overlaps only 2024.\\
+Honda R\&D Europe, Offenbach & Signed public-grid exchange; positive import,
+negative export; 15-minute resolution; 2018--2023, with primary labels mainly
+in 2020--2023; forecast at 13:00 D-1 & Provenance reconstruction, historical
+baselines, LightGBM, foundation models, and scenario diagnostics. The target
+already nets PV and CHP and is not validated gross demand.\\
+\bottomrule
+\end{tabularx}
+
+The targets are physically different. Raw kW error and euro outcomes must not
+be compared as though SPARK demand and Honda signed exchange were the same
+problem. For SPARK, raw five-second measurements were aggregated only when at
+least 75\% of an interval was available. At this threshold, mean absolute
+aggregation error was 0.0060 kW, versus 0.0416 kW at approximately 70\%
+coverage. For Honda, primary labels retain original observations and exclude
+imputed or filled intervals.
+
+\section*{3. What Has Been Completed}
+
+\begin{tabularx}{\textwidth}{p{0.18\textwidth}X p{0.18\textwidth}}
+\toprule
+Workstream & Completed output & Status\\
+\midrule
+Data foundation & Missingness audit, aggregation validation, Honda provenance
+masks, signed-target semantics, DST-safe physical timestamps & Completed and
+frozen\\
+Forecast protocol & Leakage-safe issuance cutoffs, chronological folds,
+quality policies, target and feature contracts & Completed and frozen\\
+Baselines & Historical analogue and calendar baselines, including frozen B5
+benchmarks & Completed\\
+Deterministic ML & Site-specific LightGBM with development-only selection and
+untouched chronological tests & Completed\\
+Foundation models & Zero-shot Chronos-2 and TimesFM 3.0 benchmarked without
+fine-tuning & Completed\\
+Uncertainty & Quantile calibration plus independent and coherent residual
+scenario generation & Completed with calibration limitations\\
+Optimization & Synthetic F1 work buffer, signed grid accounting,
+non-anticipative stochastic scheduling, feasibility and settlement checks &
+Validated framework\\
+Decision value & Deterministic versus independent- and coherent-scenario
+scheduling on common-feasible SPARK days & Completed exploratory study\\
+\bottomrule
+\end{tabularx}
+
+\newpage
+\section*{4. Main Verified Results}
+
+\subsection*{4.1 Forecasting performance}
+
+\begin{tabularx}{\textwidth}{p{0.18\textwidth}Xrr}
+\toprule
+Site & Method & MAE (kW) & RMSE (kW)\\
+\midrule
+SPARK 2024 & Historical baseline B3 & 2.7096 & 4.2319\\
+ & Historical ensemble B5 & 2.5713 & 4.1518\\
+ & LightGBM & \textbf{2.3520} & \textbf{3.4659}\\
+\midrule
+Honda 2023 & B5 & 76.480 & 101.338\\
+ & LightGBM M1-CHP & \textbf{71.513} & \textbf{96.974}\\
+ & TimesFM 3.0 zero-shot & 95.431 & 129.221\\
+ & Chronos-2 zero-shot & 103.672 & 139.959\\
+\bottomrule
+\end{tabularx}
+
+For Honda, LightGBM improves B5 MAE by 4.967 kW (6.495\%), with a paired daily
+difference of -5.122 kW and 95\% interval [-6.833, -3.514]. However, export
+recognition remains weak: export recall is 29.752\% for LightGBM and 30.809\%
+for B5. The zero-shot foundation-model result is a bounded negative benchmark
+for two checkpoints; it does not test fine-tuning or domain adaptation.
+
+For SPARK, globally calibrated quantile LightGBM achieves WIS 1.4743, 80\%
+coverage of 80.44\%, and 90\% coverage of 89.91\%. Holiday uncertainty remains
+poorly represented: 80\% and 90\% coverage fall to 50.35\% and 68.29\%.
+
+\subsection*{4.2 Scenario quality}
+
+Whole-day residual scenarios (S2) improve dependence-sensitive diagnostics over
+independent interval scenarios (S1). On rolling SPARK 2023, the variogram score
+falls from 1.238 to 0.402 and ACF RMSE from 0.538 to 0.185. On Honda 2022, the
+variogram score falls from 25.040 to 8.256 and ACF RMSE from 0.498 to 0.211.
+Marginal calibration remains imperfect: S2 80\% coverage is 69.74\% for SPARK
+and 75.21\% for Honda. Better dependence therefore does not mean that the full
+scenario distribution is calibrated.
+
+\subsection*{4.3 Decision-value result}
+
+The decision experiment uses a frozen hypothetical F1 electrical-work buffer:
+$\pm5$ kW power, $\pm10$ kWh energy state, 15-minute intervals, exact terminal
+recovery, a zero-export cap, and no import cap. It is not a battery, identified
+machine, or measured production process. The population contains 273 complete
+SPARK days in 2024; 191 are feasible under all policies.
+
+\begin{tabularx}{\textwidth}{Xrrr}
+\toprule
+Policy & Counterfactual cost reduction (euro/day) & Violation days &
+Common-feasible reduction (euro/day)\\
+\midrule
+P2 deterministic LightGBM & 1.999617 & 82 & \textbf{2.326373}\\
+P3 independent scenarios & 1.800671 & 16 & 2.182422\\
+P4 coherent scenarios & 1.747536 & \textbf{11} & 2.135182\\
+\bottomrule
+\end{tabularx}
+
+On the 191 common-feasible days, P2 is cheaper than P4 by 0.191191 euro/day
+(95\% day-bootstrap interval [-0.271593, -0.131960]) and cheaper than P3 by
+0.143951 euro/day. P3 versus P4 is unresolved: -0.047240 euro/day, 95\%
+interval [-0.122619, 0.009287], Holm-adjusted $p=0.131$. P4 nevertheless cuts
+modelled violation days from 82 under P2 and 16 under P3 to 11. A pre-specified
+all-day feasibility correction does not reverse the cost ranking.
+
+\infobox{greenbox}{\textbf{Strongest achievement.} The project connects
+leakage-safe forecasting, scenario dependence, physical feasibility, and
+settlement in one reproducible comparison. The result is scientifically useful
+because it separates two effects: coherent scenarios improve modelled
+feasibility, while deterministic scheduling retains lower mean counterfactual
+cost.}
+
+\section*{5. Engineering and Reproducibility Achievements}
+
+\begin{itemize}
+  \item Forecast issuance and feature availability are enforced independently;
+  future load, PV, CHP, weather, and target-derived regimes are excluded.
+  \item Physical days preserve 92, 96, and 100 intervals across DST transitions.
+  \item Stochastic policies use one shared first-stage schedule; scenarios are
+  not optimized independently as if future information were known.
+  \item Import/export signs, energy units, terminal recovery, and feasibility
+  are audited outside the solver.
+  \item The replication configuration was frozen before outcome evaluation;
+  two reruns produced byte-identical deterministic outputs.
+  \item The complete suite passes 233/233 tests, including 20 replication tests.
+  Original forecast/scenario artifacts were not regenerated or modified.
+\end{itemize}
+
+\newpage
+\section*{6. Drawbacks and What the Results Do Not Establish}
+
+\begin{tabularx}{\textwidth}{p{0.26\textwidth}X}
+\toprule
+Limitation & Consequence\\
+\midrule
+Hypothetical flexibility asset & Capacities do not describe verified SPARK or
+Honda equipment; this is not plant validation.\\
+Assumed price-publication timing & Scheduling at 12:55 is
+\status{POST_PUBLICATION_TIMING_ASSUMED}; observation-level publication
+timestamps are absent.\\
+Counterfactual wholesale exposure & Monetary values are not customer bill
+savings, trading profits, or validated revenue.\\
+Previously exposed SPARK 2024 & The decision replication is exploratory rather
+than a new independent confirmatory test.\\
+Common-feasible filtering & The 191-day primary population may be less difficult
+than all 273 days; the corrected all-day analysis remains secondary.\\
+Only SPARK economics & Honda contributes forecast and scenario evidence, but no
+Honda economic claim is supported without verified prices and timing.\\
+Imperfect scenario calibration & S2 improves dependence but undercovers nominal
+80\% and 90\% intervals.\\
+Limited external validity & Two public sites and one primary asset/tariff setup
+cannot establish general industrial flexibility value.\\
+\bottomrule
+\end{tabularx}
+
+The research also produced important negative findings. More zero-shot
+foundation-model benchmarking is unlikely to be high value without a new domain-
+adaptation question. More calibration variants did not solve holiday uncertainty.
+Most importantly, improved energy/variogram scores did not produce lower mean
+decision cost. This is not a failure of the project: it identifies where added
+model complexity does and does not create value.
+
+\section*{7. Where We Stand Now}
+
+\infobox{amberbox}{\textbf{Current position.} The forecasting and software
+questions are sufficiently mature for thesis and conference writing. The main
+remaining uncertainty is not which algorithm to add; it is whether the
+counterfactual asset, tariff, and information timing represent a decision that
+an industrial partner considers operationally meaningful.}
+
+\textbf{What is established}
+\begin{itemize}
+  \item Site-specific LightGBM is a strong deterministic benchmark on both
+  datasets, while Honda export recognition remains weak.
+  \item Whole-day residual sampling represents temporal dependence better than
+  independent interval sampling on the reported diagnostics.
+  \item Under the frozen SPARK decision problem, coherence reduces modelled
+  violations but does not improve mean cost.
+\end{itemize}
+
+\textbf{What remains unverified}
+\begin{itemize}
+  \item real process-level flexibility capacities, recovery rules, and operator
+  acceptance;
+  \item customer-specific tariffs, network charges, price-publication timestamps,
+  and commercial settlement;
+  \item an independent external holdout and a third site with different physical
+  flexibility;
+  \item whether coherent scenarios add value under stronger state coupling,
+  peak charges, CVaR, or validated recourse.
+\end{itemize}
+
+\section*{8. Feedback Requested from the Company}
+
+\begin{enumerate}
+  \item Is the F1 work-buffer abstraction recognizable for any real process, and
+  what power, energy, ramp, and recovery limits would be credible?
+  \item Which operational objective matters most: energy cost, capacity peaks,
+  export avoidance, production risk, or a combination?
+  \item Which tariffs, network charges, market deadlines, and publication times
+  should a realistic case use?
+  \item What cost or operational meaning should be assigned to a modelled
+  zero-export-cap violation?
+  \item Is anonymized operational validation, a third dataset, or prospective
+  shadow scheduling possible without exposing confidential production data?
+\end{enumerate}
+
+\section*{9. Recommended Next Step}
+
+Do not add another forecasting model by default. First, validate one decision
+case with an industrial partner: define the asset, tariff, information timeline,
+and value of feasibility before running a new economic experiment. If such
+parameters cannot be validated, the present work should be presented honestly
+as a reproducible exploratory study whose main contribution is demonstrating
+that \emph{improved temporal dependence is not equivalent to improved decision
+value}.
+
+\vfill
+{\footnotesize\textbf{Claim boundary.} All monetary outcomes in this brief are
+synthetic counterfactual wholesale-cost differences. They are not customer
+savings, trading profit, battery value, or evidence of Honda/SPARK plant
+performance. Dataset and code redistribution remains subject to the respective
+repository and licensing conditions.}
+
+\end{document}

@@ -1,0 +1,136 @@
+{
+  "experiment_id": "SPARK_STAGE3_FEASIBILITY_TIMING_REPLICATION_V1",
+  "status": "FROZEN_BEFORE_REPLICATION_OUTCOME_ANALYSIS",
+  "frozen_date": "2026-11-05",
+  "starting_honda_commit": "be5ddb47ab58e43f70c72400c3eb09391a1b54a5",
+  "spark_commit": "32cff65f7f5384d08095d8d0325c45e8ce002ec3",
+  "scope": {
+    "dataset": "SPARK",
+    "year": 2024,
+    "candidate_days": 273,
+    "candidate_date_start": "2024-01-06",
+    "candidate_date_end": "2024-12-01",
+    "physical_intervals_per_day": 96,
+    "restriction": "No new forecasts, scenarios, capacities, model variants, market designs, CVaR variants, or Honda economics"
+  },
+  "frozen_inputs": {
+    "stage1_scenario_config": {
+      "path": "config/scenarios/scenario_method_frozen.json",
+      "sha256": "790d3574d468f10fbc565bef1ed0eb492d45ff9db00436f2700a74b7069171ba"
+    },
+    "stage2_flexibility_config": {
+      "path": "config/optimization/flexibility_archetypes.json",
+      "sha256": "ef1ad47b19d063ccdd2d73aaa08b54587a4d1fcf1d9f474ad5b144ab68a1c761"
+    },
+    "stage2_tariff_config": {
+      "path": "config/optimization/tariff_scenarios.json",
+      "sha256": "a623c94f789b1bbdb7f7a4dd3dcb49659532561aada56ba109da3dbcfbfe2609"
+    },
+    "stage3_experiment_config": {
+      "path": "config/decision_value/stage3_experiment_frozen.json",
+      "sha256": "e8903167aa9288b50f883142130e84732c37082a735073d01c4bab346dc20d02"
+    },
+    "stage3_daily_metrics": {
+      "path": "results/decision_value/policy_daily_metrics.parquet",
+      "sha256": "9adbf3efa9c88dd20f496533328f7f521965195bfb9451825e15ed07ca3e088c"
+    },
+    "stage3_committed_schedules": {
+      "path": "results/decision_value/policy_decisions.parquet",
+      "sha256": "f309b856149d8b4e4be0b2856b9feb22ade58810f2b36b767fd4ea79b7351e20"
+    },
+    "spark_point_forecast_and_actual": {
+      "path": "SPARK/results/lightgbm/lightgbm_predictions.parquet",
+      "sha256": "f6a7099f18656124b9c1bcd1f308831835e1b23d2febd8d397cebcb0dfb9c309"
+    },
+    "spark_prices": {
+      "path": "SPARK/data/silver/exogenous/canonical/electricity_prices_15min_de_2021_2024.parquet",
+      "sha256": "e11233525e55afcafb47646925ae88b8c2ddde3996eb9385a15e215a6fd9fa02"
+    }
+  },
+  "information_timing": {
+    "forecast_issue_local": "12:00 Europe/Berlin D-1",
+    "assumed_price_publication_local": "12:55 Europe/Berlin D-1",
+    "scheduling_decision_local": "12:55 Europe/Berlin D-1",
+    "classification": "POST_PUBLICATION_TIMING_ASSUMED",
+    "source_limitation": "The historical price artifact contains no observation-level publication timestamp; 12:55 is an explicit documentary assumption, not empirically verified archival metadata.",
+    "forecast_update_after_issue": false
+  },
+  "physical_asset": {
+    "label": "SYNTHETIC_COUNTERFACTUAL_F1_MEDIUM",
+    "p_up_kw": 5.0,
+    "p_down_kw": 5.0,
+    "e_advance_kwh": 10.0,
+    "e_backlog_kwh": 10.0,
+    "initial_state_kwh": 0.0,
+    "terminal_state_kwh": 0.0,
+    "interval_hours": 0.25,
+    "export_cap_kw": 0.0,
+    "import_cap_kw": null,
+    "asset_claim": "NOT_PLANT_VALIDATION"
+  },
+  "policies": [
+    "P2_LGBM_DETERMINISTIC",
+    "P3_S1_INDEPENDENT",
+    "P4_S2_COHERENT"
+  ],
+  "primary_estimand": {
+    "population": "Intersection of days on which P2, P3, and P4 realized schedules satisfy the frozen grid cap",
+    "metric": "paired realized wholesale cost difference in EUR/day",
+    "classification": "PRE_REGISTERED_PRIMARY"
+  },
+  "secondary_estimand": {
+    "population": "All 273 candidate days after the pre-specified settlement-only feasibility correction",
+    "metric": "paired corrected wholesale cost difference in EUR/day",
+    "classification": "PRE_SPECIFIED_SECONDARY"
+  },
+  "diagnostic_estimand": {
+    "population": "All 273 candidate days without correction",
+    "metric": "paired nominal wholesale cost difference contaminated by realized cap violations",
+    "classification": "EXPLORATORY_DIAGNOSTIC"
+  },
+  "settlement_correction": {
+    "name": "EX_POST_MINIMUM_ZERO_EXPORT_PROJECTION",
+    "schedule_policy": "The frozen committed F1 schedule is never changed or reoptimized.",
+    "rule": "For realized post-schedule exchange g_t = actual_t + u_t, set external correction c_t = max(0, -g_t) and corrected exchange g_corrected_t = g_t + c_t. This is the unique componentwise minimum nonnegative intervention satisfying the zero-export cap.",
+    "cost_rule": "Price corrected exchange with the unchanged historical interval price vector and 0.25 h duration.",
+    "negative_price_guard": "Correction cannot exceed the exact violation amount, preventing artificial extra consumption at negative prices.",
+    "information_rule": "Actuals are accessed only by the settlement layer after the original schedule is sealed. The correction is an ex-post accounting/feasibility sensitivity, not an implementable forecast-time decision.",
+    "energy_state_rule": "Correction is external to the F1 work-buffer state and does not rewrite its terminal condition.",
+    "classification": "PRE_SPECIFIED_SECONDARY"
+  },
+  "primary_comparisons": [
+    {"id": "P2_MINUS_P4", "policy_a": "P2_LGBM_DETERMINISTIC", "policy_b": "P4_S2_COHERENT"},
+    {"id": "P3_MINUS_P4", "policy_a": "P3_S1_INDEPENDENT", "policy_b": "P4_S2_COHERENT"},
+    {"id": "P2_MINUS_P3", "policy_a": "P2_LGBM_DETERMINISTIC", "policy_b": "P3_S1_INDEPENDENT"}
+  ],
+  "hypotheses": {
+    "H1": "On common-feasible days, S2 does not significantly reduce mean realized wholesale cost relative to deterministic scheduling.",
+    "H2": "S2 reduces realized zero-export-cap violation frequency relative to deterministic scheduling.",
+    "H3": "Any S2 advantage is concentrated on days with binding F1 state, F1 power, or realized grid-cap conditions."
+  },
+  "statistics": {
+    "paired_unit": "local calendar day",
+    "bootstrap_resamples": 2000,
+    "bootstrap_seed": 20261029,
+    "primary_interval": "ordinary day bootstrap percentile 95% CI",
+    "sensitivity_interval": "7-day circular moving-block bootstrap percentile 95% CI",
+    "block_length_days": 7,
+    "multiplicity": "Holm adjustment across exactly three primary common-feasible comparisons",
+    "binding_tolerance": 1e-7
+  },
+  "required_labels": [
+    "SYNTHETIC_COUNTERFACTUAL_WHOLESALE_COST_DIFFERENCE",
+    "NOT_CUSTOMER_SAVINGS",
+    "NOT_TRADING_PROFIT",
+    "NOT_PLANT_VALIDATION",
+    "POST_PUBLICATION_TIMING_ASSUMED",
+    "EX_POST_PRICE_AWARE",
+    "UNSUPPORTED_TIMING",
+    "READY_WITH_LIMITATIONS",
+    "CATEGORY_C_EXPLORATORY",
+    "PRE_REGISTERED_PRIMARY",
+    "PRE_SPECIFIED_SECONDARY",
+    "EXPLORATORY_DIAGNOSTIC"
+  ],
+  "stopping_rule": "Stop after this one replication; do not add policies, capacities, scenarios, markets, models, CVaR variants, or Honda economics."
+}

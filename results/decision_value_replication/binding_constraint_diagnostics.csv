@@ -1,0 +1,4 @@
+policy,days,power_limit_binding_days,power_upper_binding_days,power_lower_binding_days,energy_state_binding_days,advance_state_binding_days,backlog_state_binding_days,realized_grid_cap_active_or_violation_days,realized_grid_cap_violation_days,maximum_abs_schedule_energy_residual_kwh,maximum_terminal_state_residual_kwh,classification
+P2_LGBM_DETERMINISTIC,273,273,273,271,273,273,273,82,82,4.440892099e-15,0,EXPLORATORY_DIAGNOSTIC
+P3_S1_INDEPENDENT,273,271,271,255,253,252,233,16,16,5.329070518e-15,0,EXPLORATORY_DIAGNOSTIC
+P4_S2_COHERENT,273,266,266,242,251,247,232,11,11,6.661338148e-15,0,EXPLORATORY_DIAGNOSTIC

@@ -1,0 +1,247 @@
+{
+  "audit_schema_version": "1.0",
+  "audit_date_local": "2026-11-05",
+  "scope": "read-only scientific checkpoint; no new modelling or optimization",
+  "repositories": {
+    "honda": {
+      "path": "C:\\Users\\asker\\Documents\\GenAIProjects\\industrial_flexibilty_honda",
+      "branch": "master",
+      "starting_head": "be5ddb47ab58e43f70c72400c3eb09391a1b54a5",
+      "starting_status": "CLEAN",
+      "current_status_expected": "ONLY_NEW_reports/research_checkpoint_FILES",
+      "large_generated_artifacts": {
+        "data/silver/honda/honda_energy_15min.parquet": {
+          "tracked": false,
+          "git_ignored": true,
+          "sha256": "d9d93445391985faa7a0aa015cdb65b949f3909636d284c59449db876ae310df"
+        },
+        "data/silver/honda/provenance_masks_15min.parquet": {
+          "tracked": false,
+          "git_ignored": true,
+          "sha256": "f93d5bf4597d8f768cc63437f2ce78d21f4050f4dfcfbbe0e59d2fa0ef4eb778"
+        }
+      }
+    },
+    "spark": {
+      "path": "C:\\Users\\asker\\Documents\\GenAIProjects\\Industrial_energy_forecasting",
+      "branch": "main",
+      "head": "32cff65f7f5384d08095d8d0325c45e8ce002ec3",
+      "starting_status": "CLEAN",
+      "access": "READ_ONLY_BY_AUDIT_POLICY"
+    }
+  },
+  "honda_checkpoints": [
+    {"stage": "H1", "commit": "80b8e3033547341f0223d6ccd4e54da4de741909", "reachable": true, "status": "COMPLETED_AND_COMMITTED"},
+    {"stage": "H2", "commit": "2d29de9f45dcd414baf53dd3b3dabb4627798fe3", "reachable": true, "status": "COMPLETED_AND_COMMITTED"},
+    {"stage": "H3A", "commit": "99bb2033e30c06aeb71486f65a347887735f5c95", "reachable": true, "status": "COMPLETED_AND_COMMITTED"},
+    {"stage": "H3B", "commit": "b12d055591cf90ca7929342b34e1e31b3caf6e0f", "reachable": true, "status": "COMPLETED_AND_COMMITTED"},
+    {"stage": "H4", "commit": "11a490b6bff6a0ce12f6f67d686abd4355d3185b", "reachable": true, "status": "COMPLETED_AND_COMMITTED"},
+    {"stage": "H5", "commit": "b3764bd791f1a843fc5aa8bf005d07e382d21059", "reachable": true, "status": "COMPLETED_AND_COMMITTED"},
+    {"stage": "H6", "commit": "24e86e95aa8e887ae19e17cac536a9b879207db9", "reachable": true, "status": "COMPLETED_AND_COMMITTED"}
+  ],
+  "post_h6_stages": [
+    {
+      "stage": "Stage 1 / H7 coherent scenarios",
+      "commit": "bb0536df77f709a20452ed3c86ab16e66a5e0555",
+      "status": "COMPLETED_AND_COMMITTED",
+      "readiness": "READY_WITH_LIMITATIONS",
+      "frozen_method": "S2_WHOLE_DAY_RESIDUAL_BOOTSTRAP",
+      "scenario_count": 50,
+      "limitations": ["finite donor pools", "rare DST support", "imperfect marginal/tail/export calibration", "SPARK rolling development coverage below 80%"]
+    },
+    {
+      "stage": "Stage 2 physical flexibility and market framework",
+      "commit": "aff0c9335f5e00985269e2a1aa6c27a112c6888d",
+      "status": "COMPLETED_AND_COMMITTED",
+      "readiness": "READY_WITH_LIMITATIONS_FOR_STAGE_3",
+      "solver": "SciPy 1.17.1 HiGHS",
+      "limitations": ["hypothetical capacities", "no customer tariff", "SPARK prices ex-post", "Honda prices unavailable", "F2 synthetic only"]
+    },
+    {
+      "stage": "Stage 3 decision value",
+      "commit": "be5ddb47ab58e43f70c72400c3eb09391a1b54a5",
+      "status": "COMPLETED_AND_COMMITTED",
+      "readiness": "CATEGORY_C_EXPLORATORY",
+      "honda_economics": "NOT_EVALUABLE",
+      "honda_blocker": "No authoritative 2023 price series with defensible timing metadata"
+    }
+  ],
+  "dataset_identity": {
+    "spark": {
+      "target": "facility electrical demand",
+      "unit": "kW",
+      "resolution_minutes": 15,
+      "period": "2021-2024",
+      "forecast_issue": "12:00 Europe/Berlin D-1",
+      "eligible_target_intervals": 133847
+    },
+    "honda": {
+      "target": "grid_exchange_kw_signed",
+      "meaning": "physical net exchange with public grid",
+      "sign": {"positive": "import", "negative": "export"},
+      "unit": "kW",
+      "resolution_minutes": 15,
+      "period": "2018-2023; primary forecasting 2020-2023",
+      "forecast_issue": "13:00 Europe/Berlin D-1",
+      "gross_load_validated": false
+    }
+  },
+  "validated_headline_results": {
+    "register_count": 84,
+    "count_definition": "Individual scalar headline values read from repository metric tables or hash-matching committed reports; rounded repeats are not double-counted.",
+    "spark": {
+      "gold_counts_by_year": {"2021": 34948, "2022": 34884, "2023": 32676, "2024": 31339},
+      "aggregation_75pct_mae_kw": 0.005999,
+      "aggregation_70pct_mae_kw": 0.041577,
+      "b3_test_mae_kw": 2.709594,
+      "b5_test_mae_kw": 2.571277,
+      "lgbm_test_mae_kw": 2.351969,
+      "lgbm_test_rmse_kw": 3.465943,
+      "r0_test_wis_kw": 1.474329,
+      "r0_test_80_coverage": 0.804429,
+      "r0_test_90_coverage": 0.899135,
+      "legacy_no_flex_eur_day": 28.381601,
+      "legacy_deterministic_savings_eur_day": 0.089724,
+      "legacy_probabilistic_savings_eur_day": 0.091075,
+      "legacy_increment_eur_day": 0.001351,
+      "legacy_increment_ci95": [-0.000068, 0.002725]
+    },
+    "honda": {
+      "primary_intervals": {"2020": 24145, "2021": 34281, "2022": 34624, "2023": 34161},
+      "complete_days": {"2020": 187, "2021": 342, "2022": 356, "2023": 347},
+      "b5_test_mae_kw": 76.479527,
+      "b5_test_rmse_kw": 101.337584,
+      "b5_export_recall": 0.308091,
+      "lgbm_test_mae_kw": 71.512543,
+      "lgbm_test_rmse_kw": 96.974261,
+      "lgbm_test_bias_kw": 9.407518,
+      "lgbm_export_recall": 0.297519,
+      "lgbm_vs_b5_daily_difference_kw": -5.122429,
+      "lgbm_vs_b5_ci95_kw": [-6.83316, -3.514362],
+      "timesfm_test_mae_kw": 95.431099,
+      "chronos2_test_mae_kw": 103.672349,
+      "timesfm_export_recall": 0.11219,
+      "chronos2_export_recall": 0.115426
+    },
+    "stage1": {
+      "selected": "S2_50",
+      "honda_s1_s2_energy_score_kw": [64.3517, 63.3171],
+      "honda_s1_s2_variogram": [25.0395, 8.2562],
+      "spark_s1_s2_energy_score_kw": [2.3939, 2.3713],
+      "spark_s1_s2_variogram": [1.2377, 0.4021]
+    },
+    "stage3": {
+      "eligible_days": 273,
+      "no_flex_cost_eur_day": 28.447594,
+      "deterministic_savings_eur_day": 1.999617,
+      "independent_savings_eur_day": 1.800671,
+      "coherent_savings_eur_day": 1.747536,
+      "oracle_savings_eur_day": 1.998817,
+      "deterministic_minus_coherent_cost_eur_day": -0.252081,
+      "deterministic_minus_coherent_ci95": [-0.315669, -0.199605],
+      "independent_minus_coherent_cost_eur_day": -0.053135,
+      "independent_minus_coherent_ci95": [-0.109641, -0.011827],
+      "export_violation_days": {"deterministic": 82, "independent": 16, "coherent": 11},
+      "physical_savings_eur_day": {"LOW": 0.740766, "MEDIUM": 1.747536, "HIGH": 3.057647}
+    }
+  },
+  "reported_only_numbers": [
+    {
+      "value": "Selected external-source market publication conventions",
+      "status": "REPORTED_IN_EXISTING_DOCUMENTATION",
+      "reason": "This audit did not browse and revalidate external operator pages; Stage 2 cites them."
+    }
+  ],
+  "unresolved_numerical_discrepancies": [],
+  "resolved_contextual_differences": [
+    {
+      "values": [28.381601, 28.447594],
+      "explanation": "Different SPARK experiments and eligible-day sets: 274-day legacy flexibility versus 273-day Stage 3 common intersection."
+    },
+    {
+      "values": [1.999617, 1.998817],
+      "explanation": "Stage 3 deterministic savings slightly exceed oracle savings only because deterministic settlement violates the frozen zero-export cap; it is not a valid oracle-beating claim."
+    }
+  ],
+  "missing_or_unverified": [
+    "Authoritative Honda 2023 price series and publication timestamps",
+    "Actual industrial production flexibility capacities",
+    "Actual customer tariff and connection contract",
+    "Independent gross Honda demand measurement",
+    "Prospective untouched decision-value holdout",
+    "Economic Honda export-state evaluation",
+    "Foundation-model fine-tuning/domain adaptation result",
+    "Causal attribution of Honda seasonal errors to PV or CHP changes"
+  ],
+  "tests": {
+    "honda": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 pytest -q -p no:cacheprovider",
+      "passed": 212,
+      "failed": 1,
+      "failure": "tests/optimization/test_stage2_optimization.py::test_h1_h6_protected_artifacts_unchanged",
+      "interpretation": "Stale Stage 2 path allow-list rejects committed Stage 3 report/config/result directories; no test was modified."
+    },
+    "spark": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 pytest -q -p no:cacheprovider",
+      "passed": 104,
+      "failed": 0
+    }
+  },
+  "evidence_inventory": {
+    "source_reports_inspected_count": 21,
+    "metric_tables_inspected_count": 38,
+    "principal_honda_reports": [
+      "reports/honda_reduced_dataset_audit.md",
+      "reports/honda_provenance_and_silver.md",
+      "reports/honda_forecasting_protocol_h3a.md",
+      "reports/honda_forecasting_protocol.md",
+      "reports/honda_baseline_benchmark.md",
+      "reports/honda_deterministic_ml_benchmark.md",
+      "reports/honda_foundation_model_benchmark.md",
+      "reports/scenarios/honda_h7_coherent_scenario_study.md",
+      "reports/optimization/honda_stage2_flexibility_and_market_framework.md",
+      "reports/decision_value/industrial_flexibility_decision_value_study.md"
+    ],
+    "principal_spark_reports": [
+      "reports/missingness_reliability_study.md",
+      "reports/gold_summary.md",
+      "reports/day_ahead_baselines.md",
+      "reports/deterministic_lightgbm.md",
+      "reports/probabilistic_lightgbm.md",
+      "reports/regime_aware_probabilistic.md",
+      "reports/flexibility_optimization.md",
+      "reports/missingness_report.json",
+      "reports/raw_quality/total_load_2021.json",
+      "reports/raw_quality/total_load_2022.json",
+      "reports/raw_quality/total_load_2023.json"
+    ]
+  },
+  "integrity_concerns": [
+    {"issue": "forecast/target leakage", "status": "PASS_WITH_LIMITATION", "note": "Strong frozen tests and audits; row-level replay not performed in this checkpoint."},
+    {"issue": "future PV/CHP/weather", "status": "PASS_WITH_LIMITATION", "note": "Contracts forbid realized future inputs; prior lineage audits relied upon."},
+    {"issue": "test reuse", "status": "PASS_WITH_LIMITATION", "note": "Honda 2023 and SPARK 2024 were repeatedly exposed and later studies are labelled exploratory."},
+    {"issue": "market timing", "status": "FAIL", "note": "SPARK economics are ex-post price-aware; Honda timing unsupported."},
+    {"issue": "physical calibration", "status": "FAIL", "note": "No real production asset identification; capacities are scenario assumptions."},
+    {"issue": "PV/CHP double counting", "status": "PASS", "note": "Stage 2 explicitly treats them as already netted in Honda exchange."},
+    {"issue": "artificial import/export arbitrage", "status": "PASS_WITH_LIMITATION", "note": "Tariff dominance and fixtures validate the implementation; not every solve was re-audited."},
+    {"issue": "oracle comparability", "status": "PASS_WITH_LIMITATION", "note": "Same F1/tariff, but cap-violating deterministic schedules invalidate negative regret interpretation."},
+    {"issue": "bootstrap dependence", "status": "PASS_WITH_LIMITATION", "note": "Whole-day and 7-day moving-block results are reported; sample is 273 days."},
+    {"issue": "operational deployability", "status": "FAIL", "note": "Evidence supports exploratory counterfactual simulation only."}
+  ],
+  "readiness": {
+    "research_maturity": "CATEGORY_C_TECHNICALLY_SOUND_EXPLORATORY",
+    "thesis_drafting": "READY_WITH_EXPLICIT_LIMITATIONS",
+    "operational_deployment": "NOT_READY",
+    "two_site_economic_claim": "NOT_READY",
+    "publication_preparation": "READY_FOR_LITERATURE_AND_REVIEWER_GAP_ANALYSIS",
+    "new_modelling_immediately_needed": false,
+    "new_independent_holdout_needed_for_strong_confirmation": true
+  },
+  "blockers": [
+    "Honda market data/timing",
+    "Measured physical flexibility",
+    "Actual tariff/contract",
+    "Prospective holdout",
+    "Current Honda full-suite one-test regression"
+  ]
+}

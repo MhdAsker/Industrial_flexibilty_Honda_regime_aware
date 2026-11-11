@@ -1,0 +1,1176 @@
+% Overleaf-ready paper skeleton and front matter.
+% Compile with pdfLaTeX. No bibliography entries are included because all
+% literature references must be independently verified before citation.
+%
+% Set \planningappendixfalse for a clean conference-submission skeleton.
+\documentclass[10pt,twocolumn]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=18mm,columnsep=6mm]{geometry}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{caption}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!55!black,
+  urlcolor=blue!55!black,
+  citecolor=blue!55!black,
+  pdftitle={When Better Scenario Dependence Does Not Pay},
+  pdfauthor={Author placeholder}
+}
+
+\setlength{\parindent}{0.9em}
+\setlength{\parskip}{0pt}
+\setlist{nosep,leftmargin=*}
+\captionsetup{font=small,labelfont=bf}
+
+\newif\ifplanningappendix
+\planningappendixtrue % Change to \planningappendixfalse for submission.
+
+\newcommand{\status}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\tverify}{\textsc{To verify}}
+\newcommand{\claimbox}[1]{%
+  \begin{center}
+  \fbox{\begin{minipage}{0.94\columnwidth}\small #1\end{minipage}}
+  \end{center}}
+
+\title{\textbf{When Better Scenario Dependence Does Not Pay:}\\
+A Feasibility-Restricted Evaluation of Coherent Forecast Uncertainty for
+Industrial Flexibility Scheduling}
+
+\author{
+  Author Name(s)\\
+  \small Affiliation / Department / Institution\\
+  \small City, Country\\
+  \small \texttt{corresponding.author@example.org}
+}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+\small\textbf{Intended venue type:} German/European applied energy informatics,
+industrial flexibility, or power-systems conference (e.g., The smarter E
+Europe, pro flex Dresden, Energy Informatics, or an ETG/VDE energy event).
+\end{center}
+
+\begin{abstract}
+Industrial flexibility scheduling increasingly uses probabilistic forecasts,
+yet improved statistical representation of temporal dependence need not yield
+better operational decisions. Existing evaluations often separate scenario
+quality from downstream feasibility and economic value, leaving the practical
+benefit of coherent daily trajectories unclear. We conduct a leakage-safe,
+feasibility-restricted counterfactual study of day-ahead scheduling with a
+frozen virtual production-buffer asset. Deterministic LightGBM scheduling is
+compared with risk-neutral schedules driven by independent interval residuals
+and coherent whole-day residual trajectories. The empirical decision analysis
+uses 273 complete 15-minute KIT SPARK days from 6 January to 1 December 2024;
+191 days are feasible for all three policies. Supporting forecast and scenario
+diagnostics draw on SPARK positive facility demand and Honda signed net grid
+exchange, whose targets are treated as physically distinct. On common-feasible
+days, deterministic scheduling is cheaper than coherent-scenario scheduling
+by 0.191191 euro/day (95\% day-bootstrap interval: 0.131960--0.271593 euro/day
+in magnitude). The coherent-versus-independent difference is statistically
+unresolved: independent minus coherent equals -0.047240 euro/day (95\%
+interval: -0.122619 to 0.009287). Nevertheless, coherent scenarios reduce
+modelled zero-export-cap violations from 82 deterministic days and 16
+independent-scenario days to 11 days. Thus, better temporal dependence can
+improve modelled feasibility without improving mean synthetic counterfactual
+wholesale cost. Results are exploratory, depend on a hypothetical
+$\pm5$ kW/$\pm10$ kWh flexibility asset and an assumed post-publication
+decision time, and constitute neither plant validation nor customer savings.
+\end{abstract}
+
+\noindent\textbf{Keywords:} industrial flexibility; probabilistic forecasting;
+scenario coherence; decision value; day-ahead scheduling; forecast uncertainty;
+feasibility; signed grid exchange
+
+\claimbox{\textbf{One-sentence contribution.} This paper presents a
+leakage-safe, feasibility-restricted counterfactual study showing that coherent
+whole-day residual scenarios can reduce constraint violations without
+improving mean day-ahead decision cost, demonstrating that temporal scenario
+dependence is not equivalent to decision value.}
+
+\section{Introduction}
+\label{sec:introduction}
+
+Industrial energy-management studies commonly evaluate point or probabilistic
+forecasts using statistical scores, while the downstream scheduling problem is
+evaluated separately or under weak physical assumptions. This separation can
+obscure whether an improvement in the temporal structure of forecast scenarios
+changes an implementable decision. The question addressed here is therefore
+narrow and falsifiable: \emph{Does better temporal coherence in probabilistic
+load or net-exchange scenarios improve day-ahead industrial flexibility
+decisions?}
+
+The analysis deliberately preserves a negative result. Whole-day residual
+trajectories improve dependence diagnostics and substantially reduce modelled
+zero-export-cap violations, but they do not lower mean synthetic
+counterfactual wholesale cost under the frozen decision problem. The paper is
+not framed as a forecasting-model comparison, a battery study, or validation
+of plant operations.
+
+\subsection{Contributions}
+
+\begin{itemize}
+  \item A leakage-safe, feasibility-restricted decision-value evaluation
+  across positive demand and signed net-exchange targets.
+  \item A reproducible comparison of deterministic, independent-scenario, and
+  coherent-scenario scheduling under a frozen counterfactual flexibility asset.
+  \item A bounded negative result showing that improved temporal scenario
+  dependence reduces constraint violations but does not improve mean decision
+  cost.
+\end{itemize}
+
+\claimbox{\textbf{Claims and non-claims.}
+
+\textbf{Allowed claims:} coherent scenarios reduce modelled violation
+frequency; deterministic scheduling remains cheaper in mean synthetic
+counterfactual wholesale cost; coherent-versus-independent feasible-day cost
+is inconclusive; the explicit feasibility correction does not reverse the cost
+ranking; and the result is bounded to SPARK, the frozen F1 asset, and the
+assumed timing convention.
+
+\textbf{Not claimed:} actual customer savings, trading profit, plant
+validation, Honda economic value, general industrial-flexibility value,
+battery value, trading performance, or universal superiority or inferiority of
+coherent scenarios.}
+
+\section{Related Work and Research Gap}
+\label{sec:related}
+
+The final paper should organize verified literature into six strands:
+(i) industrial electricity and net-exchange forecasting; (ii) probabilistic
+forecasting and quantile calibration; (iii) scenario generation and temporal
+dependence; (iv) decision-focused learning and predict-then-optimize methods;
+(v) industrial demand-side flexibility; and (vi) electricity-market timing,
+settlement, and information availability. The synthesis should distinguish
+proper marginal calibration from the validity of joint daily trajectories.
+
+The intended gap statement is modest: forecast quality is frequently assessed
+separately from downstream decision value, and relatively little evidence
+shows when improved temporal dependence changes a physically constrained,
+day-ahead industrial schedule. All literature claims and citations remain
+\tverify{} until checked against primary sources; Section~\ref{app:references}
+defines the reference plan without inventing citations.
+
+\section{Data and Provenance}
+\label{sec:data}
+
+\subsection{Dataset semantics}
+
+The empirical foundation comprises two industrial energy datasets with
+different physical targets. KIT SPARK records positive facility electrical
+demand. The modelling target is a 15-minute arithmetic mean constructed from
+raw measurements sampled every five seconds and spans 2021--2024. Honda R\&D
+Europe in Offenbach records 15-minute signed exchange with the public grid for
+2018--2023, with primary forecasting labels concentrated in 2020--2023.
+Positive Honda values denote import and negative values export. The Honda
+target already nets onsite PV and CHP and is therefore not gross demand.
+Honda gross-demand reconstruction has not been independently validated and is
+not an approved forecasting target.
+
+The physical distinction is consequential. SPARK describes positive facility
+consumption, whereas Honda describes bidirectional net exchange after onsite
+generation. Raw kW forecast errors across the two sites therefore do not measure
+the same quantity and must not be compared as if they did. Honda is used to
+evaluate scenario construction and forecasting generality, but the economic
+decision-value replication in this paper is restricted to SPARK.
+
+\subsection{Measurement quality and target provenance}
+
+SPARK contains substantial raw missingness. Table~\ref{tab:spark-quality}
+reports valid five-second samples, availability, and the longest continuous gap
+by year. Availability falls from 78.7746\% in 2021 to 68.3132\% in 2024, while
+the longest gap expands from less than two hours to almost 30 days. These values
+motivate explicit interval-level eligibility rather than treating the archive
+as a complete regular series.
+
+\begin{table*}[t]
+\centering
+\caption{SPARK raw-measurement availability and longest missing gap.}
+\label{tab:spark-quality}
+\small
+\begin{tabular}{lrrl}
+\toprule
+Year & Valid source samples & Availability & Longest missing gap\\
+\midrule
+2021 & 4,968,471 & 78.7746\% & 1 h 34 min 40 s\\
+2022 & 5,023,226 & 79.6427\% & 24 h 53 min 30 s\\
+2023 & 4,520,517 & 71.6723\% & 13 d 16 h 49 min\\
+2024 & 4,320,457 & 68.3132\% & 29 d 16 h 16 min\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+SPARK target construction uses an empirically supported 75\% raw-coverage
+threshold within each 15-minute interval. Table~\ref{tab:aggregation-error}
+shows that aggregation error rises markedly around 70\% coverage: mean absolute
+error increases from 0.0060 to 0.0416 kW, and the P99 error from 0.0495 to
+0.2687 kW. The 75\% rule is consequently a site- and archive-specific quality
+decision, not a universal threshold for industrial data.
+
+\begin{table*}[t]
+\centering
+\caption{Empirical SPARK aggregation error by within-interval raw coverage.}
+\label{tab:aggregation-error}
+\small
+\begin{tabular}{lrrr}
+\toprule
+Coverage & Mean absolute aggregation error & P95 absolute error & P99 absolute error\\
+ & (kW) & (kW) & (kW)\\
+\midrule
+75\% & 0.0060 & 0.0212 & 0.0495\\
+Approximately 70\% & 0.0416 & 0.1364 & 0.2687\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+Honda target construction is provenance-aware. Primary labels retain only
+original observations; author-imputed or filled values are excluded. Corrected
+non-imputed values belong only to a separately labelled sensitivity policy.
+Unknown provenance and unresolved missing intervals are also excluded from
+primary labels. This policy prevents filled values from being presented as
+independent measurements and preserves the signed import/export target.
+
+\section{Forecasting Models and Evaluation Protocol}
+\label{sec:forecasting}
+
+Forecasts are issued at 12:00 Europe/Berlin on D-1 for SPARK and 13:00 for
+Honda. Each forecast covers every physical 15-minute interval of local day D.
+The use of UTC as the unique physical key preserves 92 intervals on the spring
+DST transition, 96 on an ordinary day, and 100 on the autumn transition. Only
+measurements whose physical intervals have completed by issuance are available
+to a model.
+
+All model development is chronological. The SPARK deterministic benchmark
+uses 2021--2022 for training, 2023 for validation, and 2024 for testing. Honda
+uses rolling development folds with 2020 training/2021 validation and
+2020--2021 training/2022 validation, followed by refitting on 2020--2022 and a
+single 2023 evaluation. No future measured load, grid exchange, PV, CHP,
+weather, or target-derived regime variable is admitted. These timing rules are
+also applied to historical analogues and feature construction.
+
+For SPARK, deterministic LightGBM is the principal scheduling forecast. B3 is
+a robust recent-week analogue and B5 a selected historical-baseline ensemble.
+Table~\ref{tab:spark-forecast} reports the frozen 2024 comparison. LightGBM has
+the lowest MAE and RMSE and full prediction coverage; B5 has 96.19\% coverage.
+These frozen forecasts enter the decision study without further model selection
+or tuning.
+
+\begin{table}[t]
+\centering
+\caption{SPARK 2024 deterministic forecasting results.}
+\label{tab:spark-forecast}
+\small
+\begin{tabular}{lrrr}
+\toprule
+Method & MAE (kW) & RMSE (kW) & Coverage\\
+\midrule
+B3 & 2.7096 & 4.2319 & 100\%\\
+B5 & 2.5713 & 4.1518 & 96.19\%\\
+LightGBM & 2.3520 & 3.4659 & 100\%\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The SPARK probabilistic model estimates q05, q10, q25, q50, q75, q90, and q95
+with quantile LightGBM. A development-selected global calibration produces 2024
+WIS 1.4743 and empirical 50\%, 80\%, and 90\% coverages of 50.06\%, 80.44\%,
+and 89.91\%. Holiday calibration remains weak: WIS is 2.1746, while 80\% and
+90\% coverage fall to 50.35\% and 68.29\%. These marginal quantile results do
+not, by themselves, establish a coherent joint daily distribution.
+
+Honda provides a bounded cross-dataset forecasting benchmark. As shown in
+Table~\ref{tab:honda-forecast}, LightGBM M1-CHP improves aggregate MAE over B5
+by 4.967 kW but does not improve export recall. Export recall is 29.752\% for
+LightGBM and 30.809\% for B5. Zero-shot TimesFM 3.0 and Chronos-2 are not
+competitive in this implementation. This result concerns two particular
+checkpoints in zero-shot mode; it is not evidence that foundation models are
+universally inferior or that adaptation cannot help.
+
+\begin{table*}[t]
+\centering
+\caption{Honda 2023 signed-grid-exchange forecasting results. Positive targets
+denote import and negative targets export.}
+\label{tab:honda-forecast}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Model & MAE (kW) & RMSE (kW) & Bias (kW) & Export recall\\
+\midrule
+B5 & 76.480 & 101.338 & +6.649 & 30.809\%\\
+LightGBM M1-CHP & 71.513 & 96.974 & +9.408 & 29.752\%\\
+TimesFM 3.0 zero-shot & 95.431 & 129.221 & -0.040 & 11.219\%\\
+Chronos-2 zero-shot & 103.672 & 139.959 & -6.184 & 11.543\%\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\section{Scenario Generation}
+\label{sec:scenarios}
+
+For observation $y_{d,t}$ and frozen point forecast $\widehat{y}_{d,t}$, the
+residual is
+\begin{equation}
+  e_{d,t}=y_{d,t}-\widehat{y}_{d,t}.
+\end{equation}
+Residual donors are restricted to past or out-of-sample development residuals;
+test residuals are never sampled to construct a test-day scenario. S1 generates
+each interval by independently sampling residual information, thereby
+preserving a marginal residual distribution while disrupting within-day serial
+dependence. S2 samples a whole-day residual trajectory and adds it to the point
+forecast, preserving the donor day's temporal ordering. S3 conditions donor
+selection on pre-specified information, but was not selected because it did not
+pass a robust across-dataset selection rule.
+
+Tables~\ref{tab:honda-scenarios} and~\ref{tab:spark-scenarios} compare S1 and S2
+at 50 scenarios. Lower scores are preferable. S2 produces modestly lower energy
+scores but much lower variogram scores and ACF RMSE on both datasets. The
+strongest improvement is therefore in dependence representation rather than in
+the overall multivariate distance measured by the energy score.
+
+\begin{table}[t]
+\centering
+\caption{Honda 2022 scenario diagnostics at 50 scenarios.}
+\label{tab:honda-scenarios}
+\small
+\begin{tabular}{lrr}
+\toprule
+Metric & S1 & S2\\
+\midrule
+Energy score & 64.352 & 63.317\\
+Variogram score & 25.040 & 8.256\\
+ACF RMSE & 0.498 & 0.211\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{SPARK rolling-2023 scenario diagnostics.}
+\label{tab:spark-scenarios}
+\small
+\begin{tabular}{lrr}
+\toprule
+Metric & S1 & S2\\
+\midrule
+Energy score & 2.394 & 2.371\\
+Variogram score & 1.238 & 0.402\\
+ACF RMSE & 0.538 & 0.185\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+S2 is not claimed to be fully marginally calibrated. Table~\ref{tab:coverage}
+shows undercoverage at both nominal levels: 80\% intervals cover 75.21\% for
+Honda and 69.74\% for SPARK, while 90\% intervals cover 85.56\% and 81.29\%.
+Consequently, S2 improves dependence metrics but does not solve marginal
+calibration. Better dependence is an input property whose decision value must
+be tested, not assumed.
+
+\begin{table}[t]
+\centering
+\caption{Marginal coverage limitation of S2 scenarios.}
+\label{tab:coverage}
+\small
+\begin{tabular}{lrr}
+\toprule
+Dataset & S2 80\% coverage & S2 90\% coverage\\
+\midrule
+Honda & 75.21\% & 85.56\%\\
+SPARK & 69.74\% & 81.29\%\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Counterfactual Flexibility and Market-Timing Framework}
+\label{sec:flexibility}
+
+\subsection{Frozen F1 work-buffer asset}
+
+The decision model uses a synthetic counterfactual electrical-work buffer F1.
+For baseline exchange or demand $b_t$, committed control $u_t$, and interval
+duration $\Delta t=0.25$ h, the post-control grid trajectory $G_t$ and work
+state $x_t$ are
+\begin{align}
+  G_t &= b_t+u_t,\\
+  x_{t+1} &= x_t+u_t\Delta t.
+\end{align}
+The frozen physical bounds are
+\begin{align}
+  -P_{\mathrm{down}} &\leq u_t \leq P_{\mathrm{up}},\\
+  -E_{\mathrm{backlog}} &\leq x_t \leq E_{\mathrm{advance}},
+\end{align}
+with $P_{\mathrm{up}}=P_{\mathrm{down}}=5$ kW and
+$E_{\mathrm{advance}}=E_{\mathrm{backlog}}=10$ kWh. Exact daily energy
+conservation follows from terminal recovery $x_T=x_0$. The model imposes a
+zero-export cap, no import cap, and one shared first-stage non-anticipative
+schedule across all scenarios.
+
+F1 is neither an identified machine nor a measured production line. It is not a
+battery or a thermal system, and its capacities are not measured equipment
+parameters. Thermal-buffer F2 and BESS formulations are outside the primary
+decision-value experiment. For Honda, any future use of F1 would be an additive
+hypothetical load overlay on signed exchange; PV and CHP must not be subtracted
+again. No Honda economic result is reported here.
+
+\subsection{Market information and settlement}
+
+SPARK's load forecast is issued at 12:00 Europe/Berlin on D-1. Scheduling is
+assumed at 12:55, after the relevant day-ahead price vector has become known.
+The historical price file does not contain observation-level publication
+timestamps, so the information pattern is labelled
+\status{POST_PUBLICATION_TIMING_ASSUMED}. The original experiment remains
+\status{EX_POST_PRICE_AWARE}; neither label establishes real-time operational
+validation. A later decision time does not permit the 12:00 load forecast to be
+refreshed with post-issuance measurements.
+
+The implementable schedule is sealed before actual demand is accessed. If the
+realized post-control trajectory $g_t$ violates the zero-export cap, the
+secondary all-day estimand applies
+\begin{align}
+  c_t &= \max(0,-g_t),\\
+  g^{\mathrm{corrected}}_t &= g_t+c_t.
+\end{align}
+This is the unique componentwise minimum nonnegative intervention needed to
+satisfy $g^{\mathrm{corrected}}_t\geq0$. It equals, and therefore cannot exceed,
+the violation amount. Because the intervention is zero whenever $g_t\geq0$ and
+only removes negative exchange, it cannot create additional negative-price
+consumption arbitrage. The committed F1 schedule is never changed, clipped, or
+reoptimized, and the correction lies outside the F1 work-buffer state. It is an
+explicit settlement sensitivity rather than hidden recourse.
+
+\section{Feasibility-Restricted Decision-Value Evaluation}
+\label{sec:evaluation}
+
+The evaluation population contains 273 complete 96-interval SPARK days from
+6 January through 1 December 2024. Spring and autumn DST days are valid in the
+general protocol, but this replication population contains ordinary 96-interval
+days only. A policy-day is feasible when every realized interval satisfies the
+zero-export cap within $10^{-7}$ kW. A common-feasible day is one for which P2,
+P3, and P4 are all feasible; 191 days satisfy this intersection.
+
+P2 schedules against deterministic LightGBM, P3 against S1 independent
+scenarios, and P4 against S2 coherent scenarios. The same price vector, F1
+asset, terminal condition, solver convention, and realized settlement are used
+for all policies. Exactly three comparisons were pre-registered: P2$-$P4,
+P3$-$P4, and P2$-$P3. For cost difference A$-$B, a positive result means that B
+is cheaper and a negative result that A is cheaper.
+
+The \status{PRE_REGISTERED_PRIMARY} estimand uses only the 191 common-feasible
+days. Uncertainty is quantified with 2,000 paired whole-day bootstrap resamples
+using seed 20261029. Seven-day circular moving-block intervals are a temporal
+dependence sensitivity, and Holm adjustment covers the three primary tests.
+The corrected 273-day comparisons are
+\status{PRE_SPECIFIED_SECONDARY}. Nominal uncorrected all-day comparisons,
+violation diagnostics, and binding-constraint diagnostics are
+\status{EXPLORATORY_DIAGNOSTIC}. These labels prevent the all-day sensitivity
+from replacing the primary common-feasible estimand after outcomes are known.
+
+\section{Results}
+\label{sec:results}
+
+\subsection{Policy-level outcomes}
+
+Table~\ref{tab:policy} reports the policy-level results. The values called cost
+reductions in the caption are synthetic counterfactual wholesale-cost
+differences relative to no flexibility, not customer savings or trading profit.
+P2 has the greatest nominal, common-feasible, and corrected reduction in cost.
+P4 has the fewest modelled violation days but the smallest mean cost reduction,
+so improved feasibility does not coincide with improved mean economics.
+
+\begin{table*}[t]
+\centering
+\caption{Policy-level results. All monetary values are synthetic counterfactual
+wholesale-cost reductions, not actual savings.}
+\label{tab:policy}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Policy & Nominal cost reduction & Violation days & Common-feasible cost reduction & Corrected cost reduction\\
+ & (euro/day) & & (euro/day) & (euro/day)\\
+\midrule
+P2 deterministic LightGBM & 1.999617 & 82 & 2.326373 & 1.982463\\
+P3 independent scenarios & 1.800671 & 16 & 2.182422 & 1.799640\\
+P4 coherent scenarios & 1.747536 & 11 & 2.135182 & 1.746470\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Primary common-feasible comparisons}
+
+Table~\ref{tab:primary-comparisons} contains the three
+\status{PRE_REGISTERED_PRIMARY} comparisons. P2 is robustly cheaper than P4:
+the mean P2$-$P4 difference is -0.191191 euro/day, and both day and block
+intervals remain below zero. P2 is likewise cheaper than P3 by 0.143951
+euro/day in magnitude. By contrast, P3$-$P4 equals -0.047240 euro/day and both
+uncertainty intervals include zero; its Holm-adjusted $p$-value is 0.131.
+Although P4 is cheaper than P3 on 65.97\% of days, larger adverse P4 outcomes
+raise its mean cost. The coherent-versus-independent mean comparison is
+therefore inconclusive, not evidence of average superiority in either direction.
+
+\begin{table*}[t]
+\centering
+\caption{Primary common-feasible paired comparisons. Positive A$-$B means B is
+cheaper; negative values mean A is cheaper.}
+\label{tab:primary-comparisons}
+\scriptsize
+\begin{tabular}{lrrrrrr}
+\toprule
+Comparison & Days & Mean A$-$B & 95\% day-bootstrap CI & 7-day block CI & B daily win fraction & Holm-adjusted $p$\\
+ & & (euro/day) & (euro/day) & (euro/day) & & \\
+\midrule
+P2$-$P4 & 191 & -0.191191 & [-0.271593, -0.131960] & [-0.313554, -0.113278] & 0.0052 & 0.000\\
+P3$-$P4 & 191 & -0.047240 & [-0.122619, +0.009287] & [-0.135098, +0.005784] & 0.6597 & 0.131\\
+P2$-$P3 & 191 & -0.143951 & [-0.169757, -0.120702] & [-0.188752, -0.104662] & 0.0000 & 0.000\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Corrected all-day sensitivity}
+
+The \status{PRE_SPECIFIED_SECONDARY} corrected comparison in
+Table~\ref{tab:corrected-comparisons} uses all 273 days. The correction does not
+reverse the policy ranking. P2 remains cheaper than both scenario policies. P3
+is cheaper than P4 by 0.053170 euro/day in mean corrected cost, with both day
+and block intervals below zero. This secondary result is conditional on the
+external correction and does not supersede the primary common-feasible finding.
+
+\begin{table*}[t]
+\centering
+\caption{Corrected all-day paired comparisons
+(\status{PRE_SPECIFIED_SECONDARY}).}
+\label{tab:corrected-comparisons}
+\scriptsize
+\begin{tabular}{lrrrrr}
+\toprule
+Comparison & Days & Mean A$-$B & 95\% day-bootstrap CI & 7-day block CI & B daily win fraction\\
+ & & (euro/day) & (euro/day) & (euro/day) & \\
+\midrule
+P2$-$P4 & 273 & -0.235992 & [-0.300416, -0.184113] & [-0.321147, -0.172512] & 0.0330\\
+P3$-$P4 & 273 & -0.053170 & [-0.109739, -0.011935] & [-0.113356, -0.011379] & 0.6154\\
+P2$-$P3 & 273 & -0.182822 & [-0.209122, -0.157245] & [-0.221738, -0.145244] & 0.0293\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Feasibility and overlap diagnostics}
+
+Table~\ref{tab:feasibility} quantifies modelled zero-export-cap violations.
+P4 reduces violation days by 71, or 86.6\%, relative to P2 and by five, or
+31.25\%, relative to P3. Its maximum violation power is also the smallest.
+However, among its 11 violating days, mean violation energy exceeds P3's mean
+over 16 violating days. The diagnostic supports a reduction in violation
+frequency, not a general claim of lower violation severity or economic value.
+
+\begin{table*}[t]
+\centering
+\caption{Feasibility diagnostics (\status{EXPLORATORY_DIAGNOSTIC}).}
+\label{tab:feasibility}
+\scriptsize
+\begin{tabular}{lrrrrrrr}
+\toprule
+Policy & Compliant days & Violation days & Violation fraction & Mean energy & P90 energy & Maximum energy & Maximum power\\
+ & & & & (kWh) & (kWh) & (kWh) & (kW)\\
+\midrule
+P2 & 191 & 82 & 30.04\% & 0.7093 & 2.0154 & 9.4713 & 1.1259\\
+P3 & 257 & 16 & 5.86\% & 0.2174 & 0.3281 & 2.0182 & 0.5017\\
+P4 & 262 & 11 & 4.03\% & 0.3495 & 0.5171 & 2.0295 & 0.4599\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+Violation sets are strongly nested (Table~\ref{tab:overlap}). All 11 P4
+violation days also violate under P2. Sixty-five days violate only under P2,
+whereas no P3- or P4-only violation occurs without P2. The overlap explains why
+the common-feasible intersection equals P2's 191 compliant days and confirms
+that P4's reduced violation count is not produced by a disjoint selection of
+days.
+
+\begin{table}[t]
+\centering
+\caption{Overlap of modelled violation days
+(\status{EXPLORATORY_DIAGNOSTIC}).}
+\label{tab:overlap}
+\small
+\begin{tabular}{lr}
+\toprule
+Violation pattern & Days\\
+\midrule
+No policy violates & 191\\
+P2 only & 65\\
+P2 and P3 & 6\\
+P2 and P4 & 1\\
+All three & 10\\
+P3 or P4 without P2 & 0\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Finally, Table~\ref{tab:binding} shows that F1 power and energy-state limits
+bind on most days under every policy. Power limits bind on all P2 days and all
+but two P3 days; energy-state limits bind on at least 251 days. Binding is thus
+too common to identify a useful subgroup in which coherence pays. The result
+does not establish that the P4 advantage is concentrated on binding days.
+
+\begin{table}[t]
+\centering
+\caption{Binding-constraint diagnostics
+(\status{EXPLORATORY_DIAGNOSTIC}).}
+\label{tab:binding}
+\small
+\begin{tabular}{lrrr}
+\toprule
+Policy & Power-limit & Energy-state & Grid-cap\\
+ & binding days & binding days & violation days\\
+\midrule
+P2 & 273 & 273 & 82\\
+P3 & 271 & 253 & 16\\
+P4 & 266 & 251 & 11\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Mechanism analysis: why coherence did not pay}
+\label{sec:mechanism}
+
+The empirical result is consistent with the mathematical structure of the
+decision problem. Under a shared first-stage schedule and a risk-neutral
+expected energy-cost objective, much of the expected cost is driven by marginal
+expectations. Temporal dependence can alter the optimum when uncertainty enters
+through time-coupled state constraints, joint import/export caps, daily peak
+terms, nonlinear tariffs, CVaR, chance constraints, or explicitly timed
+recourse. It need not materially alter an expected-cost schedule merely because
+its scenario trajectories have more realistic autocorrelation.
+
+The F1 state equation creates temporal coupling, and the zero-export cap makes
+the joint trajectory relevant to feasibility. S2 accordingly reduces the
+frequency of modelled cap violations. Yet power and state bounds bind on nearly
+all days, limiting the schedules available to each policy. P4's response to
+joint residual persistence is more conservative: it protects against coherent
+adverse trajectories but can shift flexible work into less favourable price
+intervals. In this experiment the reduction in infeasibility does not offset
+that mean cost effect.
+
+The distinction is visible in the paired statistics. P4 is cheaper than P3 on
+65.97\% of common-feasible days, but a smaller number of adverse outcomes makes
+its average cost higher. Because the P3$-$P4 day-bootstrap and 7-day block
+intervals both cross zero and the Holm-adjusted $p$-value is 0.131, the evidence
+does not establish that S2 is better or worse on average. It establishes a
+trade-off: better temporal dependence and fewer modelled violations coexist
+with no demonstrated improvement in mean synthetic counterfactual wholesale
+cost.
+
+\emph{Improved temporal dependence is not equivalent to improved decision
+value.} Energy score, variogram score, and autocorrelation diagnostics remain
+necessary checks on scenario quality, but none establishes that a particular
+uncertainty representation is aligned with an economic objective. Decision
+readiness additionally requires a fixed information pattern, physical
+feasibility, identical settlement, and paired downstream evaluation.
+
+This mechanism is bounded to the frozen SPARK experiment. Different conclusions
+could arise with asymmetric import/export remuneration, nonseparable peak
+charges, scenario-wise hard constraints, a risk-aware objective, a different
+physical asset, or validated recourse. Those possibilities are hypotheses for
+separate pre-specified studies, not post-hoc explanations that alter the present
+negative result.
+
+The finding is compatible with the broader possibility that probabilistic
+scheduling produces more conservative schedules and, in some stochastic
+settings, lower realized profit than deterministic scheduling. That compatibility
+is an interpretation to be assessed against verified literature, not a new
+empirical result of this paper. Here, the observed trade-off is specific:
+coherence reduces modelled violations, but its conservative schedule does not
+lower average cost under the frozen counterfactual.
+
+\section{Practical Implications}
+\label{sec:implications}
+
+\textbf{Industrial energy managers.} Coherent scenario scheduling should not
+be adopted solely because it improves probabilistic forecast diagnostics. The
+relevant question is whether the actual flexibility resource has state coupling,
+binding caps, recovery constraints, nonlinear costs, or risk measures that make
+joint trajectories economically consequential. A strong deterministic schedule
+should remain a mandatory baseline, and feasibility must be assessed under
+realized operation rather than forecast trajectories alone.
+
+\textbf{Energy-analytics teams.} Model evaluation should connect MAE, RMSE,
+WIS, energy score, and variogram score to the actual downstream objective.
+Marginal calibration and temporal coherence should be reported separately.
+Cost tables should be accompanied by prediction coverage, common-day support,
+solver feasibility, and constraint-violation diagnostics so that a favorable
+mean is not produced by different or easier evaluation populations.
+
+\textbf{Researchers.} When the scientific objective is scheduling or market
+participation, decision value should be evaluated directly. Policy comparisons
+should be pre-registered, preserve identical physical and market assumptions,
+and use a common-feasible-day estimand when infeasibility differs. Negative
+results should be reported transparently: they can identify which uncertainty
+properties the optimization does, and does not, reward.
+
+\section{Limitations}
+\label{sec:limitations}
+
+The following limitations define the scope of the evidence.
+
+\begin{enumerate}
+  \item The F1 resource is hypothetical, not an identified industrial process.
+  \item Historical price publication timestamps are absent; 12:55 is assumed
+  from documentary convention.
+  \item SPARK 2024 was previously exposed, so the replication is not independent
+  confirmation.
+  \item The correction is an ex-post external feasibility ledger, not an
+  implementable plant action.
+  \item Common-feasible filtering changes the evaluated population and may
+  select less difficult days.
+  \item Only SPARK is economically evaluated; no Honda economic inference is
+  made.
+  \item Every evaluated day has 96 intervals; the experiment provides no
+  DST-transition economic result.
+  \item Wholesale exposure is not a customer tariff or total electricity bill.
+  \item The scenario generator improves dependence but is not fully marginally
+  calibrated.
+  \item Two public sites cannot establish general industrial external validity.
+  \item The zero-shot foundation-model result is limited to Chronos-2 and
+  TimesFM 3.0 and does not evaluate fine-tuning or domain adaptation.
+\end{enumerate}
+
+\section{Future Work}
+\label{sec:future}
+
+Further work should be restricted to extensions that directly address an
+identified limitation or decision mechanism:
+
+\begin{enumerate}
+  \item add a third public industrial dataset with a different flexibility
+  structure;
+  \item add a transparent, publicly documented German industrial tariff or
+  network-charge scenario;
+  \item develop a feasibility-aware or decision-aware scenario generator and
+  compare it with S1 and S2;
+  \item decompose the deterministic-versus-coherent cost difference into
+  conservatism cost, avoided-violation value, and timing effects;
+  \item test coherent scenarios where state coupling is stronger, including
+  multi-day storage, demand charges, or explicitly timed recourse decisions;
+  \item obtain authoritative Honda price and publication-timestamp data before
+  attempting any Honda economic evaluation.
+\end{enumerate}
+
+These priorities exclude additional zero-shot checkpoint surveys, further
+regime-calibration variants, unconstrained capacity sweeps, battery modelling
+without a real asset, and Honda economics without verified prices and timing.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+This study asked whether a better representation of temporal dependence in
+probabilistic scenarios improves day-ahead industrial flexibility decisions.
+It compared a frozen deterministic LightGBM schedule with risk-neutral schedules
+based on independent interval residuals and coherent whole-day residual
+trajectories. All policies used the same hypothetical $\pm5$ kW/$\pm10$ kWh
+electrical-work buffer, wholesale-price vector, terminal recovery rule, and
+zero-export cap. The primary comparison was restricted to 191 SPARK days that
+were feasible under every policy.
+
+The main economic result is negative. Deterministic scheduling was cheaper than
+coherent-scenario scheduling by 0.191191 euro/day, with day-bootstrap and 7-day
+block intervals wholly below zero. It was also cheaper than independent-scenario
+scheduling. The coherent-versus-independent difference was statistically
+unresolved. In contrast, coherence had a clear feasibility effect: modelled
+zero-export-cap violations fell from 82 deterministic days and 16 independent-
+scenario days to 11 coherent-scenario days. An explicit all-day correction did
+not reverse the cost ranking.
+
+The practical implication is that improved dependence diagnostics cannot
+substitute for downstream evaluation. Coherent scenarios can make a schedule
+more conservative and reduce modelled violations without lowering its average
+cost. This conclusion is bounded to one public dataset, a hypothetical asset,
+wholesale exposure, imperfectly calibrated scenarios, and
+\status{POST_PUBLICATION_TIMING_ASSUMED}; it is neither plant validation nor
+evidence of customer savings or trading profit. Probabilistic scenario
+sophistication should be adopted only when its uncertainty representation
+matches the economic structure of the downstream decision.
+
+\section{Reproducibility and Data Availability}
+\label{sec:reproducibility}
+
+The replication configuration was frozen before outcome evaluation. Two
+complete runs produced byte-identical deterministic outputs, and the full test
+suite passed 233 of 233 tests, including 20 tests introduced specifically for
+the replication. Original Stage 1--3 artifacts were unchanged. No forecasts
+were retrained, no scenarios were regenerated, and the read-only SPARK
+repository remained clean. Table~\ref{tab:artifact-hashes} records the principal
+artifact fingerprints.
+
+\begin{table*}[t]
+\centering
+\caption{Reproducibility artifacts and SHA-256 fingerprints.}
+\label{tab:artifact-hashes}
+\scriptsize
+\begin{tabularx}{\textwidth}{>{\ttfamily}X >{\ttfamily}p{0.46\textwidth}}
+\toprule
+\normalfont Artifact & \normalfont SHA-256\\
+\midrule
+config/decision\_value\_replication/stage3\_feasibility\_replication\_frozen.json & f00a24c55072cce5ec9399d506231d6f7fe67d29ae50448a8ea9ba1d3e39c0c3\\
+src/honda/decision\_value\_replication/replication.py & 2dfc078f061ad9a282557f7af653f79b19f697f4f230d2da5ead9d61927cd4b0\\
+results/decision\_value\_replication/replication\_manifest.json & 88bc917eed7cce7601ba2837d8884fca798e33a280e1f7702f1b6dc3ff1b7949\\
+results/decision\_value\_replication/reproducibility\_check.json & 2015c726d850d73ec8cd1a520a723dfa7f69b4a2a91040dfa02b65edb9aa14e5\\
+results/decision\_value\_replication/replication\_policy\_summary.csv & 7e4c5d5d6d8f97913a69d697033d5ad2a7266b348684adc3c9e1b9127bcc49fa\\
+results/decision\_value\_replication/primary\_common\_feasible\_comparisons.csv & 30819f4ecb7ee452bbdec74776504818ac20f59f559d723d07057127a129083a\\
+results/decision\_value\_replication/secondary\_corrected\_comparisons.csv & 577a7ceea27781051f2df78c9985a04acf245fb8b0a535abaa84582de48f4160\\
+results/decision\_value\_replication/feasibility\_diagnostics.csv & ccf4291e36de30a315db066342603ae5c7234160ffcc254f6230710a1256c995\\
+results/decision\_value\_replication/binding\_constraint\_diagnostics.csv & 6278be55e527c15fa257e6e1efd9c15f318d66b916d74af6c4761ca1c0fb222e\\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+The study uses the public KIT SPARK and Honda R\&D Europe, Offenbach datasets.
+Code, configuration, and derived result artifacts are intended for release
+subject to repository, dataset, and model-licensing requirements. This statement
+does not promise redistribution of source data or artifacts whose licenses have
+not been independently confirmed.
+
+\section{Final Claims and Non-Claims}
+\label{sec:claims}
+
+\claimbox{\textbf{Allowed claims}
+\begin{itemize}
+  \item Coherent scenarios reduce modelled zero-export-cap violation frequency.
+  \item Deterministic LightGBM remains cheaper in mean synthetic counterfactual
+  wholesale cost on common-feasible days.
+  \item The coherent-versus-independent feasible-day difference is statistically
+  unresolved.
+  \item The ex-post correction does not reverse the ranking.
+  \item The result is bounded to SPARK, the frozen F1 asset, and
+  \status{POST_PUBLICATION_TIMING_ASSUMED}.
+\end{itemize}
+\textbf{Forbidden claims}
+\begin{itemize}
+  \item Actual customer savings, trading profits, or plant validation.
+  \item Honda economic value, general industrial-flexibility value, or battery
+  value.
+  \item Universal superiority or inferiority of coherent scenarios.
+  \item That better dependence always improves decisions, or that it never does.
+\end{itemize}}
+
+\ifplanningappendix
+\clearpage
+\appendix
+
+\section{Paper Outline and Target Allocation}
+\label{app:outline}
+
+Table~\ref{tab:outline} is an authoring blueprint for a 6--8 page applied
+conference paper. It should be removed from the submitted manuscript by setting
+\verb|\planningappendixfalse|.
+
+\begin{table*}[h]
+\centering
+\caption{Section plan, target word counts, and exact message.}
+\label{tab:outline}
+\small
+\begin{tabularx}{\textwidth}{p{0.23\textwidth}rX}
+\toprule
+Section & Target words & Exact message\\
+\midrule
+Abstract & 200--250 & Better temporal dependence may improve modelled feasibility without improving mean day-ahead decision cost.\\
+1. Introduction & 400--500 & Decision value, rather than forecast score alone, is the scientific object; the central question is narrow and falsifiable.\\
+2. Related work & 450--550 & Existing strands cover forecasting, calibration, scenarios, decision-focused methods, flexibility, and markets, but their integration requires direct decision evaluation.\\
+3. Empirical foundation & 500--600 & SPARK demand and Honda signed net exchange provide distinct, leakage-controlled evidence; they must not be treated as equivalent targets.\\
+4. Scenario and decision methods & 650--750 & S1 and S2 differ only in temporal dependence; all policies use one frozen counterfactual F1 asset and the same assumed information timing.\\
+5. Evaluation protocol & 350--450 & The primary estimand is the 191-day common-feasible intersection; bootstrap, block-bootstrap, and correction rules are frozen and transparent.\\
+6. Results & 700--850 & P4 reduces violations, P2 remains cheaper, and P3 versus P4 is unresolved; correction preserves the ranking.\\
+7. Discussion & 450--600 & Dependence quality, feasibility, and mean economic value are distinct; mathematical structure may suppress the value of coherence.\\
+8. Limitations and conclusion & 250--350 & The result is exploratory and bounded to one counterfactual asset, site, timing convention, and tariff setting.\\
+\midrule
+Total main text & 3,900--4,850 & Suitable for a concise 6--8 page two-column applied conference paper, subject to venue template and figure count.\\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+\section{Related-Work Writing Plan}
+\label{app:related}
+
+\begin{enumerate}
+  \item \textbf{Industrial electricity forecasting:} establish day-ahead
+  industrial load and net-exchange forecasting practice, data scarcity, and
+  operational information cutoffs. Do not present Honda and SPARK as equivalent.
+  \item \textbf{Probabilistic forecasting and quantile calibration:} distinguish
+  marginal calibration, sharpness, and proper scoring from joint trajectory
+  validity.
+  \item \textbf{Scenario generation and temporal dependence:} cover residual
+  bootstrap, trajectory sampling, energy score, variogram score, and dependence
+  diagnostics. Explain why improved dependence does not guarantee decision value.
+  \item \textbf{Decision-focused learning and predict-then-optimize:} position
+  direct downstream evaluation without claiming to introduce a new
+  decision-focused learning algorithm.
+  \item \textbf{Industrial demand-side flexibility:} review process flexibility,
+  virtual buffers, and physical constraints; label F1 as a hypothetical
+  archetype rather than calibrated equipment.
+  \item \textbf{Electricity-market timing and settlement:} verify gate closure,
+  price publication, product resolution, and settlement conventions from
+  authoritative sources.
+  \item \textbf{Gap:} forecasting and scenario papers often stop at statistical
+  scores, whereas this paper tests whether temporal coherence changes a frozen,
+  feasibility-constrained downstream decision.
+\end{enumerate}
+
+\section{Novelty Positioning}
+\label{app:novelty}
+
+\begin{table*}[h]
+\centering
+\caption{Conservative novelty positioning pending independent literature review.}
+\small
+\begin{tabularx}{\textwidth}{p{0.23\textwidth}p{0.17\textwidth}XX}
+\toprule
+Candidate contribution & Classification & How the paper should claim it & What the paper must not claim\\
+\midrule
+Leakage-safe forecasting and provenance controls & Applied & A necessary empirical foundation for a timing-correct decision study & A new general forecasting methodology\\
+Whole-day residual trajectory sampling & Established / applied & A reproducible implementation used to isolate temporal dependence & Invention of coherent scenario generation\\
+Feasibility-restricted policy comparison & Useful applied contribution & A controlled comparison on identical feasible days with an explicit all-day correction & Universal causal identification of scenario value\\
+Violation reduction without lower mean cost & Distinctive empirical finding & A bounded negative result under SPARK, F1, and the frozen timing/tariff setting & Proof that coherent scenarios are generally useful or useless\\
+Positive-demand versus signed-exchange evidence & Applied cross-dataset context & Evidence that target semantics affect evaluation and interpretation & A common economic comparison or Honda decision-value result\\
+Virtual production-buffer formulation & Established abstraction & A transparent hypothetical flexibility archetype & Plant-calibrated equipment, a battery, or reconstructed factory operations\\
+Post-publication scheduling convention & Unsupported operationally & An explicitly assumed timing used for a counterfactual & Independently verified live-market implementability\\
+Customer or trading value & Unsupported & Do not claim & Actual bill savings, revenue, profit, or deployable trading performance\\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+\section{Target-Venue Matrix}
+\label{app:venues}
+
+\begin{table*}[h]
+\centering
+\caption{Provisional venue positioning; current calls and formats must be verified.}
+\small
+\begin{tabularx}{\textwidth}{p{0.18\textwidth}p{0.22\textwidth}p{0.18\textwidth}p{0.18\textwidth}X}
+\toprule
+Venue & Fit & Audience & Likely acceptance risk & Required emphasis\\
+\midrule
+The smarter E Europe & Strong applied/industry fit if a scientific conference track is available & Energy managers, technology providers, flexibility and market practitioners & Academic depth or archival status may be insufficient; current format must be verified & Operational meaning, transparent limitations, feasibility, and actionable implications rather than model novelty\\
+pro flex Dresden & Strong topical fit for industrial flexibility and grid interaction & German flexibility researchers, utilities, aggregators, and industry & Counterfactual asset and assumed timing may limit claims & Physical interpretation, constraint behavior, negative result, and German-market relevance\\
+Energy Informatics & Strong methodological fit for data-to-decision evaluation & Energy-informatics and applied ML researchers & Requires verified literature novelty, reproducible methods, and possibly greater paper depth & Leakage safety, scenario diagnostics, decision-value separation, and open reproducibility\\
+ETG/VDE energy event & Good power-systems and operations fit, depending on the specific call & Power engineers, system operators, utilities, and applied researchers & Hypothetical asset and absence of plant validation may be scrutinized & Units, market timing, feasibility, solver formulation, and restrained system-level conclusions\\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+\section{Reference Plan: No Citations Yet}
+\label{app:references}
+
+No bibliographic citation should enter the paper until its metadata, primary
+source, relevance, and claim support have been checked. Every item below is
+therefore marked \tverify{}.
+
+\begin{table*}[h]
+\centering
+\caption{Reference acquisition and verification plan.}
+\small
+\begin{tabularx}{\textwidth}{p{0.22\textwidth}p{0.12\textwidth}X X}
+\toprule
+Reference type & Status & Evidence needed & Intended use\\
+\midrule
+Proper scoring rules and probabilistic forecast evaluation & \tverify & Foundational peer-reviewed source defining propriety and forecast-distribution evaluation & Separate marginal forecast quality from decision value\\
+Weighted interval score and interval coverage & \tverify & Primary methodological source and accepted forecast-evaluation guidance & Define WIS and coverage without overstating joint calibration\\
+Energy score & \tverify & Foundational source defining the multivariate proper score and known sensitivity limitations & Justify trajectory-level distribution assessment\\
+Variogram score & \tverify & Foundational source defining the score and its sensitivity to dependence & Evaluate temporal dependence representation\\
+Residual and block bootstrap & \tverify & Foundational statistical references for residual resampling and dependent-data bootstrap & Support scenario generation and paired/block uncertainty intervals\\
+Time-series scenario generation & \tverify & Recent peer-reviewed energy-forecasting literature, preferably 2022--2026, plus foundational work & Position independent and coherent residual trajectories\\
+Decision-focused learning / predict-then-optimize & \tverify & Foundational and recent survey or benchmark papers & Explain why forecast scores need not map to decision value\\
+Value of probabilistic forecasts & \tverify & Peer-reviewed power/energy studies evaluating downstream operational value & Identify what is established and what this study adds empirically\\
+Industrial demand-side flexibility & \tverify & Reviews and process-flexibility formulations with explicit physical constraints & Position F1 as an abstraction and bound physical claims\\
+Virtual battery / production-buffer models & \tverify & Original or authoritative formulations distinguishing process buffers from electrochemical storage & Define state dynamics without calling F1 a real battery\\
+Electricity-market design and day-ahead timing & \tverify & Official EPEX/SDAC, regulatory, or market-operator documents for the relevant year & Verify gate closure, price publication, product resolution, and DST semantics\\
+Industrial tariffs and import/export remuneration & \tverify & Official tariff/regulatory documentation or explicit scenario literature & Prevent wholesale-price exposure from being called a customer bill\\
+KIT SPARK dataset & \tverify & Official dataset paper, repository, DOI, license, and measurement definitions & Establish source identity and permitted claims\\
+Honda dataset & \tverify & Official dataset paper, repository, DOI, license, and target/component definitions & Establish signed-grid-exchange semantics and provenance limits\\
+Foundation time-series models & \tverify & Official model papers, repositories, checkpoint licenses, and versions & Provide bounded context only; not frame the paper around model ranking\\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+\section{Submission Package}
+\label{app:submission}
+
+\subsection{150-word conference abstract}
+
+Industrial flexibility scheduling increasingly uses probabilistic forecasts,
+but improved scenario dependence need not improve decisions. We compare
+deterministic LightGBM scheduling with independent interval-residual and
+coherent whole-day residual scenarios under a frozen hypothetical
+electrical-work buffer. The leakage-safe counterfactual evaluation uses 273
+complete 15-minute KIT SPARK days in 2024; 191 days are feasible for all
+policies. On this common-feasible population, deterministic scheduling is
+cheaper than coherent scheduling by 0.191191 EUR/day, while the
+independent-versus-coherent difference is statistically unresolved. Coherent
+scenarios nevertheless reduce modelled zero-export-cap violations from 82
+deterministic days and 16 independent-scenario days to 11. An explicit all-day
+feasibility correction does not reverse the cost ranking. The findings show
+that improved temporal dependence can enhance modelled feasibility without
+reducing mean synthetic counterfactual wholesale cost. Results are exploratory,
+rely on a hypothetical asset and assumed post-publication timing, and
+constitute neither plant validation, customer savings, nor trading profit.
+This uses the frozen risk-neutral expected-cost model.
+
+\subsection{250-word extended abstract}
+
+Probabilistic forecasts are often evaluated using calibration and multivariate
+scores, although a better representation of temporal dependence does not
+necessarily improve the downstream schedule. We test whether coherent
+whole-day residual trajectories add decision value relative to a deterministic
+LightGBM forecast and independent interval-residual scenarios. All policies use
+a hypothetical electrical-work buffer with $\pm5$ kW power,
+$\pm10$ kWh state capacity, terminal recovery, and a modelled zero-export
+cap. Forecasts are issued at 12:00 Europe/Berlin on D-1; price-aware scheduling
+at 12:55 is assumed rather than verified from observation-level publication
+timestamps.
+
+The counterfactual evaluation contains 273 complete 15-minute KIT SPARK days
+from January to December 2024. The primary paired estimand uses 191 days that
+are feasible for deterministic, independent-scenario, and coherent-scenario
+policies. Deterministic scheduling is cheaper than coherent scheduling by
+0.191191 EUR/day (95\% whole-day bootstrap interval: -0.271593 to -0.131960
+for deterministic minus coherent cost). It is also cheaper than independent-
+scenario scheduling by 0.143951 EUR/day. Independent versus coherent scheduling
+is unresolved: the mean difference is -0.047240 EUR/day and its 95\% interval
+crosses zero. Coherent scheduling nevertheless reduces modelled zero-export-cap
+violations from 82 deterministic days and 16 independent-scenario days to 11.
+An external feasibility correction over all 273 days does not reverse
+the cost ranking.
+
+Thus, improved temporal dependence changes feasibility without reducing mean
+synthetic counterfactual wholesale cost. The result is exploratory and bounded
+to one dataset, a hypothetical asset, wholesale exposure, imperfect
+marginal calibration, and assumed post-publication timing. It does not establish
+plant performance, customer savings, trading profit, or universal inferiority
+of coherent scenarios.
+
+\subsection{Presentation learning outcomes}
+
+After the presentation, participants should be able to:
+\begin{enumerate}
+  \item distinguish marginal calibration, temporal coherence, modelled
+  feasibility, and realized decision value;
+  \item explain why a risk-neutral expected-cost problem may not reward more
+  realistic residual dependence; and
+  \item design a common-feasible, pre-registered comparison that reports cost
+  and constraint violations without overstating counterfactual outcomes.
+\end{enumerate}
+
+\subsection{Likely reviewer questions and concise answers}
+
+\begin{enumerate}
+  \item \textbf{Is the F1 resource a real industrial asset?} No. It is a frozen
+  hypothetical electrical-work buffer used to isolate decision effects; its
+  capacities are not plant measurements.
+  \item \textbf{Why exclude infeasible days from the primary comparison?} The
+  191-day intersection ensures identical support and physically comparable
+  schedules. A pre-specified corrected all-day analysis is reported separately.
+  \item \textbf{Does P4's lower violation rate prove economic value?} No. It is
+  a feasibility result. P4 has higher mean cost than P2, and P3 versus P4 is
+  unresolved on common-feasible days.
+  \item \textbf{Is the 12:55 decision time operationally verified?} No. It is
+  explicitly labelled \status{POST_PUBLICATION_TIMING_ASSUMED} because the
+  historical price file lacks observation-level publication timestamps.
+  \item \textbf{Can the result be generalized to Honda or batteries?} No.
+  Honda has signed net-exchange semantics and no economic evaluation here; F1
+  is neither a battery nor validated production equipment.
+\end{enumerate}
+
+\subsection{One-slide paper narrative}
+
+\begin{description}
+  \item[Problem.] Industrial schedules increasingly consume probabilistic
+  forecasts, but improved scenario diagnostics may not improve decisions.
+  \item[Gap.] Temporal coherence is rarely isolated from physical feasibility
+  and evaluated on identical downstream decision days.
+  \item[Method.] Compare deterministic P2, independent-scenario P3, and coherent-
+  scenario P4 schedules with one frozen hypothetical F1 asset.
+  \item[Data.] 273 complete SPARK days in 2024; 191 are feasible for all three
+  policies. Honda supplies bounded cross-dataset forecasting and scenario
+  evidence, not economics.
+  \item[Result.] P4 reduces modelled violation days to 11, but P2 is cheaper by
+  0.191191 EUR/day on common-feasible days; P3 versus P4 is unresolved.
+  \item[Implication.] Better temporal dependence is not equivalent to better
+  decision value; alignment with the economic structure must be tested.
+\end{description}
+
+\subsection{Suggested 10-minute presentation outline}
+
+\begin{enumerate}
+  \item \textbf{0:00--0:45 --- Question and claim boundary.} State the decision
+  question and that all outcomes are counterfactual.
+  \item \textbf{0:45--1:45 --- Data and leakage controls.} Explain SPARK demand,
+  Honda signed exchange, provenance, and timing.
+  \item \textbf{1:45--3:00 --- Scenario methods.} Contrast independent S1 and
+  whole-day S2 using dependence and coverage diagnostics.
+  \item \textbf{3:00--4:15 --- Frozen F1 decision problem.} Present state,
+  power, terminal, and zero-export constraints and the assumed timeline.
+  \item \textbf{4:15--6:15 --- Primary results.} Show common-feasible paired
+  costs and bootstrap intervals.
+  \item \textbf{6:15--7:15 --- Feasibility result.} Show violation frequency,
+  overlap, and external correction.
+  \item \textbf{7:15--8:30 --- Mechanism.} Explain marginal expectations,
+  conservatism, and frequent binding constraints.
+  \item \textbf{8:30--9:30 --- Limitations and practice.} Bound asset, timing,
+  tariff, exposed test year, and generalizability.
+  \item \textbf{9:30--10:00 --- Takeaway.} Scenario sophistication should match
+  the downstream economic structure.
+\end{enumerate}
+
+\subsection{Suggested slide-deck title}
+
+\begin{center}
+\emph{When Scenario Coherence Improves Feasibility but Not Cost: Evidence from
+Counterfactual Industrial Flexibility Scheduling}
+\end{center}
+
+\subsection{Author biography template}
+
+\textbf{[Author Name]} is an MSc Digital Engineering student at
+Bauhaus-Universit\"at Weimar. [He/She/They] previously worked in energy-utility
+analytics, with experience in [verified domain or role]. [His/Her/Their]
+research interests include industrial energy forecasting, uncertainty-aware
+decision support, and reproducible optimization under operational constraints.
+This biography should be completed only with verifiable education and
+professional details.
+
+\section{Author Checklist Before Submission}
+
+\begin{itemize}
+  \item Replace every \tverify{} literature item with a checked primary source;
+  do not invent or infer citation metadata.
+  \item Convert the source to the selected venue's official template and confirm
+  its current page, anonymization, and reference requirements.
+  \item Retain the terms ``counterfactual,'' ``modelled violation,'' and
+  ``synthetic counterfactual wholesale-cost difference.''
+  \item Keep all Honda evidence contextual; do not add Honda economic value.
+  \item State the previously exposed 2024 evaluation period and the assumed
+  market-publication timing.
+  \item Add only figures whose source data and deterministic generation scripts
+  are archived and traceable.
+  \item Set \verb|\planningappendixfalse| before producing the submission PDF.
+\end{itemize}
+\fi
+
+% Bibliography intentionally omitted. Add a verified .bib file only after the
+% reference plan in Appendix E has been completed.
+
+\end{document}

@@ -1,0 +1,112 @@
+{
+  "manifest_schema_version": "1.0",
+  "audit_timestamp_utc": "2026-11-05T06:13:30.0169065Z",
+  "audit_kind": "non-mutating scientific checkpoint and evidence synthesis",
+  "starting_git": {
+    "honda": {
+      "path": "C:\\Users\\asker\\Documents\\GenAIProjects\\industrial_flexibilty_honda",
+      "branch": "master",
+      "head": "be5ddb47ab58e43f70c72400c3eb09391a1b54a5",
+      "status": "clean before audit outputs"
+    },
+    "spark": {
+      "path": "C:\\Users\\asker\\Documents\\GenAIProjects\\Industrial_energy_forecasting",
+      "branch": "main",
+      "head": "32cff65f7f5384d08095d8d0325c45e8ce002ec3",
+      "status": "clean"
+    }
+  },
+  "protected_checkpoints": {
+    "H1": "80b8e3033547341f0223d6ccd4e54da4de741909",
+    "H2": "2d29de9f45dcd414baf53dd3b3dabb4627798fe3",
+    "H3A": "99bb2033e30c06aeb71486f65a347887735f5c95",
+    "H3B": "b12d055591cf90ca7929342b34e1e31b3caf6e0f",
+    "H4": "11a490b6bff6a0ce12f6f67d686abd4355d3185b",
+    "H5": "b3764bd791f1a843fc5aa8bf005d07e382d21059",
+    "H6": "24e86e95aa8e887ae19e17cac536a9b879207db9",
+    "Stage1_H7": "bb0536df77f709a20452ed3c86ab16e66a5e0555",
+    "Stage2": "aff0c9335f5e00985269e2a1aa6c27a112c6888d",
+    "Stage3": "be5ddb47ab58e43f70c72400c3eb09391a1b54a5"
+  },
+  "honda_source_hashes": {
+    "reports/honda_reduced_dataset_audit.md": "14f23f90f44457842cd60fe2695b4d582aafaa87f09b43c6e897808dc3a9cd2a",
+    "reports/honda_provenance_and_silver.md": "669bccf1ea57f84840cac755f6052c16f019e8425110d23cdc6c288946ba4b29",
+    "reports/honda_forecasting_protocol.md": "0c9704fc5d53d77a804712771a6d858e1100e2b048c77271f0b84120c2bbce31",
+    "reports/honda_baseline_benchmark.md": "31f9e3e7a897c17304e5faec5e92c7abb7d51ea1bdd13e98c181a2fd3531fe27",
+    "reports/honda_deterministic_ml_benchmark.md": "c007379ff6ddc7edcc4f0fafe38c6391600ff6c3e8eaa0954f1b4d0b32035f2c",
+    "reports/honda_foundation_model_benchmark.md": "856fd0823d98bea2b1143d4b47148e9bae7f2ca045c523dbcdf99ff578720ddf",
+    "reports/scenarios/honda_h7_coherent_scenario_study.md": "c298193d2689f7b0171ca7d7df586fc6cb325e3a9eb6a23960673b2d4d4c4a18",
+    "reports/optimization/honda_stage2_flexibility_and_market_framework.md": "6ec1de74fc98461436ee04618afe7fba9ae17158388ae2346e7789fb21d0a885",
+    "reports/decision_value/industrial_flexibility_decision_value_study.md": "bdd06de944916cadea92a3a1aa583356dc1f35127d87c82cc9fe0da446a73009"
+  },
+  "frozen_config_hashes": {
+    "config/honda_forecasting_protocol_frozen.json": "281f49331bc3b3c31aec0d33b50f6a83a149261db93ce04a29d67479cb62676e",
+    "config/honda_baseline_selection_frozen.json": "1bbbbac404675bb1bfb5c85067e1504fda843fc2bc52151a60025f4e3c8b7a04",
+    "config/honda_lgbm_selection_frozen.json": "7fff8efbf51fc17ac2524ceeac30dbed6764d4ec55eaf1ea3993c47691dd21ea",
+    "config/scenarios/scenario_method_frozen.json": "790d3574d468f10fbc565bef1ed0eb492d45ff9db00436f2700a74b7069171ba",
+    "config/optimization/stage3_experiment_design.json": "148476605fe1d207cdbd399b7e7acb2b20ce60cb0010c9de2fdf6dab0d2648ca",
+    "config/decision_value/stage3_experiment_frozen.json": "e8903167aa9288b50f883142130e84732c37082a735073d01c4bab346dc20d02"
+  },
+  "major_prediction_hashes": {
+    "results/baselines/test_predictions_2023.parquet": "d864bb88fdac94d5b7b3d214d5316a499f0dde702798607d14e657eba1866832",
+    "results/ml/test_predictions_2023.parquet": "301cfe03fd824cb741f192179b5f6bcc14100c3120729653eaf49339da3e9a67",
+    "results/foundation/test_predictions_2023.parquet": "4e94d131b3e2e4cba1b753a8aa3751d26e9e71ab8bd22f5b68ef4bda3143aacc",
+    "data/silver/honda/honda_energy_15min.parquet": "d9d93445391985faa7a0aa015cdb65b949f3909636d284c59449db876ae310df",
+    "data/silver/honda/provenance_masks_15min.parquet": "f93d5bf4597d8f768cc63437f2ce78d21f4050f4dfcfbbe0e59d2fa0ef4eb778"
+  },
+  "spark_source_hashes": {
+    "reports/missingness_reliability_study.md": "5aca648cf4de4d25088ad9773ad58a08cd7d46c7a85b3c962edf7a68699f3242",
+    "reports/gold_manifest.json": "ece5f2181162caa29d2823543626141c37b8ffcfdcee2fd3d9a28c461fc90e2a",
+    "reports/day_ahead_baselines.md": "cc71e0c19014f89a606b90168e0e8bbcbce4795c4c5a6223262d6b1fd4d2a984",
+    "reports/deterministic_lightgbm.md": "aac1cb884a6c63e885db1b8507a4fd60b471355c64f089d6ffa2bdd35cd96da9",
+    "reports/probabilistic_lightgbm.md": "abf3bb1fac299ea985a7e6d5f0aa3d3910f65099ad2cffc04166a0dfb7033f42",
+    "reports/regime_aware_probabilistic.md": "1f9ccbb268753fa3b55df90cc32124513a314ff6e0f916e4f4308f223680b728",
+    "reports/flexibility_optimization.md": "af0b9f20684c1d253a72c2d88806d17d7617feba79ecd43c79c4200f3cf7a9c7",
+    "results/baselines/baseline_metrics.csv": "94e36092f4a86dcf39b4c19a0a7787f6a0936a9d39151c6c23927e7692114abb",
+    "results/lightgbm/lightgbm_metrics.csv": "8ff48d9ff23e0dd96e5cb138b1ecb38831a3f1a63b68f1e877cef2f202dddbd5",
+    "results/regime_probabilistic/regime_probabilistic_metrics.csv": "70cb7b42fc38cc0eea2b1592483b515b761c86920c49ecb801960134e771f0a7",
+    "results/flexibility/flexibility_run_manifest.json": "ca8837da5c5364900d6aecc711360291f5313730390992e656f94593b0c51fa5"
+  },
+  "audit_output_hashes": {
+    "reports/research_checkpoint/complete_research_status.md": "29b8f92adce9961789a328140cf44ce5de9ca7c6c09788e016189c2fd07ed8f0",
+    "reports/research_checkpoint/perplexity_deep_research_handoff.md": "5c48567050cd031d1a5f04be6b78ada9dc9ca268f2993e8551fc971dd0bd81f6",
+    "reports/research_checkpoint/research_decision_brief.md": "cebc6fbec722b5e0874660d7ced2f8fea3ff77f4895a12443b1423184553ddb7",
+    "reports/research_checkpoint/research_audit.json": "64894b21ff71ccacf9b74f1ae502f79873f2b467d7e7662dfbfa6ec17f3f7843"
+  },
+  "self_hash_policy": "audit_manifest.json intentionally does not hash itself",
+  "python_environment": {
+    "python": "3.12.3",
+    "platform": "Windows 11",
+    "numpy": "2.0.1",
+    "pandas": "2.3.3",
+    "pyarrow": "23.0.1",
+    "scipy": "1.17.1",
+    "scikit_learn": "1.8.0",
+    "lightgbm": "4.6.0",
+    "torch": "2.7.1",
+    "pytest": "8.2.0",
+    "matplotlib": "3.10.8"
+  },
+  "tests_executed": [
+    {
+      "repository": "Honda",
+      "command": "PYTHONDONTWRITEBYTECODE=1 pytest -q -p no:cacheprovider",
+      "passed": 212,
+      "failed": 1,
+      "failure": "Stage 2 protected-path allow-list does not recognize committed Stage 3 directories"
+    },
+    {
+      "repository": "SPARK",
+      "command": "PYTHONDONTWRITEBYTECODE=1 pytest -q -p no:cacheprovider",
+      "passed": 104,
+      "failed": 0
+    }
+  ],
+  "verification_limitations": [
+    "No model retraining, scenario regeneration or historical optimization rerun was permitted.",
+    "Large artifact hashes were checked, but every row-level lineage assertion was not independently replayed.",
+    "External URLs cited by prior reports were not re-browsed in this repository audit.",
+    "SPARK publication timing remains unverified; Honda market data remain absent.",
+    "The audit output directory is intentionally uncommitted."
+  ]
+}

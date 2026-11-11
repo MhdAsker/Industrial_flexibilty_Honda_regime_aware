@@ -1,0 +1,30 @@
+{
+  "comparison": "Two consecutive complete replications from immutable frozen inputs",
+  "first_hashes": {
+    "results/decision_value_replication/binding_constraint_diagnostics.csv": "6278be55e527c15fa257e6e1efd9c15f318d66b916d74af6c4761ca1c0fb222e",
+    "results/decision_value_replication/binding_effect_diagnostics.csv": "f5cad5ef221cd4362cadd0dc55ada814184a8d1334fa6ee12fd84feb2d91f102",
+    "results/decision_value_replication/day_level_replication_metrics.parquet": "b6372a97671fa21cc88fc8310267daa2371d50fe3f5059303d91b679df631c10",
+    "results/decision_value_replication/feasibility_diagnostics.csv": "ccf4291e36de30a315db066342603ae5c7234160ffcc254f6230710a1256c995",
+    "results/decision_value_replication/nominal_all_day_diagnostic_comparisons.csv": "03ae725fdde0883520536f128ea35b312625cdcc4d7408c6b4eda34c09bb6b80",
+    "results/decision_value_replication/primary_common_feasible_comparisons.csv": "30819f4ecb7ee452bbdec74776504818ac20f59f559d723d07057127a129083a",
+    "results/decision_value_replication/replication_manifest.json": "88bc917eed7cce7601ba2837d8884fca798e33a280e1f7702f1b6dc3ff1b7949",
+    "results/decision_value_replication/replication_policy_summary.csv": "7e4c5d5d6d8f97913a69d697033d5ad2a7266b348684adc3c9e1b9127bcc49fa",
+    "results/decision_value_replication/secondary_corrected_comparisons.csv": "577a7ceea27781051f2df78c9985a04acf245fb8b0a535abaa84582de48f4160",
+    "results/decision_value_replication/violation_day_overlap.csv": "0078accc329dd5e7999dc24344fb6cf17533fbb3006b1a75f5f6cfa3d579f013"
+  },
+  "frozen_config_sha256": "f00a24c55072cce5ec9399d506231d6f7fe67d29ae50448a8ea9ba1d3e39c0c3",
+  "mismatches": [],
+  "passed": true,
+  "second_hashes": {
+    "results/decision_value_replication/binding_constraint_diagnostics.csv": "6278be55e527c15fa257e6e1efd9c15f318d66b916d74af6c4761ca1c0fb222e",
+    "results/decision_value_replication/binding_effect_diagnostics.csv": "f5cad5ef221cd4362cadd0dc55ada814184a8d1334fa6ee12fd84feb2d91f102",
+    "results/decision_value_replication/day_level_replication_metrics.parquet": "b6372a97671fa21cc88fc8310267daa2371d50fe3f5059303d91b679df631c10",
+    "results/decision_value_replication/feasibility_diagnostics.csv": "ccf4291e36de30a315db066342603ae5c7234160ffcc254f6230710a1256c995",
+    "results/decision_value_replication/nominal_all_day_diagnostic_comparisons.csv": "03ae725fdde0883520536f128ea35b312625cdcc4d7408c6b4eda34c09bb6b80",
+    "results/decision_value_replication/primary_common_feasible_comparisons.csv": "30819f4ecb7ee452bbdec74776504818ac20f59f559d723d07057127a129083a",
+    "results/decision_value_replication/replication_manifest.json": "88bc917eed7cce7601ba2837d8884fca798e33a280e1f7702f1b6dc3ff1b7949",
+    "results/decision_value_replication/replication_policy_summary.csv": "7e4c5d5d6d8f97913a69d697033d5ad2a7266b348684adc3c9e1b9127bcc49fa",
+    "results/decision_value_replication/secondary_corrected_comparisons.csv": "577a7ceea27781051f2df78c9985a04acf245fb8b0a535abaa84582de48f4160",
+    "results/decision_value_replication/violation_day_overlap.csv": "0078accc329dd5e7999dc24344fb6cf17533fbb3006b1a75f5f6cfa3d579f013"
+  }
+}
