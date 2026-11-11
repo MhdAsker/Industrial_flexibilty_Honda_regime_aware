@@ -1,0 +1,33 @@
+schema_version: flexlab.experiment.v2
+experiment_id: spark-frozen-diagnostic-v2
+site:
+  dataset_id: SPARK
+  adapter: spark
+  target_day_local: "2024-01-06"
+  target_semantics: demand_nonnegative
+  unit: kW
+  sign_convention: demand_positive
+  timezone: Europe/Berlin
+  interval_minutes: 15
+  seed: 20261029
+asset:
+  p_up_kw: 5.0
+  p_down_kw: 5.0
+  e_advance_kwh: 10.0
+  e_backlog_kwh: 10.0
+  label: SIMULATED_DEFERRABLE_PROCESS
+grid:
+  mode: scenario_wise
+  import_max_kw: 40.0
+  export_max_kw: 0.0
+tariff:
+  import_eur_per_mwh: 120.0
+  export_eur_per_mwh: 0.0
+  label: HYPOTHETICAL_TARIFF
+timing:
+  forecast_issue_local: "12:00"
+  decision_time_local: "13:00"
+  classification: EX_POST_PRICE_AWARE
+policies: [deterministic, independent, coherent]
+supported_claims: [HISTORICAL_DIAGNOSTIC, REPRODUCIBLE_METHOD_COMPARISON]
+unsupported_claims: [CUSTOMER_SAVINGS, TRADING_PROFIT, PLANT_VALIDATION]

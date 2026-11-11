@@ -309,6 +309,20 @@ python -m pip install -e ".[all]"
 
 The base installation includes the data and optimization stack. The `all` extra adds LightGBM and the test runner; `forecasting` and `test` can instead be installed separately. Chronos-2 and TimesFM continue to use isolated environments recorded under `results/foundation/`.
 
+## FlexLab v2 application
+
+The repository now includes a reusable offline decision-lab layer above the frozen v1 research pipelines. One configuration can validate a site, compare deterministic/independent/coherent policies, settle realized outcomes, and export a hash-verifiable experiment bundle:
+
+```powershell
+flexlab validate --experiment examples/flexlab/synthetic/experiment.yaml
+flexlab run --experiment examples/flexlab/synthetic/experiment.yaml --output results/flexlab/demo
+flexlab reproduce --experiment examples/flexlab/synthetic/experiment.yaml
+```
+
+FlexLab v2 includes synthetic, Honda, and SPARK adapters; versioned site/asset/grid/tariff/timing contracts; ordinary and DST validation; calibrated-trajectory utilities; and a read-only dashboard that consumes `dashboard.json`. See [`docs/flexlab_v2.md`](docs/flexlab_v2.md).
+
+Private dashboard deployment: [FlexLab Industrial Flexibility Decision Lab](https://flexlab-industrial-decision-lab.burlyaphid3.chatgpt.site)
+
 Stage 2, Stage 3, and the replication expect the SPARK companion repository as a sibling checkout:
 
 ```text
@@ -334,7 +348,7 @@ $env:PYTHONDONTWRITEBYTECODE = "1"
 python -m pytest -q -p no:cacheprovider
 ```
 
-The suite contains 233 tests spanning provenance, signed-target preservation, issuance cutoffs, DST chronology, development/test separation, leakage controls, deterministic generation, optimization contracts, scenario integrity, bootstrap reproducibility, and protected hashes. Four companion-repository cleanliness checks are skipped by default because that repository is independently managed. To run the strict release audit as well:
+The suite contains 243 tests spanning provenance, signed-target preservation, issuance cutoffs, DST chronology, development/test separation, leakage controls, deterministic generation, optimization contracts, scenario integrity, FlexLab contracts, bootstrap reproducibility, and protected hashes. Four companion-repository cleanliness checks are skipped by default because that repository is independently managed. To run the strict release audit as well:
 
 ```powershell
 $env:STRICT_EXTERNAL_REPO_CHECKS = "1"

@@ -1,0 +1,33 @@
+schema_version: flexlab.experiment.v2
+experiment_id: honda-frozen-diagnostic-v2
+site:
+  dataset_id: HONDA
+  adapter: honda
+  target_day_local: "2023-01-01"
+  target_semantics: signed_grid_exchange
+  unit: kW
+  sign_convention: import_positive
+  timezone: Europe/Berlin
+  interval_minutes: 15
+  seed: 20261029
+asset:
+  p_up_kw: 50.0
+  p_down_kw: 50.0
+  e_advance_kwh: 100.0
+  e_backlog_kwh: 100.0
+  label: SIMULATED_DEFERRABLE_PROCESS
+grid:
+  mode: scenario_wise
+  import_max_kw: 500.0
+  export_max_kw: 250.0
+tariff:
+  import_eur_per_mwh: 120.0
+  export_eur_per_mwh: 60.0
+  label: HYPOTHETICAL_TARIFF_NO_HONDA_MARKET_CLAIM
+timing:
+  forecast_issue_local: "13:00"
+  decision_time_local: "13:00"
+  classification: UNSUPPORTED_TIMING
+policies: [deterministic, independent, coherent]
+supported_claims: [HISTORICAL_DIAGNOSTIC, REPRODUCIBLE_METHOD_COMPARISON]
+unsupported_claims: [CUSTOMER_SAVINGS, TRADING_PROFIT, PLANT_VALIDATION, HONDA_ECONOMIC_VALUE]

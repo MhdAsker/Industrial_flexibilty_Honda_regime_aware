@@ -1,0 +1,39 @@
+schema_version: flexlab.experiment.v2
+experiment_id: synthetic-flexibility-screening-v2
+site:
+  dataset_id: SYNTHETIC_DEMO
+  adapter: synthetic
+  target_day_local: "2025-01-15"
+  target_semantics: demand_nonnegative
+  unit: kW
+  sign_convention: demand_positive
+  timezone: Europe/Berlin
+  interval_minutes: 15
+  seed: 20261029
+asset:
+  p_up_kw: 8.0
+  p_down_kw: 8.0
+  e_advance_kwh: 16.0
+  e_backlog_kwh: 16.0
+  ramp_limit_kw_per_interval: 4.0
+  label: SIMULATED_DEFERRABLE_PROCESS
+grid:
+  mode: soft
+  import_max_kw: 70.0
+  export_max_kw: 0.0
+  soft_violation_penalty_eur_per_kw_interval: 0.2
+  peak_penalty_eur_per_kw_per_day: 0.05
+tariff:
+  import_eur_per_mwh: 120.0
+  export_eur_per_mwh: 0.0
+  label: SYNTHETIC_COUNTERFACTUAL_TARIFF
+timing:
+  forecast_issue_local: "12:00"
+  decision_time_local: "13:00"
+  price_publication_local: "12:45"
+  classification: OPERATIONAL_TIMING_VERIFIED
+policies: [deterministic, independent, coherent]
+risk_lambda: 0.0
+cvar_alpha: 0.95
+supported_claims: [SYNTHETIC_COUNTERFACTUAL, REPRODUCIBLE_METHOD_COMPARISON]
+unsupported_claims: [CUSTOMER_SAVINGS, TRADING_PROFIT, PLANT_VALIDATION]

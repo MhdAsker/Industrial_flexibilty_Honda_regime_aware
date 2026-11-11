@@ -17,6 +17,7 @@ artifacts/models/
 .venv-h6-timesfm/
 .cache-h6/
 artifacts/foundation_models/
+sites/flexlab-dashboard/
 results/scenarios/*.parquet
 
 # Generated audit tables and figures (manifest/report remain tracked)
