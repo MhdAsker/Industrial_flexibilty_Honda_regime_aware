@@ -16,11 +16,11 @@ from src.honda.decision_value.statistics import (
     lag1,
     moving_block_bootstrap,
 )
-from src.honda.scenarios.adapters import load_spark_test
+from src.honda.scenarios.adapters import load_spark_test, spark_root
 
 
 ROOT = Path(__file__).resolve().parents[3]
-SPARK = ROOT.parent / "Industrial_energy_forecasting"
+SPARK = spark_root()
 CONFIG = ROOT / "config/decision_value_replication/stage3_feasibility_replication_frozen.json"
 OUT = ROOT / "results/decision_value_replication"
 REPORT = ROOT / "reports/decision_value/industrial_flexibility_decision_value_replication.md"

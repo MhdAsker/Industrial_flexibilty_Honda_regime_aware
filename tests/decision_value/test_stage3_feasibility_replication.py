@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from hashlib import sha256
 import json
+import os
 from pathlib import Path
 import subprocess
 
@@ -14,10 +15,11 @@ from src.honda.decision_value_replication.replication import (
     EXPECTED_CONFIG_HASH,
     explicit_zero_export_settlement_correction,
 )
+from src.honda.scenarios.adapters import spark_root
 
 
 ROOT = Path(__file__).resolve().parents[2]
-SPARK = ROOT.parent / "Industrial_energy_forecasting"
+SPARK = spark_root()
 OUT = ROOT / "results/decision_value_replication"
 PROTECTED = {
     "config/decision_value/stage3_experiment_frozen.json": "e8903167aa9288b50f883142130e84732c37082a735073d01c4bab346dc20d02",
@@ -46,6 +48,8 @@ def test_original_stage3_and_scenario_artifacts_unchanged(relative, expected):
     assert _sha(ROOT / relative) == expected
 
 
+@pytest.mark.external_integrity
+@pytest.mark.skipif(os.environ.get("STRICT_EXTERNAL_REPO_CHECKS") != "1", reason="set STRICT_EXTERNAL_REPO_CHECKS=1 to enforce companion-repository cleanliness")
 def test_spark_repository_is_still_clean():
     assert subprocess.check_output(["git", "-C", str(SPARK), "status", "--porcelain"], text=True) == ""
     assert subprocess.check_output(["git", "-C", str(SPARK), "rev-parse", "HEAD"], text=True).strip() == "32cff65f7f5384d08095d8d0325c45e8ce002ec3"

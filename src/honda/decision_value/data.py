@@ -6,12 +6,12 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from src.honda.scenarios.adapters import load_spark_development, load_spark_test
+from src.honda.scenarios.adapters import load_spark_development, load_spark_test, spark_root
 from src.honda.scenarios.core import ScenarioConfig, complete_donor_days, generate_scenarios
 
 
 ROOT = Path(__file__).resolve().parents[3]
-SPARK = ROOT.parent / "Industrial_energy_forecasting"
+SPARK = spark_root()
 
 
 @dataclass(frozen=True)

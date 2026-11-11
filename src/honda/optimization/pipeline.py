@@ -14,6 +14,8 @@ import numpy as np
 import pandas as pd
 import scipy
 
+from src.honda.scenarios.adapters import spark_root
+
 from .audit import audit_f1, schedules_are_nonanticipative
 from .contracts import DecisionInput, F1Config, F2Config, F3Config, TariffConfig
 from .optimizer import settle_schedule, solve_f1
@@ -22,7 +24,7 @@ from .thermal import solve_f2
 
 
 ROOT = Path(__file__).resolve().parents[3]
-SPARK = Path(r"C:\Users\asker\Documents\GenAIProjects\Industrial_energy_forecasting")
+SPARK = spark_root()
 CONFIG = ROOT / "config/optimization"
 OUT = ROOT / "results/optimization"
 REPORT = ROOT / "reports/optimization"

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 from pathlib import Path
 import subprocess
 
@@ -16,10 +17,11 @@ from src.honda.optimization.legacy import solve_f0
 from src.honda.optimization.scenario_adapter import load_h7_day
 from src.honda.optimization.thermal import solve_f2
 from src.honda.optimization.timing import observation_available, validate_price_timing
+from src.honda.scenarios.adapters import spark_root
 
 
 ROOT = Path(__file__).resolve().parents[2]
-SPARK = Path(r"C:\Users\asker\Documents\GenAIProjects\Industrial_energy_forecasting")
+SPARK = spark_root()
 H7_COMMIT = "bb0536df77f709a20452ed3c86ab16e66a5e0555"
 H7_CONFIG_HASH = "790d3574d468f10fbc565bef1ed0eb492d45ff9db00436f2700a74b7069171ba"
 
@@ -82,6 +84,8 @@ def test_h1_h6_protected_artifacts_unchanged():
     assert all(x.startswith(allowed) for x in changed.splitlines())
 
 
+@pytest.mark.external_integrity
+@pytest.mark.skipif(os.environ.get("STRICT_EXTERNAL_REPO_CHECKS") != "1", reason="set STRICT_EXTERNAL_REPO_CHECKS=1 to enforce companion-repository cleanliness")
 def test_spark_repository_is_read_only_and_clean():
     assert subprocess.check_output(["git", "-C", str(SPARK), "status", "--porcelain"], text=True) == ""
     assert subprocess.check_output(["git", "-C", str(SPARK), "rev-parse", "HEAD"], text=True).strip() == "32cff65f7f5384d08095d8d0325c45e8ce002ec3"

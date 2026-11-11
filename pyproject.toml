@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "honda-industrial-energy-audit"
 version = "0.1.0"
-description = "Leakage-safe day-ahead forecasting benchmark for Honda signed grid exchange"
+description = "Leakage-safe industrial-energy forecasting, scenario generation, and decision-value research"
 requires-python = ">=3.10"
 dependencies = [
   "lxml",
@@ -15,10 +15,26 @@ dependencies = [
   "pyarrow",
   "PyYAML",
   "requests",
+  "scipy>=1.13,<2",
   "websocket-client",
+]
+
+[project.optional-dependencies]
+forecasting = [
+  "lightgbm>=4.5,<5",
+]
+test = [
+  "pytest>=8,<9",
+]
+all = [
+  "lightgbm>=4.5,<5",
+  "pytest>=8,<9",
 ]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
 pythonpath = ["."]
+markers = [
+  "external_integrity: checks the state of an independently managed companion repository",
+]

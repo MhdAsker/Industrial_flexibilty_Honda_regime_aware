@@ -304,11 +304,10 @@ tests/                               Integrity and scientific regression tests
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
-python -m pip install -e .
-python -m pip install scipy lightgbm pytest
+python -m pip install -e ".[all]"
 ```
 
-SciPy and LightGBM are currently installed explicitly for the complete optimization and ML pipeline. Chronos-2 and TimesFM use separate environments recorded under `results/foundation/`.
+The base installation includes the data and optimization stack. The `all` extra adds LightGBM and the test runner; `forecasting` and `test` can instead be installed separately. Chronos-2 and TimesFM continue to use isolated environments recorded under `results/foundation/`.
 
 Stage 2, Stage 3, and the replication expect the SPARK companion repository as a sibling checkout:
 
@@ -320,6 +319,12 @@ parent/
 
 Protected SPARK inputs are checked using frozen commits and file hashes. The integration suite also expects the companion checkout to be clean; unrelated untracked SPARK files can therefore fail external-cleanliness guards without changing computational results.
 
+For a checkout in another location, set the companion path explicitly:
+
+```powershell
+$env:SPARK_RESEARCH_ROOT = "D:\research\Industrial_energy_forecasting"
+```
+
 ## Reproduction
 
 ### Tests
@@ -329,7 +334,12 @@ $env:PYTHONDONTWRITEBYTECODE = "1"
 python -m pytest -q -p no:cacheprovider
 ```
 
-The suite contains 233 tests spanning provenance, signed-target preservation, issuance cutoffs, DST chronology, development/test separation, leakage controls, deterministic generation, optimization contracts, scenario integrity, bootstrap reproducibility, and protected hashes.
+The suite contains 233 tests spanning provenance, signed-target preservation, issuance cutoffs, DST chronology, development/test separation, leakage controls, deterministic generation, optimization contracts, scenario integrity, bootstrap reproducibility, and protected hashes. Four companion-repository cleanliness checks are skipped by default because that repository is independently managed. To run the strict release audit as well:
+
+```powershell
+$env:STRICT_EXTERNAL_REPO_CHECKS = "1"
+python -m pytest -q -p no:cacheprovider -m external_integrity
+```
 
 ### Honda H1–H5
 

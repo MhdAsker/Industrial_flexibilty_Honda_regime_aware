@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import subprocess
 from pathlib import Path
 
@@ -72,6 +73,8 @@ def test_frozen_honda_protocol_hash_is_preserved():
     assert digest(ROOT / "config/honda_forecasting_protocol_frozen.json") == "281f49331bc3b3c31aec0d33b50f6a83a149261db93ce04a29d67479cb62676e"
 
 
+@pytest.mark.external_integrity
+@pytest.mark.skipif(os.environ.get("STRICT_EXTERNAL_REPO_CHECKS") != "1", reason="set STRICT_EXTERNAL_REPO_CHECKS=1 to enforce companion-repository cleanliness")
 def test_spark_repository_is_read_only_and_clean():
     assert subprocess.check_output(["git", "status", "--porcelain"], cwd=spark_root(), text=True).strip() == ""
 
