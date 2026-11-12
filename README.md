@@ -387,7 +387,7 @@ $env:PYTHONDONTWRITEBYTECODE = "1"
 python -m pytest -q -p no:cacheprovider
 ```
 
-The suite contains 243 tests spanning provenance, signed-target preservation, issuance cutoffs, DST chronology, development/test separation, leakage controls, deterministic generation, optimization contracts, scenario integrity, FlexLab contracts, bootstrap reproducibility, and protected hashes. Four companion-repository cleanliness checks are skipped by default because that repository is independently managed. To run the strict release audit as well:
+The suite contains 287 tests spanning provenance, signed-target preservation, issuance cutoffs, DST chronology, development/test separation, leakage controls, deterministic generation, optimization contracts, scenario integrity, FlexLab contracts, bootstrap reproducibility, and protected hashes. Four companion-repository cleanliness checks are skipped by default because that repository is independently managed. To run the strict release audit as well:
 
 ```powershell
 $env:STRICT_EXTERNAL_REPO_CHECKS = "1"
