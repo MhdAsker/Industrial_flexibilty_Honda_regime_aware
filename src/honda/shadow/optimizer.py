@@ -49,6 +49,7 @@ class TwoStageResult:
     scenario_cost_eur: np.ndarray
     expected_cost_eur: float | None
     worst_case_cost_eur: float | None
+    cvar_eur: float | None
     active_constraints: dict[str, int]
     nonanticipativity_max_residual_kw: float
     runtime_seconds: float
@@ -66,6 +67,13 @@ def _nonanticipativity_residual(recourse: np.ndarray, nodes: np.ndarray) -> floa
     return residual
 
 
+def _weighted_cvar(costs: np.ndarray, weights: np.ndarray, alpha: float) -> float:
+    order = np.argsort(costs)
+    ordered_costs = costs[order]; ordered_weights = weights[order]
+    threshold = ordered_costs[min(np.searchsorted(np.cumsum(ordered_weights), alpha, side="left"), len(costs) - 1)]
+    return float(threshold + np.dot(weights, np.maximum(costs - threshold, 0)) / (1 - alpha))
+
+
 def solve_two_stage(
     decision: RollingDecisionInput,
     asset: ShadowAsset,
@@ -79,7 +87,7 @@ def solve_two_stage(
     """
     started = time.perf_counter()
     asset.validate()
-    point, scenarios, weights, dt, available = decision.arrays()
+    _point, scenarios, weights, dt, available = decision.arrays()
     scenario_count, horizon = scenarios.shape
     nodes = np.asarray(decision.scenario_node_ids, dtype=str)
     config.validate(horizon)
@@ -98,6 +106,11 @@ def solve_two_stage(
     if not config.hard_connection_limits:
         import_violation = np.arange(cursor, cursor + scenario_count * horizon).reshape(scenario_count, horizon); cursor += scenario_count * horizon
         export_violation = np.arange(cursor, cursor + scenario_count * horizon).reshape(scenario_count, horizon); cursor += scenario_count * horizon
+    cvar_threshold = None
+    cvar_excess = np.asarray([], dtype=int)
+    if config.risk_lambda > 0:
+        cvar_threshold = cursor; cursor += 1
+        cvar_excess = np.arange(cursor, cursor + scenario_count); cursor += scenario_count
 
     objective = np.zeros(cursor)
     for s in range(scenario_count):
@@ -109,6 +122,9 @@ def solve_two_stage(
         if not config.hard_connection_limits:
             objective[import_violation[s]] = weights[s] * commercial.connection_violation_eur_per_kw_interval
             objective[export_violation[s]] = weights[s] * commercial.connection_violation_eur_per_kw_interval
+    if config.risk_lambda > 0:
+        objective[cvar_threshold] = config.risk_lambda
+        objective[cvar_excess] = config.risk_lambda * weights / (1 - config.cvar_alpha)
 
     bounds: list[tuple[float | None, float | None]] = []
     for is_available in available:
@@ -127,6 +143,8 @@ def solve_two_stage(
     bounds.extend([(0.0, None)] * (scenario_count * (horizon + 1)))
     if not config.hard_connection_limits:
         bounds.extend([(0.0, None)] * (2 * scenario_count * horizon))
+    if config.risk_lambda > 0:
+        bounds.append((None, None)); bounds.extend([(0.0, None)] * scenario_count)
     for s in range(scenario_count):
         bounds[int(state[s, 0])] = (asset.initial_state_kwh, asset.initial_state_kwh)
         bounds[int(state[s, -1])] = (asset.terminal_state_kwh, asset.terminal_state_kwh)
@@ -171,6 +189,22 @@ def solve_two_stage(
             for member in members[1:]:
                 equality.add({int(recourse[int(member), t]): 1, int(recourse[anchor, t]): -1}, 0)
 
+    if config.risk_lambda > 0:
+        for s in range(scenario_count):
+            row: dict[int, float] = {int(cvar_threshold): -1, int(cvar_excess[s]): -1}
+            for t in range(horizon):
+                row[int(imports[s, t])] = dt[t] * (buy[t] + network[t])
+                row[int(exports[s, t])] = -dt[t] * sell[t]
+                row[int(recourse_abs[s, t])] = dt[t] * (commercial.recourse_eur_per_kwh + commercial.imbalance_eur_per_kwh)
+            for t in range(horizon + 1):
+                row[int(state_abs[s, t])] = commercial.service_state_eur_per_kwh_interval
+            row[int(peak[s])] = commercial.demand_charge_eur_per_kw
+            if not config.hard_connection_limits:
+                for t in range(horizon):
+                    row[int(import_violation[s, t])] = commercial.connection_violation_eur_per_kw_interval
+                    row[int(export_violation[s, t])] = commercial.connection_violation_eur_per_kw_interval
+            inequality.add(row, 0)
+
     aeq, beq = equality.matrix()
     aub, bub = inequality.matrix()
     solved = linprog(objective, A_ub=aub, b_ub=bub, A_eq=aeq, b_eq=beq, bounds=bounds, method="highs")
@@ -188,6 +222,7 @@ def solve_two_stage(
             scenario_cost_eur=np.full(scenario_count, np.nan),
             expected_cost_eur=None,
             worst_case_cost_eur=None,
+            cvar_eur=None,
             active_constraints={},
             nonanticipativity_max_residual_kw=float("nan"),
             runtime_seconds=time.perf_counter() - started,
@@ -212,6 +247,7 @@ def solve_two_stage(
             + np.maximum(exp - (config.export_limit_kw if config.export_limit_kw is not None else np.inf), 0).sum(axis=1)
         )
     physical = u[None, :] + r
+    cvar_value = _weighted_cvar(scenario_cost, weights, config.cvar_alpha)
     return TwoStageResult(
         solver_status="optimal",
         objective_eur=float(solved.fun),
@@ -222,6 +258,7 @@ def solve_two_stage(
         scenario_cost_eur=scenario_cost,
         expected_cost_eur=float(np.dot(weights, scenario_cost)),
         worst_case_cost_eur=float(np.max(scenario_cost)),
+        cvar_eur=cvar_value,
         active_constraints={
             "power": int(np.sum(np.isclose(physical, asset.p_up_kw) | np.isclose(physical, -asset.p_down_kw))),
             "state": int(np.sum(np.isclose(x, asset.state_min_kwh) | np.isclose(x, asset.state_max_kwh))),
@@ -239,6 +276,8 @@ def solve_two_stage(
             "genuine_recourse": True,
             "first_stage_shared": True,
             "scenario_tree_nonanticipativity": True,
+            "risk_lambda": config.risk_lambda,
+            "cvar_alpha": config.cvar_alpha,
         },
     )
 

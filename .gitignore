@@ -21,6 +21,8 @@ artifacts/shadow/
 artifacts/platform/
 sites/flexlab-dashboard/
 results/scenarios/*.parquet
+results/ml/h5_feature_matrix.parquet
+results/prescriptive_ml/*.parquet
 
 # Generated audit tables and figures (manifest/report remain tracked)
 results/audit/*.csv

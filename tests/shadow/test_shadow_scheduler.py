@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from dataclasses import asdict
+from dataclasses import asdict, replace
 from pathlib import Path
 
 import numpy as np
@@ -69,6 +69,15 @@ def test_deterministic_fallback_has_no_recourse():
     fallback = solve_deterministic_fallback(decision, asset, commercial, config)
     assert fallback.solver_status == "optimal"
     assert np.max(np.abs(fallback.scenario_recourse_kw)) < 1e-9
+
+
+def test_two_stage_cvar_is_part_of_the_optimized_objective():
+    decision, asset, commercial, config = _case()
+    risk_config = replace(config, risk_lambda=.4, cvar_alpha=.9)
+    result = solve_two_stage(decision, asset, commercial, risk_config)
+    assert result.solver_status == "optimal"
+    assert result.cvar_eur is not None
+    assert result.objective_eur == pytest.approx(result.expected_cost_eur + .4 * result.cvar_eur, abs=1e-6)
 
 
 def test_scenario_tree_cannot_merge_after_information_diverges():

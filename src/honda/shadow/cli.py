@@ -17,7 +17,7 @@ from .workflow import (
 def _json_vector(path: Path) -> list[float]:
     value = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(value, list):
-        raise ValueError(f"Expected a JSON numeric list in {path}")
+        raise TypeError(f"Expected a JSON numeric list in {path}")
     return [float(item) for item in value]
 
 

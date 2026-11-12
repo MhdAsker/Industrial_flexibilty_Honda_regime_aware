@@ -1,0 +1,70 @@
+{
+  "schema_version": "prescriptive-ml.phase1-protocol.v1",
+  "status": "EXPLORATORY_PROTOCOL_ON_PREVIOUSLY_EXPOSED_TEST",
+  "random_seed": 20261029,
+  "feature_contract": "Frozen H5 issuance-safe PRIMARY feature set",
+  "point_challengers": {
+    "regime_mixture": {
+      "components": [
+        "export_probability_classifier",
+        "import_magnitude_l1",
+        "export_magnitude_l1",
+        "direct_signed_l1"
+      ],
+      "blend_grid": [0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1.0]
+    },
+    "quantile_lightgbm": {
+      "quantiles": [0.05, 0.1, 0.25, 0.5, 0.75, 0.9, 0.95],
+      "noncrossing_projection": "row-wise sorting",
+      "conformal_groups": ["lead_band", "season"],
+      "conformal_nominal_coverage": 0.9
+    }
+  },
+  "development_folds": [
+    {
+      "id": "FOLD_A",
+      "training": "2020 excluding final 60 eligible days for internal calibration",
+      "evaluation": 2021
+    },
+    {
+      "id": "FOLD_B",
+      "training": "2020 plus 2021 excluding final 90 eligible days for mixture calibration",
+      "quantile_fit": 2020,
+      "quantile_calibration": 2021,
+      "evaluation": 2022
+    }
+  ],
+  "scenario_challenger": {
+    "conditioning": [
+      "point_daily_energy",
+      "point_peak_and_minimum",
+      "point_variability_and_ramp",
+      "point_export_fraction",
+      "season",
+      "day_type",
+      "recent_grid_level",
+      "recent_export_fraction",
+      "recent_chp_on_fraction"
+    ],
+    "raw_scenarios": 200,
+    "development_bandwidth_candidates": [0.5, 1.0, 2.0],
+    "selected_bandwidth": 2.0,
+    "development_reduction_candidates": [25, 50],
+    "selected_scenario_count": 200,
+    "reduction_selected": false,
+    "reduction_metric": "mean_path_L1_forward_selection",
+    "dependence": "empirical_copula_coupling",
+    "future_information_policy": "donor completion time must not exceed target issue time"
+  },
+  "promotion_gates": {
+    "maximum_mae_kw": 69.4,
+    "minimum_export_recall": 0.4,
+    "minimum_prediction_coverage": 1.0,
+    "paired_day_bootstrap_upper_kw": 0.0,
+    "maximum_slice_degradation": 0.05,
+    "minimum_wis_improvement": 0.05,
+    "interval_90_coverage_range": [0.87, 0.93],
+    "maximum_absolute_coverage_error": 0.03
+  },
+  "claim_boundary": "No confirmatory promotion can be based on Honda 2023 or SPARK 2024 because both periods are exposed"
+}

@@ -1,0 +1,78 @@
+{
+  "claim_boundary": "EXPOSED_2023_DIAGNOSTIC",
+  "comparison": {
+    "CONDITIONAL_ECC_RAW": {
+      "acf_rmse": {
+        "frozen_s2": 0.21572164750477205,
+        "relative_change": -0.018657270890832404,
+        "value": 0.21169687029025885
+      },
+      "coverage_90": {
+        "frozen_s2": 0.8217124277456648,
+        "relative_change": 0.0851469187367186,
+        "value": 0.8916787090558767
+      },
+      "energy_score_kw": {
+        "frozen_s2": 66.4859109641131,
+        "relative_change": -0.01594026866475134,
+        "value": 65.4261076809244
+      },
+      "variogram_score": {
+        "frozen_s2": 11.255341045627784,
+        "relative_change": -0.03738058165553735,
+        "value": 10.834609850610773
+      },
+      "width_90_kw": {
+        "frozen_s2": 262.56164091720603,
+        "relative_change": 0.10403163169877933,
+        "value": 289.87635684333196
+      },
+      "wis_kw": {
+        "frozen_s2": 169.34593644003763,
+        "relative_change": -0.03887314441732852,
+        "value": 162.76292739631631
+      }
+    },
+    "CONDITIONAL_ECC_REDUCED": {
+      "acf_rmse": {
+        "frozen_s2": 0.21572164750477205,
+        "relative_change": 0.06014099602411948,
+        "value": 0.22869536224967305
+      },
+      "coverage_90": {
+        "frozen_s2": 0.8217124277456648,
+        "relative_change": -0.07811240565692092,
+        "value": 0.7575264932562621
+      },
+      "energy_score_kw": {
+        "frozen_s2": 66.4859109641131,
+        "relative_change": 0.016523510950328814,
+        "value": 67.58449164197121
+      },
+      "variogram_score": {
+        "frozen_s2": 11.255341045627784,
+        "relative_change": 0.06718899661742227,
+        "value": 12.011576117070403
+      },
+      "width_90_kw": {
+        "frozen_s2": 262.56164091720603,
+        "relative_change": -0.15110169986977476,
+        "value": 222.8881306540188
+      },
+      "wis_kw": {
+        "frozen_s2": 169.34593644003763,
+        "relative_change": 0.0050749417881070435,
+        "value": 170.2053572095233
+      }
+    }
+  },
+  "days": 346,
+  "raw_scenarios": 200,
+  "reduced_scenarios": 25,
+  "reduction_selected": false,
+  "runtime_seconds": 150.76317539999945,
+  "schema_version": "prescriptive-ml.scenario-experiment.v1",
+  "selected_bandwidth": 2.0,
+  "selected_scenario_count": 200,
+  "status": "DEVELOPMENT_SELECTED_EXPLORATORY_DO_NOT_PROMOTE"
+}

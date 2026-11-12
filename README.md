@@ -75,6 +75,14 @@ flexops --database artifacts\platform\flexops.sqlite verify-audit
 
 See [`docs/phase3_multisite_platform.md`](docs/phase3_multisite_platform.md) for capabilities, threat boundaries, API routes, remaining production gaps and the recommended deployment sequence.
 
+## Offline prescriptive ML challengers
+
+The repository now includes exploratory regime-aware forecasting, quantile LightGBM, grouped conformal calibration, conditional ECC scenarios, scenario-reduction diagnostics, and an execute-first rolling-MPC evaluation contract.
+
+On the already-exposed Honda 2023 period, the development-selected regime mixture reduced MAE from 71.513 to 70.447 kW and improved export recall from 29.75% to 33.03%, but missed the frozen promotion gates. Raw conditional ECC-200 improved WIS and dependence diagnostics while reaching approximately 89% coverage. Development-only selection chose bandwidth 2.0 and retained all 200 paths because reductions to 25 and 50 paths damaged calibration and score gains. All challengers remain `DO_NOT_PROMOTE` or development-only candidates.
+
+See [`docs/prescriptive_ml_phase1.md`](docs/prescriptive_ml_phase1.md) for the protocol, quantitative results, claim boundary and next experiments.
+
 The appropriate classification is:
 
 > **READY_WITH_LIMITATIONS — CATEGORY_C_EXPLORATORY**

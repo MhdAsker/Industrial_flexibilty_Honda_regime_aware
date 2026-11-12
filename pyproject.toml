@@ -41,6 +41,7 @@ all = [
 flexlab = "honda.flexlab.cli:main"
 shadow-scheduler = "honda.shadow.cli:main"
 flexops = "honda.platform.cli:main"
+prescriptive-ml = "honda.prescriptive_ml.cli:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

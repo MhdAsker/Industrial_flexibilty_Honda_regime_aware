@@ -1,0 +1,22 @@
+{
+  "bandwidth_candidates": [
+    0.5,
+    1.0,
+    2.0
+  ],
+  "claim_boundary": "DEVELOPMENT_SELECTION_ONLY",
+  "development_year": 2022,
+  "raw_scenarios": 200,
+  "reduction_candidates": [
+    25,
+    50
+  ],
+  "reduction_selected": false,
+  "runtime_seconds": 361.9963308000006,
+  "schema_version": "prescriptive-ml.scenario-selection.v1",
+  "selected_bandwidth": 2.0,
+  "selected_scenario_count": 200,
+  "selection_primary_metric": "mean_daily_wis_kw",
+  "supported_days": 354,
+  "test_period_used_for_selection": false
+}

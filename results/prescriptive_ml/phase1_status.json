@@ -1,0 +1,41 @@
+{
+  "schema_version": "prescriptive-ml.phase1-status.v1",
+  "status": "IMPLEMENTED_EXPLORATORY_NOT_PROMOTED",
+  "claim_boundary": "Honda 2023 is exposed; results are diagnostic, not confirmatory",
+  "forecasting": {
+    "selected_challenger": "REGIME_MIXTURE",
+    "test_mae_kw": 70.44686028657833,
+    "champion_mae_kw": 71.51254282,
+    "export_recall": 0.3303128371089536,
+    "verdict": "DO_NOT_PROMOTE"
+  },
+  "probabilistic_forecasting": {
+    "coverage_90": 0.896138871812886,
+    "wis_improvement": 0.004227023624513354,
+    "verdict": "DO_NOT_PROMOTE"
+  },
+  "scenarios": {
+    "development_year": 2022,
+    "selected_bandwidth": 2.0,
+    "selected_scenario_count": 200,
+    "test_wis_improvement_vs_frozen_s2": 0.03887314441732852,
+    "test_coverage_90": 0.8916787090558767,
+    "verdict": "CONTINUE_AS_CHALLENGER_DO_NOT_PROMOTE"
+  },
+  "rolling_mpc": {
+    "execute_first_harness": "IMPLEMENTED_AND_TESTED",
+    "common_policy_comparison": "IMPLEMENTED_AND_TESTED",
+    "cvar_and_information_value_metrics": "IMPLEMENTED_AND_TESTED",
+    "empirical_value_claim": "BLOCKED_BY_ABSENCE_OF_GENUINE_SEQUENTIAL_VINTAGES_AND_APPROVED_PHYSICAL_COMMERCIAL_INPUTS"
+  },
+  "decision_focused_learning": "DEFERRED_UNTIL_EMPIRICAL_ROLLING_BENCHMARK",
+  "exit_criteria": {
+    "leakage_safe_evaluation": true,
+    "forecast_or_decision_improvement_across_required_gates": false,
+    "probabilistic_calibration_improved": true,
+    "no_hard_constraint_regression": true,
+    "runtime_within_offline_deadline": true,
+    "overall_phase1_promotion_ready": false
+  },
+  "next_step": "Collect new forward forecast vintages and partner-approved asset/tariff inputs; keep all current models in shadow or challenger status"
+}

@@ -1,0 +1,3 @@
+candidate,rows,mae_kw,rmse_kw,bias_kw,coverage,export_recall,false_export_rate,sign_accuracy,evaluation_exposed,maximum_slice_degradation
+REGIME_MIXTURE,34161,70.44686029,95.34997243,9.355608203,1,0.3303128371,0.01933888776,0.892421182,True,-0.006049995672
+QUANTILE_MEDIAN,34161,73.29520292,97.0786556,10.96239124,1,0.273570658,0.01676488519,0.8869471034,True,0.1207609403

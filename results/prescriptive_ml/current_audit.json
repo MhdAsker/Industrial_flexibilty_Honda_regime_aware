@@ -1,0 +1,88 @@
+{
+  "artifacts": {
+    "results\\ml\\development_predictions.parquet": "4db493c883da4b33cc25a058e9a1a6d81c24dca32861251ab09eac6ccd2378e7",
+    "results\\ml\\test_predictions_2023.parquet": "301cfe03fd824cb741f192179b5f6bcc14100c3120729653eaf49339da3e9a67"
+  },
+  "champion_metrics": {
+    "bias_kw": 9.407518327026747,
+    "coverage": 1.0,
+    "evaluation_exposed": true,
+    "export_recall": 0.2975188781014024,
+    "false_export_rate": 0.019406624669782564,
+    "mae_kw": 71.51254281619003,
+    "rmse_kw": 96.97426086010104,
+    "rows": 34161.0,
+    "sign_accuracy": 0.887913117297503
+  },
+  "champion_vs_b5": {
+    "challenger_win_rate": 0.6416666666666667,
+    "ci_lower_kw": -6.693552144793124,
+    "ci_upper_kw": -3.3828584165665148,
+    "days": 360.0,
+    "mean_mae_difference_kw": -4.9408283730130576
+  },
+  "claim_boundary": "EXPLORATORY_EXPOSED_2023_HOLDOUT_NO_PROMOTION_CLAIM",
+  "current_champion": "LGBM_M1",
+  "method_status": {
+    "conditional_coherent_ecc": "DEVELOPMENT_SELECTED_EXPLORATORY_DO_NOT_PROMOTE",
+    "decision_focused_learning": "DEFERRED_UNTIL_ROLLING_BENCHMARK",
+    "execute_first_rolling_mpc_harness": "IMPLEMENTED_REAL_VINTAGES_REQUIRED",
+    "grouped_conformal_calibration": "EVALUATED_EXPLORATORY_DO_NOT_PROMOTE",
+    "quantile_lightgbm": "EVALUATED_EXPLORATORY_DO_NOT_PROMOTE",
+    "regime_aware_mixture": "DEVELOPMENT_SELECTED_EXPLORATORY_DO_NOT_PROMOTE",
+    "scenario_reduction": "DEVELOPMENT_REJECTED_RETAIN_200_RAW_PATHS"
+  },
+  "promotion_gate_example": {
+    "checks": {
+      "coverage_error": null,
+      "export_recall": false,
+      "interval_coverage": null,
+      "mae": false,
+      "paired_bootstrap": true,
+      "prediction_coverage": true,
+      "slice_stability": null,
+      "wis": null
+    },
+    "claim_boundary": "EXPLORATORY_EXPOSED_HOLDOUT",
+    "gates": {
+      "bootstrap_upper_below_kw": 0.0,
+      "maximum_absolute_coverage_error": 0.03,
+      "maximum_interval_coverage": 0.93,
+      "maximum_mae_kw": 69.4,
+      "maximum_slice_degradation": 0.05,
+      "minimum_coverage": 1.0,
+      "minimum_export_recall": 0.4,
+      "minimum_interval_coverage": 0.87,
+      "minimum_wis_improvement": 0.05
+    },
+    "interval_metrics": null,
+    "maximum_slice_degradation": null,
+    "paired_day_bootstrap": {
+      "challenger_win_rate": 0.6416666666666667,
+      "ci_lower_kw": -6.693552144793124,
+      "ci_upper_kw": -3.3828584165665148,
+      "days": 360.0,
+      "mean_mae_difference_kw": -4.9408283730130576
+    },
+    "point_metrics": {
+      "bias_kw": 9.407518327026747,
+      "coverage": 1.0,
+      "evaluation_exposed": true,
+      "export_recall": 0.2975188781014024,
+      "false_export_rate": 0.019406624669782564,
+      "mae_kw": 71.51254281619003,
+      "rmse_kw": 96.97426086010104,
+      "rows": 34161.0,
+      "sign_accuracy": 0.887913117297503
+    },
+    "required_metrics_complete": false,
+    "status": "DO_NOT_PROMOTE",
+    "wis_improvement": null
+  },
+  "schema_version": "prescriptive-ml.phase1-audit.v1",
+  "training_readiness": {
+    "missing_provenance_controlled_sources": [],
+    "ready": true,
+    "reason": "challenger training requires the frozen SILVER, provenance mask, and forecasting index"
+  }
+}

@@ -65,18 +65,18 @@ class PartnerReadiness:
     def load(cls, path: str | Path) -> PartnerReadiness:
         raw = yaml.safe_load(Path(path).read_text(encoding="utf-8"))
         if not isinstance(raw, dict):
-            raise ValueError("Partner-readiness file must contain a mapping")
+            raise TypeError("Partner-readiness file must contain a mapping")
         allowed = {"schema_version", "partner_id", "timezone", "model_owner", "evidence"}
         unknown = sorted(set(raw) - allowed)
         if unknown:
             raise ValueError(f"Unknown readiness fields: {', '.join(unknown)}")
         evidence_raw = raw.get("evidence")
         if not isinstance(evidence_raw, dict):
-            raise ValueError("Readiness evidence must be a mapping")
+            raise TypeError("Readiness evidence must be a mapping")
         evidence: dict[str, Evidence] = {}
         for name, value in evidence_raw.items():
             if not isinstance(value, dict):
-                raise ValueError(f"Evidence {name} must be a mapping")
+                raise TypeError(f"Evidence {name} must be a mapping")
             evidence[name] = Evidence(**value)
         result = cls(
             partner_id=str(raw.get("partner_id", "")),
@@ -184,6 +184,8 @@ class TwoStageConfig:
     import_limit_kw: float | None
     export_limit_kw: float | None
     hard_connection_limits: bool = True
+    risk_lambda: float = 0.0
+    cvar_alpha: float = 0.95
 
     def validate(self, horizon: int) -> None:
         if not 1 <= self.commitment_intervals <= horizon:
@@ -192,6 +194,8 @@ class TwoStageConfig:
             raise ValueError("Recourse start must lie inside the horizon")
         if self.adjustment_limit_kw < 0:
             raise ValueError("Adjustment limit must be nonnegative")
+        if self.risk_lambda < 0 or not 0 < self.cvar_alpha < 1:
+            raise ValueError("Two-stage CVaR settings are invalid")
         if any(v is not None and v < 0 for v in (self.import_limit_kw, self.export_limit_kw)):
             raise ValueError("Connection limits must be nonnegative")
 

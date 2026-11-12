@@ -39,7 +39,7 @@ def _write_once(path: Path, value: Any) -> None:
 def load_issue(path: str | Path) -> tuple[dict[str, Any], RollingDecisionInput, ShadowAsset, CommercialTerms, TwoStageConfig]:
     raw = yaml.safe_load(Path(path).read_text(encoding="utf-8"))
     if not isinstance(raw, dict):
-        raise ValueError("Shadow issue file must contain a mapping")
+        raise TypeError("Shadow issue file must contain a mapping")
     allowed = {"schema_version", "issue_id", "partner_id", "approved_evidence_hashes", "decision", "asset", "commercial", "optimizer"}
     unknown = sorted(set(raw) - allowed)
     if unknown:
@@ -49,7 +49,7 @@ def load_issue(path: str | Path) -> tuple[dict[str, Any], RollingDecisionInput, 
     if not raw.get("issue_id") or not raw.get("partner_id"):
         raise ValueError("Shadow issue needs issue_id and partner_id")
     if not isinstance(raw.get("approved_evidence_hashes"), dict):
-        raise ValueError("Shadow issue needs approved_evidence_hashes")
+        raise TypeError("Shadow issue needs approved_evidence_hashes")
     decision = RollingDecisionInput(**raw["decision"])
     asset = ShadowAsset(**raw["asset"])
     commercial = CommercialTerms(**raw["commercial"])
@@ -109,6 +109,7 @@ def _result_payload(result: TwoStageResult) -> dict[str, Any]:
         "objective_eur": result.objective_eur,
         "expected_cost_eur": result.expected_cost_eur,
         "worst_case_cost_eur": result.worst_case_cost_eur,
+        "cvar_eur": result.cvar_eur,
         "day_ahead_schedule_kw": result.day_ahead_schedule_kw.tolist(),
         "scenario_recourse_kw": result.scenario_recourse_kw.tolist(),
         "scenario_state_kwh": result.scenario_state_kwh.tolist(),
