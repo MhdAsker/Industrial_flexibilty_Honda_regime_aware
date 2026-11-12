@@ -26,14 +26,21 @@ forecasting = [
 test = [
   "pytest>=8,<9",
 ]
+platform = [
+  "fastapi>=0.115,<1",
+  "uvicorn>=0.34,<1",
+]
 all = [
+  "fastapi>=0.115,<1",
   "lightgbm>=4.5,<5",
   "pytest>=8,<9",
+  "uvicorn>=0.34,<1",
 ]
 
 [project.scripts]
 flexlab = "honda.flexlab.cli:main"
 shadow-scheduler = "honda.shadow.cli:main"
+flexops = "honda.platform.cli:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

@@ -1,0 +1,14 @@
+{
+  "tenant_id": "REPLACE_WITH_TENANT",
+  "site_id": "REPLACE_WITH_SITE",
+  "name": "REPLACE_WITH_SITE_NAME",
+  "timezone": "Europe/Berlin",
+  "connection_import_limit_kw": null,
+  "connection_export_limit_kw": null,
+  "owner_role": "REPLACE_WITH_INDUSTRIAL_OWNER_ROLE",
+  "version": 1,
+  "approved": false,
+  "metadata": {
+    "claim_boundary": "REGISTRY_TEMPLATE_NOT_PARTNER_APPROVED"
+  }
+}

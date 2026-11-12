@@ -18,6 +18,7 @@ artifacts/models/
 .cache-h6/
 artifacts/foundation_models/
 artifacts/shadow/
+artifacts/platform/
 sites/flexlab-dashboard/
 results/scenarios/*.parquet
 

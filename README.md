@@ -62,6 +62,19 @@ shadow-scheduler metrics --root artifacts\shadow
 
 See [`docs/phase2_shadow_scheduler.md`](docs/phase2_shadow_scheduler.md) for the data contracts, optimization semantics, operating workflow, metrics, and remaining industrial work.
 
+## Phase 3 multi-site platform foundation
+
+An approval-gated `honda.platform` layer now provides versioned multi-site registries, leakage-safe connector snapshots, workflow state persistence, role- and site-scoped API credentials, a hash-chained audit log, monitoring gates, champion/rollback model aliases, portfolio allocation under network and risk limits, and authenticated operational API routes.
+
+Every tenant starts in `OFFLINE_SIMULATION`. The platform cannot authorize control from offline or prospective-shadow stages, and later stages require sequential evidence-backed promotion. Automated action additionally requires a separate safety-case digest and two-person approval. No current site has met these gates.
+
+```powershell
+flexops --database artifacts\platform\flexops.sqlite init
+flexops --database artifacts\platform\flexops.sqlite verify-audit
+```
+
+See [`docs/phase3_multisite_platform.md`](docs/phase3_multisite_platform.md) for capabilities, threat boundaries, API routes, remaining production gaps and the recommended deployment sequence.
+
 The appropriate classification is:
 
 > **READY_WITH_LIMITATIONS — CATEGORY_C_EXPLORATORY**
