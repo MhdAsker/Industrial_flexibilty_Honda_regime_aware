@@ -60,6 +60,28 @@ def create_app(database: str | Path):
     def settlements(tenant_id: str, x_api_key: str | None = Header(default=None)):
         return collection("settlements", tenant_id, None, x_api_key)
 
+    @app.get("/prediction-ledger")
+    def prediction_ledger(
+        tenant_id: str,
+        model_id: str | None = None,
+        x_api_key: str | None = Header(default=None),
+    ):
+        authorize(x_api_key, tenant_id)
+        return store.ledger_rows(tenant_id, model_id)
+
+    @app.get("/model-comparisons")
+    def model_comparison(
+        tenant_id: str,
+        champion_model_id: str,
+        challenger_model_id: str,
+        x_api_key: str | None = Header(default=None),
+    ):
+        authorize(x_api_key, tenant_id)
+        try:
+            return store.compare_ledger_models(tenant_id, champion_model_id, challenger_model_id)
+        except ValueError as exc:
+            raise HTTPException(status_code=409, detail=str(exc)) from exc
+
     @app.get("/health")
     def health(tenant_id: str = Query(...), x_api_key: str | None = Header(default=None)):
         authorize(x_api_key, tenant_id)

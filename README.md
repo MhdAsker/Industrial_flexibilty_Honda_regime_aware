@@ -65,13 +65,15 @@ See [`docs/phase2_shadow_scheduler.md`](docs/phase2_shadow_scheduler.md) for the
 
 ## Phase 3 multi-site platform foundation
 
-An approval-gated `honda.platform` layer now provides versioned multi-site registries, leakage-safe connector snapshots, workflow state persistence, role- and site-scoped API credentials, a hash-chained audit log, monitoring gates, champion/rollback model aliases, portfolio allocation under network and risk limits, and authenticated operational API routes.
+An approval-gated `honda.platform` layer now provides versioned multi-site registries, leakage-safe connector snapshots, workflow state persistence, role- and site-scoped API credentials, a hash-chained audit log, monitoring gates, champion/rollback model aliases, portfolio allocation under network and risk limits, and authenticated operational API routes. The adaptive-ML layer adds an interval-level prediction/label ledger, identical-snapshot model comparisons, rolling-origin and semantic-safe cold-start evaluation, partial-pooling adapters, joint empirical-copula scenarios, and fail-closed global promotion gates.
 
 Every tenant starts in `OFFLINE_SIMULATION`. The platform cannot authorize control from offline or prospective-shadow stages, and later stages require sequential evidence-backed promotion. Automated action additionally requires a separate safety-case digest and two-person approval. No current site has met these gates.
 
 ```powershell
 flexops --database artifacts\platform\flexops.sqlite init
 flexops --database artifacts\platform\flexops.sqlite verify-audit
+flexops --database artifacts\platform\flexops.sqlite ledger-status --tenant TENANT
+flexops --database artifacts\platform\flexops.sqlite ml-readiness --approved-sites 3 --seasonal-days 365 --pooled-rows 100000
 ```
 
 See [`docs/phase3_multisite_platform.md`](docs/phase3_multisite_platform.md) for capabilities, threat boundaries, API routes, remaining production gaps and the recommended deployment sequence.

@@ -7,6 +7,7 @@ from .contracts import (
     ModelRegistration,
     SiteRegistration,
 )
+from .ledger import PredictionLedgerRecord
 from .storage import PlatformStore
 
 __all__ = [
@@ -15,5 +16,6 @@ __all__ = [
     "DeploymentStage",
     "ModelRegistration",
     "PlatformStore",
+    "PredictionLedgerRecord",
     "SiteRegistration",
 ]

@@ -133,6 +133,78 @@ Health evaluation covers:
 
 Freshness, clock, solver-feasibility and hard-constraint failures are critical. Any critical or warning state prevents the monitoring layer from approving automatic action.
 
+Missing forecast accuracy, dependence, or distribution-shift values now produce `UNKNOWN`, not a passing check. `UNKNOWN` blocks controlled action exactly as a failed health gate does.
+
+## Global multi-site adaptive ML
+
+### Prediction and label ledger
+
+The platform now persists one immutable row per `site × issue × interval × model`. Each row records:
+
+- information cutoff and target timestamp;
+- explicit physical target semantics;
+- prediction and optional scenario identity;
+- model, feature, code, environment and immutable-snapshot hashes;
+- calibration version;
+- delayed-label state (`PENDING`, `OBSERVED`, or `UNAVAILABLE`);
+- eventual label;
+- operator action; and
+- decision outcome.
+
+Predictions cannot be overwritten, and a delayed label can be attached only once. Champion/challenger comparison requires exactly the same observed site/issue/interval support, snapshot hash, target semantics, and label. A mismatch raises an error instead of silently comparing different information sets.
+
+```powershell
+flexops --database artifacts\platform\flexops.sqlite ledger-status --tenant TENANT
+flexops --database artifacts\platform\flexops.sqlite compare-models `
+  --tenant TENANT --champion LOCAL_LGBM --challenger GLOBAL_ADAPTER
+```
+
+### Hierarchy and evaluation order
+
+The benchmark contract fixes this order:
+
+1. local LightGBM per site;
+2. pooled LightGBM with site identity and within-site normalized features;
+3. global prediction plus local residual/calibration adapter;
+4. hierarchical probabilistic partial pooling;
+5. compact neural global model with site embeddings; and
+6. joint cross-site scenarios.
+
+Implemented evaluation primitives include rolling-origin known-site splits, leave-one-site-out cold-start splits, training-only within-site normalization, partial-pooling residual adaptation, per-site metrics, macro and worst-site aggregation, and joint empirical-copula scenarios.
+
+Cold-start training is restricted to sites with the same target semantics. Honda signed grid exchange is therefore never used as though it were a SPARK nonnegative-demand label. Joint scenarios may coordinate separately calibrated site marginals, but the physical target arrays remain separate.
+
+The execution template is [`examples/platform/multisite_ml_policy.template.json`](../examples/platform/multisite_ml_policy.template.json).
+
+```powershell
+flexops --database artifacts\platform\flexops.sqlite ml-readiness `
+  --approved-sites 3 --seasonal-days 365 --pooled-rows 100000
+```
+
+### Promotion controls
+
+The fail-closed promotion evaluator requires all site and service values. Missing values return `UNKNOWN` and block promotion. A challenger must satisfy every gate:
+
+- at least 2% macro MAE improvement by default;
+- no site degradation beyond 2%;
+- no degradation in worst-site MAE;
+- per-site bias and coverage thresholds;
+- non-inferior decision cost and operator acceptance;
+- inference and solver p95 service levels;
+- drift alarms preceding safety-threshold breaches; and
+- zero hard violations.
+
+Model promotion does not change the deployment stage or authorize control.
+Registering a global champion additionally requires the SHA-256 identities of both its identical-snapshot ledger comparison and its complete promotion report; ordinary approval and rollback references alone are insufficient.
+
+### Advanced-model boundary
+
+TACTiS, normalizing flows, diffusion models and graph neural networks remain behind a separate scale gate. The conservative default software gate requires at least ten comparable approved sites, one year of seasonal evidence and 100,000 pooled rows before they are even eligible as challengers. Passing that gate is not performance evidence.
+
+This boundary reflects the mismatch between the present project and the settings for which these methods were introduced: [TACTiS](https://proceedings.mlr.press/v162/drouin22a.html) targets high-dimensional joint distributions and reports scaling to hundreds of series, while [TimeGrad](https://proceedings.mlr.press/v139/rasul21a.html) was demonstrated on multivariate datasets with thousands of correlated dimensions.
+
+Offline reinforcement learning remains prohibited until prospective logs contain valid state, action, reward, next-state and behavior-policy information with adequate action coverage. This follows the distribution-shift and dataset-coverage limitations emphasized in the [offline RL review by Levine et al.](https://arxiv.org/abs/2005.01643).
+
 ### Portfolio allocation
 
 The portfolio allocator coordinates a requested response across multiple sites using:
@@ -172,6 +244,8 @@ GET  /models
 GET  /decisions
 GET  /settlements
 GET  /health
+GET  /prediction-ledger
+GET  /model-comparisons
 POST /decisions/{decision_id}/operator-action
 ```
 
@@ -227,6 +301,12 @@ Automated tests currently cover:
 - monitoring-based action blocking;
 - portfolio network/risk constraints; and
 - presence of all required API routes.
+- delayed-label ledger immutability and identical-snapshot comparison;
+- target-semantic separation in known-site and cold-start evaluation;
+- partial-pooling cold-start behavior;
+- joint scenario marginal preservation;
+- fail-closed global promotion; and
+- advanced-model deferral without sufficient scale.
 
 CI runs the platform and Phase 2 shadow tests on Windows and Linux with Python 3.10 and 3.12.
 
@@ -254,6 +334,7 @@ The following are intentionally not claimed as complete:
 6. Add a second approved site and predeclare the portfolio diversification experiment.
 7. Conduct failure injection, fallback, rollback and disaster-recovery exercises.
 8. Prepare a separate safety case before any limited controlled pilot.
+9. After at least three comparable sites have seasonal evidence, run the hierarchy in its frozen order and promote only through the ledger-backed gates.
 
 ## Phase 3 completion rule
 

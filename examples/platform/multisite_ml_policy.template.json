@@ -1,0 +1,31 @@
+{
+  "schema_version": "flexops.multisite-ml-policy.v1",
+  "minimum_comparable_approved_sites": 3,
+  "minimum_seasonal_days": 365,
+  "target_semantic_groups": {
+    "SIGNED_GRID_EXCHANGE": ["REPLACE_WITH_SIGNED_EXCHANGE_SITE_IDS"],
+    "NONNEGATIVE_DEMAND": ["REPLACE_WITH_DEMAND_SITE_IDS"]
+  },
+  "evaluation": {
+    "known_site": "ROLLING_ORIGIN",
+    "cold_start": "LEAVE_ONE_SITE_OUT_WITHIN_TARGET_SEMANTICS",
+    "resampling_unit": "SITE_DAY_OR_LONGER",
+    "interval_rows_are_independent": false
+  },
+  "promotion_gates": {
+    "minimum_macro_improvement": 0.02,
+    "maximum_site_degradation": 0.02,
+    "worst_site_may_degrade": false,
+    "site_calibration_required": true,
+    "decision_and_operator_noninferiority_required": true,
+    "service_p95_required": true,
+    "early_drift_warning_required": true
+  },
+  "advanced_model_policy": {
+    "status": "DEFER_UNTIL_SCALE_GATE",
+    "minimum_sites": 10,
+    "minimum_seasonal_days": 365,
+    "minimum_pooled_rows": 100000
+  },
+  "offline_rl": "PROHIBITED_UNTIL_VALID_BEHAVIOR_POLICY_LOG_AND_ACTION_COVERAGE"
+}

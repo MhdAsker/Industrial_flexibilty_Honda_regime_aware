@@ -5,12 +5,16 @@ on:
     paths:
       - "src/honda/platform/**"
       - "tests/platform/**"
+      - "examples/platform/**"
+      - "docs/phase3_multisite_platform.md"
       - "pyproject.toml"
       - ".github/workflows/platform-ci.yml"
   pull_request:
     paths:
       - "src/honda/platform/**"
       - "tests/platform/**"
+      - "examples/platform/**"
+      - "docs/phase3_multisite_platform.md"
       - "pyproject.toml"
 
 jobs:

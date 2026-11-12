@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from .contracts import SiteRegistration
+from .multisite_ml import advanced_model_readiness, hierarchy_execution_plan
 from .storage import PlatformStore
 
 
@@ -24,6 +25,13 @@ def parser() -> argparse.ArgumentParser:
     principal.add_argument("--role", required=True); principal.add_argument("--site", action="append", default=[]); principal.add_argument("--actor", required=True)
     serve = commands.add_parser("serve", help="serve the optional FastAPI application")
     serve.add_argument("--host", default="127.0.0.1"); serve.add_argument("--port", type=int, default=8000)
+    ledger = commands.add_parser("ledger-status", help="summarize prediction-label ledger completion")
+    ledger.add_argument("--tenant", required=True); ledger.add_argument("--model")
+    compare = commands.add_parser("compare-models", help="compare models on identical observed ledger rows")
+    compare.add_argument("--tenant", required=True); compare.add_argument("--champion", required=True); compare.add_argument("--challenger", required=True)
+    readiness = commands.add_parser("ml-readiness", help="evaluate multi-site and advanced-model data readiness")
+    readiness.add_argument("--approved-sites", type=int, required=True); readiness.add_argument("--seasonal-days", type=int, required=True)
+    readiness.add_argument("--pooled-rows", type=int, required=True)
     return result
 
 
@@ -55,6 +63,21 @@ def main() -> None:
         elif args.command == "create-principal":
             token = store.create_principal(args.tenant, args.principal, args.role, tuple(args.site), args.actor)
             value = {"principal_id": args.principal, "api_token": token, "warning": "Store this token now; only its salted hash is persisted."}
+        elif args.command == "ledger-status":
+            rows = store.ledger_rows(args.tenant, args.model)
+            statuses = {status: sum(row["label_status"] == status for row in rows) for status in ("PENDING", "OBSERVED", "UNAVAILABLE")}
+            value = {"tenant_id": args.tenant, "model_id": args.model, "rows": len(rows), "label_status": statuses}
+        elif args.command == "compare-models":
+            value = store.compare_ledger_models(args.tenant, args.champion, args.challenger)
+        elif args.command == "ml-readiness":
+            value = {
+                "hierarchy": hierarchy_execution_plan(args.approved_sites, args.seasonal_days),
+                "advanced_models": advanced_model_readiness(
+                    comparable_approved_sites=args.approved_sites,
+                    seasonal_days=args.seasonal_days,
+                    pooled_rows=args.pooled_rows,
+                ),
+            }
         else:
             try:
                 import uvicorn

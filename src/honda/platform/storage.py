@@ -11,6 +11,8 @@ from hashlib import scrypt, sha256
 from pathlib import Path
 from typing import Any
 
+import numpy as np
+
 from .contracts import (
     AssetRegistration,
     ConnectorRegistration,
@@ -21,6 +23,7 @@ from .contracts import (
     stable_hash,
     stable_json,
 )
+from .ledger import PredictionLedgerRecord, paired_ledger_comparison
 
 SCHEMA = """
 PRAGMA foreign_keys = ON;
@@ -76,6 +79,21 @@ CREATE TABLE IF NOT EXISTS monitoring_events (
   severity TEXT NOT NULL, metric TEXT NOT NULL, payload_json TEXT NOT NULL, created_at_utc TEXT NOT NULL,
   PRIMARY KEY (tenant_id, event_id)
 );
+CREATE TABLE IF NOT EXISTS prediction_ledger (
+  tenant_id TEXT NOT NULL, site_id TEXT NOT NULL, issue_id TEXT NOT NULL,
+  target_timestamp_utc TEXT NOT NULL, model_id TEXT NOT NULL,
+  prediction_id TEXT NOT NULL, scenario_id TEXT,
+  information_cutoff_utc TEXT NOT NULL, target_semantics TEXT NOT NULL,
+  prediction_kw REAL NOT NULL, label_kw REAL,
+  model_sha256 TEXT NOT NULL, feature_sha256 TEXT NOT NULL,
+  code_sha256 TEXT NOT NULL, environment_sha256 TEXT NOT NULL,
+  snapshot_sha256 TEXT NOT NULL, calibration_version TEXT NOT NULL,
+  operator_action TEXT, decision_outcome TEXT, label_status TEXT NOT NULL,
+  created_at_utc TEXT NOT NULL, labeled_at_utc TEXT,
+  PRIMARY KEY (tenant_id, site_id, issue_id, target_timestamp_utc, model_id)
+);
+CREATE INDEX IF NOT EXISTS prediction_ledger_model_idx
+  ON prediction_ledger (tenant_id, model_id, label_status);
 CREATE TABLE IF NOT EXISTS principals (
   tenant_id TEXT NOT NULL, principal_id TEXT NOT NULL, role TEXT NOT NULL,
   site_scope_json TEXT NOT NULL, token_salt BLOB NOT NULL, token_hash BLOB NOT NULL,
@@ -206,6 +224,11 @@ class PlatformStore:
             if row is None:
                 raise ValueError("Cannot promote an unregistered model")
             payload = json.loads(row[0])
+            if payload.get("site_id") is None:
+                global_required = {"ledger_comparison_sha256", "promotion_report_sha256"}
+                global_missing = sorted(global_required - evidence.keys())
+                if global_missing:
+                    raise ValueError(f"Global model promotion evidence is incomplete: {', '.join(global_missing)}")
             site_key = payload.get("site_id") or "*"
             kind = payload["model_kind"]
             connection.execute(
@@ -342,3 +365,69 @@ class PlatformStore:
                 (tenant_id, event_id, site_id, severity, metric, stable_json(payload), self.now()),
             )
             self._audit(connection, tenant_id, actor, "MONITOR", f"event:{event_id}", {"severity": severity, "metric": metric})
+
+    def append_prediction(self, record: PredictionLedgerRecord, actor: str) -> None:
+        payload = record.payload()
+        columns = tuple(payload)
+        with self.connection() as connection:
+            connection.execute(
+                f"INSERT INTO prediction_ledger ({', '.join(columns)}, created_at_utc, labeled_at_utc) "
+                f"VALUES ({', '.join('?' for _ in columns)}, ?, ?)",
+                (*[payload[column] for column in columns], self.now(), self.now() if record.label_status != "PENDING" else None),
+            )
+            self._audit(
+                connection, record.tenant_id, actor, "LEDGER_PREDICTION",
+                f"prediction:{record.site_id}:{record.issue_id}:{record.target_timestamp_utc}:{record.model_id}",
+                {"prediction_id": record.prediction_id, "snapshot_sha256": record.snapshot_sha256},
+            )
+
+    def attach_label(
+        self,
+        tenant_id: str,
+        site_id: str,
+        issue_id: str,
+        target_timestamp_utc: str,
+        model_id: str,
+        label_kw: float | None,
+        actor: str,
+        *,
+        unavailable: bool = False,
+        operator_action: str | None = None,
+        decision_outcome: str | None = None,
+    ) -> None:
+        status = "UNAVAILABLE" if unavailable else "OBSERVED"
+        if (unavailable and label_kw is not None) or (not unavailable and (label_kw is None or not np.isfinite(label_kw))):
+            raise ValueError("Ledger label value does not match its status")
+        identity = (tenant_id, site_id, issue_id, target_timestamp_utc, model_id)
+        with self.connection() as connection:
+            row = connection.execute(
+                "SELECT label_status FROM prediction_ledger WHERE tenant_id=? AND site_id=? AND issue_id=? AND target_timestamp_utc=? AND model_id=?",
+                identity,
+            ).fetchone()
+            if row is None or row[0] != "PENDING":
+                raise ValueError("Ledger label can only be attached once to a pending prediction")
+            connection.execute(
+                "UPDATE prediction_ledger SET label_kw=?, label_status=?, operator_action=?, decision_outcome=?, labeled_at_utc=? "
+                "WHERE tenant_id=? AND site_id=? AND issue_id=? AND target_timestamp_utc=? AND model_id=?",
+                (label_kw, status, operator_action, decision_outcome, self.now(), *identity),
+            )
+            self._audit(
+                connection, tenant_id, actor, "LEDGER_LABEL",
+                f"prediction:{site_id}:{issue_id}:{target_timestamp_utc}:{model_id}",
+                {"label_status": status, "operator_action": operator_action, "decision_outcome": decision_outcome},
+            )
+
+    def ledger_rows(self, tenant_id: str, model_id: str | None = None) -> list[dict[str, Any]]:
+        query = "SELECT * FROM prediction_ledger WHERE tenant_id = ?"
+        parameters: list[Any] = [tenant_id]
+        if model_id is not None:
+            query += " AND model_id = ?"; parameters.append(model_id)
+        query += " ORDER BY site_id, issue_id, target_timestamp_utc, model_id"
+        with self.connection() as connection:
+            return [dict(row) for row in connection.execute(query, parameters).fetchall()]
+
+    def compare_ledger_models(self, tenant_id: str, champion_model_id: str, challenger_model_id: str) -> dict[str, Any]:
+        return paired_ledger_comparison(
+            self.ledger_rows(tenant_id, champion_model_id),
+            self.ledger_rows(tenant_id, challenger_model_id),
+        )

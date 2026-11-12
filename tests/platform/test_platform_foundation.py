@@ -142,11 +142,20 @@ def test_champion_promotion_requires_evidence_and_preserves_rollback_identity(tm
 
 def test_monitoring_health_blocks_automatic_action_on_critical_failure():
     thresholds = MonitoringThresholds(900, .02, 5, 10, .85, 60, 20, 50)
-    metrics = OperationalMetrics(100, .01, 1, 2, .9, .1, .1, True, 5, 0, 3, 100, 95)
+    metrics = OperationalMetrics(100, .01, 1, 2, .9, .1, .1, True, 5, 0, 3, 100, 95, forecast_mae_kw=4)
     assert evaluate_health(metrics, thresholds)["automatic_action_allowed"] is True
     failed = replace(metrics, hard_constraint_violations=1)
     health = evaluate_health(failed, thresholds)
     assert health["status"] == "CRITICAL"
+    assert health["automatic_action_allowed"] is False
+
+
+def test_missing_required_monitoring_value_is_unknown_and_blocks_action():
+    thresholds = MonitoringThresholds(900, .02, 5, 10, .85, 60, 20, 50)
+    metrics = OperationalMetrics(100, .01, 1, 2, .9, None, .1, True, 5, 0, 3, 100, 95, forecast_mae_kw=4)
+    health = evaluate_health(metrics, thresholds)
+    assert health["status"] == "UNKNOWN"
+    assert health["unknown_checks"] == ["scenario_dependence"]
     assert health["automatic_action_allowed"] is False
 
 
@@ -173,3 +182,4 @@ def test_api_exposes_required_operational_routes(tmp_path):
     paths = {route.path for route in app.routes}
     required = {"/forecasts", "/scenarios", "/assets", "/tariffs", "/decisions", "/settlements", "/health"}
     assert required.issubset(paths)
+    assert {"/prediction-ledger", "/model-comparisons"}.issubset(paths)
