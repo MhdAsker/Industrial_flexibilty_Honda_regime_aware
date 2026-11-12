@@ -1,0 +1,25 @@
+schema_version: shadow.partner-readiness.v1
+partner_id: REPLACE_WITH_PARTNER_ID
+timezone: Europe/Berlin
+model_owner: REPLACE_WITH_OWNER_ROLE
+
+# A prospective recommendation remains blocked until every category is backed
+# by partner-approved, content-digested evidence. Do not change approved to true
+# until the named owner has reviewed the referenced source.
+evidence:
+  power_limits: &pending
+    source: REPLACE_WITH_SOURCE_URI
+    approved: false
+    approved_by_role: null
+    approved_at_utc: null
+    sha256: null
+  state_limits: *pending
+  ramp_constraints: *pending
+  recovery_requirements: *pending
+  availability_windows: *pending
+  production_deadlines: *pending
+  tariff_rules: *pending
+  connection_contract: *pending
+  price_publication_timestamps: *pending
+  operator_overrides: *pending
+  realized_process_schedules: *pending
