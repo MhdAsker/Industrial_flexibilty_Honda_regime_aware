@@ -80,6 +80,7 @@ def test_h1_h6_protected_artifacts_unchanged():
         "config/decision_value_replication/", "results/decision_value_replication/",
         "reports/paper_overleaf/", "reports/progress_overleaf/",
         "reports/progress_overleaf_upload.zip", "reports/research_checkpoint/",
+        "config/prescriptive_ml/", "results/prescriptive_ml/",
     )
     assert all(x.startswith(allowed) for x in changed.splitlines())
 

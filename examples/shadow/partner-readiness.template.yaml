@@ -23,3 +23,9 @@ evidence:
   price_publication_timestamps: *pending
   operator_overrides: *pending
   realized_process_schedules: *pending
+  production_plans: *pending
+  maintenance_records: *pending
+  process_state_and_recovery: *pending
+  verified_weather_forecasts: *pending
+  rolling_forecast_vintages: *pending
+  updated_price_vintages: *pending

@@ -22,6 +22,23 @@ REQUIRED_PARTNER_INPUTS = (
     "price_publication_timestamps",
     "operator_overrides",
     "realized_process_schedules",
+    "production_plans",
+    "maintenance_records",
+    "process_state_and_recovery",
+    "verified_weather_forecasts",
+    "rolling_forecast_vintages",
+    "updated_price_vintages",
+)
+
+REQUIRED_ISSUE_PROVENANCE = (
+    "production_plan",
+    "maintenance_availability",
+    "process_state",
+    "weather_forecast_vintage",
+    "load_forecast_vintage",
+    "price_vintage",
+    "tariff_version",
+    "calibration_state",
 )
 
 
@@ -248,6 +265,15 @@ class RollingDecisionInput:
             raise ValueError("Issue, deadline, and publication times must be timezone-aware")
         if issue > deadline or publication > deadline:
             raise ValueError("Recommendation deadline precedes available issue/price information")
+        missing_provenance = sorted(set(REQUIRED_ISSUE_PROVENANCE) - set(self.provenance_hashes))
+        if missing_provenance:
+            raise ValueError(f"Rolling issue is missing provenance hashes: {missing_provenance}")
+        invalid_hashes = sorted(
+            name for name, digest in self.provenance_hashes.items()
+            if len(digest) != 64 or any(character not in "0123456789abcdefABCDEF" for character in digest)
+        )
+        if invalid_hashes:
+            raise ValueError(f"Rolling issue has invalid provenance hashes: {invalid_hashes}")
         for t in range(1, horizon):
             for left in range(len(scenarios)):
                 for right in range(left + 1, len(scenarios)):

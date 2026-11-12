@@ -1,0 +1,24 @@
+{
+  "protocol_id": "REPLACE_BEFORE_FIRST_LIVE_ISSUE",
+  "partner_id": "PARTNER_APPROVAL_REQUIRED",
+  "frozen_at_utc": "2026-01-01T00:00:00+00:00",
+  "operator_baseline": "OPERATOR_AS_OPERATED",
+  "deterministic_baseline": "APPROVED_DETERMINISTIC_ML",
+  "stochastic_policy": "APPROVED_CALIBRATED_STOCHASTIC",
+  "eligibility_rules": [
+    "all required partner inputs approved and available by issue time",
+    "asset available for the declared horizon",
+    "immutable snapshot captured before the operational deadline"
+  ],
+  "missed_deadline_rule": "Count as a recommendation failure and deliver the deterministic fallback",
+  "tariff_version": "PARTNER_TARIFF_VERSION_REQUIRED",
+  "safety_endpoints": [
+    "accepted_hard_constraint_violations",
+    "deadline_success_rate"
+  ],
+  "economic_endpoint": "economic_difference_eur",
+  "unacceptable_loss_margin_eur": 0.0,
+  "switchback_enabled": false,
+  "minimum_prospective_weeks": 8,
+  "schema_version": "shadow.prospective-protocol.v1"
+}

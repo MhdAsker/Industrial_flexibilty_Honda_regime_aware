@@ -49,7 +49,7 @@ All monetary outcomes are **synthetic counterfactual wholesale-cost differences*
 
 ## Phase 2 shadow-scheduler foundation
 
-The repository now includes a human-in-the-loop Phase 2 foundation for 48–72 hour rolling recommendations. It provides a strict partner-readiness gate, immutable issue-time snapshots, scenario-tree nonanticipative recourse, a deterministic fallback, operator approval/rejection/modification records, realized-operation settlement, and prospective cohort metrics.
+The repository now includes a human-in-the-loop Phase 2 foundation for 48–72 hour rolling recommendations. It provides a strict partner-readiness gate, immutable issue-time snapshots, scenario-tree nonanticipative recourse, a deterministic fallback, operator approval/rejection/modification records, realized-operation settlement, and prospective cohort metrics. The partner-adaptive layer adds hash-linked online bias/conformal states, causal multi-day residual blocks, information-time scenario trees, transition and operator models, inverse preference estimation, value-of-information ablations, and a fail-closed prospective exit evaluator.
 
 This does **not** mean Phase 2 is industrially validated. No current Honda or SPARK artifact satisfies the required partner-approval contract, and the software refuses to issue a prospective recommendation until all required evidence is approved and digested. Only the deferrable-process asset is currently implemented for Phase 2 claims; unsupported assets are rejected.
 
@@ -58,6 +58,7 @@ shadow-scheduler readiness --partner path\to\partner-readiness.yaml
 shadow-scheduler snapshot --issue path\to\issue.yaml --partner path\to\partner-readiness.yaml --output-root artifacts\shadow
 shadow-scheduler recommend --snapshot artifacts\shadow\PARTNER\ISSUE
 shadow-scheduler metrics --root artifacts\shadow
+shadow-scheduler protocol --protocol examples\shadow\phase2_prospective_protocol.template.json
 ```
 
 See [`docs/phase2_shadow_scheduler.md`](docs/phase2_shadow_scheduler.md) for the data contracts, optimization semantics, operating workflow, metrics, and remaining industrial work.

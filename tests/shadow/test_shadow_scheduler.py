@@ -8,6 +8,7 @@ import pytest
 import yaml
 
 from honda.shadow.contracts import (
+    REQUIRED_ISSUE_PROVENANCE,
     REQUIRED_PARTNER_INPUTS,
     CommercialTerms,
     Evidence,
@@ -43,7 +44,7 @@ def _case():
         scenario_node_ids=tuple(tuple(str(x) for x in row) for row in nodes),
         price_publication_time_utc="2026-01-01T13:00:00+00:00",
         availability=tuple(True for _ in range(horizon)),
-        provenance_hashes={"forecast": "test"},
+        provenance_hashes={name: "a" * 64 for name in REQUIRED_ISSUE_PROVENANCE},
     )
     asset = ShadowAsset("process-1", "deferrable_process", 8, 8, -20, 20, 4, -2, 5, approved=True)
     prices = np.r_[np.full(16, .08), np.full(16, .30), np.full(16, .10)]
