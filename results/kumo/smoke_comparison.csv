@@ -1,0 +1,6 @@
+scope,target_day_local,model_or_method,mae_kw,rmse_kw,bias_kw,coverage,interpretation
+ONE_ORIGIN_SMOKE_ONLY,2021-01-01,B5,56.1526926641,65.6518068891,25.4041901412,1.0,historical frozen reference
+ONE_ORIGIN_SMOKE_ONLY,2021-01-01,LIGHTGBM,52.8591723021,60.0239858655,25.5313904307,1.0,historical frozen reference
+ONE_ORIGIN_SMOKE_ONLY,2021-01-01,KUMO_DIRECT,84.5400009819,99.4872095564,78.4091484691,1.0,integration smoke result not a benchmark
+ONE_ORIGIN_SMOKE_ONLY,2021-01-01,KUMO_NATIVE_DARR,99.9371870743,115.403927695,31.085504591,1.0,integration smoke result using bounded 1024-row archive
+ONE_ORIGIN_SMOKE_ONLY,2021-01-01,KUMO_EXTERNAL_CALENDAR_FAMILY,65.3806746417,78.9209674222,0.4227559579,1.0,external wrapper smoke result not native DARR and not a benchmark

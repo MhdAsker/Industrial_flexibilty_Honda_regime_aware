@@ -1,0 +1,30 @@
+{
+  "backbone_revision": "ca58581bc7bea2ebed4e80dc0a3e4b8b609c6ecc",
+  "complete_issue_to_delivery_horizon": true,
+  "configuration_id": "native_darr_l512_a0.25_k8_t0.05_s4",
+  "device": "cpu",
+  "elapsed_seconds": 104.52438509999774,
+  "forecast_origins": 1,
+  "hardware": {
+    "gpu": {
+      "available_to_torch": false,
+      "driver_visible_memory_mib": 4096,
+      "driver_visible_name": "NVIDIA GeForce GTX 1650",
+      "memory_total_bytes": null,
+      "name": null
+    },
+    "logical_cpus": 12,
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.3",
+    "ram_bytes": 16870006784
+  },
+  "kumo_ts_commit": "ad459475d1302fc8365e7117e39837a8ecb6a7e3",
+  "method": "NATIVE_DARR",
+  "model_revision": "402caa11b7ff585141e912c6743026141f648892",
+  "phase": "development",
+  "prediction_rows": 96,
+  "rss_after_bytes": null,
+  "rss_before_bytes": null,
+  "seconds_per_origin": 104.52438509999774,
+  "test_used_for_selection": false
+}

@@ -21,9 +21,10 @@ The work builds an auditable chain from raw-data semantics to downstream schedul
 4. transparent historical baselines;
 5. site-specific deterministic LightGBM;
 6. zero-shot Chronos-2 and TimesFM benchmarks;
-7. temporally coherent daily scenario generation;
-8. physically constrained flexibility optimization; and
-9. a pre-specified decision-value comparison with a feasibility-restricted replication.
+7. a leakage-safe NVIDIA Kumo Forecast/DARR challenger (implemented and smoke-tested; full benchmark pending);
+8. temporally coherent daily scenario generation;
+9. physically constrained flexibility optimization; and
+10. a pre-specified decision-value comparison with a feasibility-restricted replication.
 
 The forecasting contribution is strong: on the Honda 2023 test period, site-specific LightGBM improves on a competitive historical ensemble while preserving complete prediction coverage. Whole-day residual trajectories also represent temporal dependence substantially better than independent interval sampling.
 
@@ -203,6 +204,10 @@ The selected configuration is M1 with historical CHP context. Missing historical
 
 The benchmark evaluates Amazon Chronos-2 and Google TimesFM 3.0 without Honda-specific gradients, fine-tuning, adapters, LoRA, or prompt optimization. Isolated environments prevent their neural dependencies from silently altering the H1–H5 stack. Results apply to the frozen checkpoints and inference modes, not to every foundation model.
 
+### NVIDIA Kumo Forecast and DARR extension
+
+Kumo Forecast 1.0.1 is integrated as an optional retrospective challenger. The adapter forecasts the complete 13:00 D-1-to-delivery path, preserves 92/96/100-interval DST days, rejects future retrieval continuations, and separates official native DARR from the project's external regime-conditioned retrieval wrapper. Direct, native-DARR, and external-retrieval smoke runs completed on CPU; full 2021–2022 selection and the locked 2023 evaluation remain pending. See [`docs/kumo_architecture_and_experimental_design.md`](docs/kumo_architecture_and_experimental_design.md) and [`reports/honda_kumo_benchmark.md`](reports/honda_kumo_benchmark.md).
+
 ## Honda forecasting results
 
 All headline values use the same 34,161 eligible 2023 observations with complete prediction coverage.
@@ -346,7 +351,7 @@ python -m pip install --upgrade pip
 python -m pip install -e ".[all]"
 ```
 
-The base installation includes the data and optimization stack. The `all` extra adds LightGBM and the test runner; `forecasting` and `test` can instead be installed separately. Chronos-2 and TimesFM continue to use isolated environments recorded under `results/foundation/`.
+The base installation includes the data and optimization stack. The `all` extra adds LightGBM and the test runner; `forecasting` and `test` can instead be installed separately. Chronos-2 and TimesFM continue to use isolated environments recorded under `results/foundation/`. The `kumo` extra installs supporting runtime libraries, while the pinned NVIDIA package itself is installed from the audited Kumo-TS commit in a separate `.venv-kumo` environment as documented in the Kumo architecture note.
 
 ## FlexLab v2 application
 
@@ -387,7 +392,7 @@ $env:PYTHONDONTWRITEBYTECODE = "1"
 python -m pytest -q -p no:cacheprovider
 ```
 
-The suite contains 287 tests spanning provenance, signed-target preservation, issuance cutoffs, DST chronology, development/test separation, leakage controls, deterministic generation, optimization contracts, scenario integrity, FlexLab contracts, bootstrap reproducibility, and protected hashes. Four companion-repository cleanliness checks are skipped by default because that repository is independently managed. To run the strict release audit as well:
+The suite contains 303 tests spanning provenance, signed-target preservation, issuance cutoffs, DST chronology, development/test separation, retrieval-candidate causality, deterministic generation, optimization contracts, scenario integrity, FlexLab contracts, bootstrap reproducibility, and protected hashes. Four companion-repository cleanliness checks are skipped by default because that repository is independently managed. To run the strict release audit as well:
 
 ```powershell
 $env:STRICT_EXTERNAL_REPO_CHECKS = "1"

@@ -15,14 +15,17 @@ models/
 artifacts/models/
 .venv-h6-chronos/
 .venv-h6-timesfm/
+.venv-kumo/
 .cache-h6/
 artifacts/foundation_models/
+artifacts/kumo/
 artifacts/shadow/
 artifacts/platform/
 sites/flexlab-dashboard/
 results/scenarios/*.parquet
 results/ml/h5_feature_matrix.parquet
 results/prescriptive_ml/*.parquet
+results/kumo/*.parquet
 
 # Generated audit tables and figures (manifest/report remain tracked)
 results/audit/*.csv

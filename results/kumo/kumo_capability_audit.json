@@ -1,0 +1,64 @@
+{
+  "backbone_repo": "AutonLab/MOMENT-1-large",
+  "backbone_revision": "ca58581bc7bea2ebed4e80dc0a3e4b8b609c6ecc",
+  "empirical_status": "SMOKE_RUN_ONLY_FULL_DEVELOPMENT_AND_TEST_NOT_RUN",
+  "hardware": {
+    "gpu": {
+      "available_to_torch": false,
+      "driver_visible_memory_mib": 4096,
+      "driver_visible_name": "NVIDIA GeForce GTX 1650",
+      "memory_total_bytes": null,
+      "name": null
+    },
+    "logical_cpus": 12,
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.3",
+    "ram_bytes": 16870006784
+  },
+  "installed_package_version": "1.0.1",
+  "license": "Apache-2.0",
+  "local_artifacts": {
+    "backbone": {
+      "bytes": 1385501256,
+      "sha256": "a56928052ac6f5d09b97c3834bea6ce3aef9f02b513b5fac98954e7377801572"
+    },
+    "forecast_head": {
+      "bytes": 1404422626,
+      "sha256": "04778bee8196c19af3a3e8dbd93e467a85a25208c63285917185347d9ec71743"
+    },
+    "standardizer": {
+      "bytes": 310,
+      "sha256": "4becbf64aa6148188f384ffdba439bb9969adbb12778f8c12aed00464acf8aef"
+    }
+  },
+  "model_repo": "nvidia/Kumo-Forecast",
+  "model_revision": "402caa11b7ff585141e912c6743026141f648892",
+  "native_missing_policy": "fills numeric NaNs with zero unless separate missingness path is used; DARR and missingness path are incompatible in 1.0.1",
+  "native_neighbor_metadata": false,
+  "native_regime_filtering": false,
+  "official_commit_audited": "ad459475d1302fc8365e7117e39837a8ecb6a7e3",
+  "official_package_version": "1.0.1",
+  "official_repository": "https://github.com/NVIDIA/Kumo-TS",
+  "package_versions": {
+    "datasetsforecast": "1.1.0",
+    "huggingface-hub": "2.4.0",
+    "joblib": "1.5.3",
+    "kumo-forecast": "1.0.1",
+    "numpy": "2.0.1",
+    "pandas": "2.3.3",
+    "pyarrow": "23.0.1",
+    "torch": "2.7.1",
+    "transformers": "5.23.0"
+  },
+  "random_seed": 20261029,
+  "study_classification": "RETROSPECTIVE_POST_BENCHMARK_EXTENSION",
+  "verified_api": "sdk.forecasting.perform_forecasting(df, config=ForecastingConfig(...), context_df=None)",
+  "verified_max_horizon": 512,
+  "verified_native_horizon": 72,
+  "verified_sequence_lengths": [
+    256,
+    512,
+    1024,
+    2048
+  ]
+}

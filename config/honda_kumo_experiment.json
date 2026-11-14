@@ -1,0 +1,107 @@
+{
+  "schema_version": "honda-kumo-retrospective-v1.0.0",
+  "protocol_status": "DEVELOPMENT_PROTOCOL_FROZEN_BEFORE_KUMO_INFERENCE",
+  "study_classification": "RETROSPECTIVE_POST_BENCHMARK_EXTENSION",
+  "test_period_status": "2023_PREVIOUSLY_EXAMINED_NOT_A_FRESH_HOLDOUT",
+  "test_used_for_selection": false,
+  "primary_target": "grid_exchange_kw_signed",
+  "resolution_minutes": 15,
+  "forecast_issue_local_time": "13:00 Europe/Berlin D-1",
+  "target_definition": "every physical UTC-aligned interval of local delivery day D",
+  "full_path_rule": "forecast from issue time through the final physical interval of D, then select D; never reinterpret the first 96 post-issue steps as D",
+  "sign_convention": {
+    "positive": "grid import",
+    "negative": "grid export",
+    "clipping": "FORBIDDEN"
+  },
+  "official_kumo": {
+    "repository": "https://github.com/NVIDIA/Kumo-TS",
+    "repository_commit": "ad459475d1302fc8365e7117e39837a8ecb6a7e3",
+    "package": "kumo-forecast",
+    "package_version": "1.0.1",
+    "python": ">=3.10",
+    "model_repo": "nvidia/Kumo-Forecast",
+    "model_revision": "402caa11b7ff585141e912c6743026141f648892",
+    "backbone_repo": "AutonLab/MOMENT-1-large",
+    "backbone_revision": "ca58581bc7bea2ebed4e80dc0a3e4b8b609c6ecc",
+    "checkpoint": "moment_head_512_6hr.pt",
+    "license": "Apache-2.0",
+    "native_model_horizon_steps": 72,
+    "public_api_max_horizon_steps": 512,
+    "autoregressive_extension_required": true,
+    "native_regime_filtering_supported": false,
+    "native_neighbor_metadata_exposed": false
+  },
+  "development_folds": [
+    {
+      "fold": "P1_FOLD_A",
+      "archive_years": [2020],
+      "validation_years": [2021]
+    },
+    {
+      "fold": "P1_FOLD_B",
+      "archive_years": [2020, 2021],
+      "validation_years": [2022]
+    }
+  ],
+  "final_archive_years": [2020, 2021, 2022],
+  "final_test_year": 2023,
+  "retrieval_eligibility": {
+    "input_observation_provenance": "OBSERVED_ORIGINAL_ONLY",
+    "continuation_observation_provenance": "OBSERVED_ORIGINAL_ONLY",
+    "complete_continuation_available_before_query_issue": true,
+    "target_overlap_forbidden": true,
+    "native_darr_archive": "single longest fully observed continuous run available at each query issue",
+    "external_regime_wrapper": "candidate windows at historical 13:00 issue times with complete observed continuations"
+  },
+  "missing_history_policy": {
+    "input_context": "historical-only linear interpolation within the pre-issuance window, with count recorded",
+    "retrieval_input": "no imputation; incomplete candidate rejected",
+    "retrieval_continuation": "no imputation; incomplete candidate rejected",
+    "target": "no fabrication or imputation"
+  },
+  "experiments": {
+    "A": "DIRECT",
+    "B": "NATIVE_DARR",
+    "C": [
+      "REGIME_UNRESTRICTED",
+      "REGIME_CALENDAR_EXACT",
+      "REGIME_CALENDAR_FAMILY",
+      "REGIME_CALENDAR_AND_PREISSUE"
+    ],
+    "D": "development-only predefined ablation"
+  },
+  "development_ablation": {
+    "sequence_lengths": [512, 1024],
+    "neighbor_counts": [8, 32],
+    "alpha_direct_weights": [0.0, 0.25, 0.75, 1.0],
+    "context_strides": [1, 4],
+    "temperature": [0.05],
+    "selection_metric": "equal-target-weighted concatenated 2021+2022 MAE",
+    "selection_constraints": [
+      "prediction coverage equals 1.0",
+      "no causality or provenance violation",
+      "fold-specific results reported",
+      "runtime recorded"
+    ],
+    "tie_rule": "prefer direct, then larger alpha, smaller k, shorter context, and larger stride within 0.5% MAE"
+  },
+  "regime_threshold_fit_years": [2020],
+  "regime_threshold_fit_origins": 272,
+  "regime_threshold_skipped_no_observed_context": 94,
+  "regime_thresholds": {
+    "low_abs_level": 162.8096299134113,
+    "high_abs_level": 256.52452309171804,
+    "high_volatility": 14.115227707353284
+  },
+  "random_seed": 20261029,
+  "bootstrap_unit": "local_calendar_day",
+  "bootstrap_resamples": 2000,
+  "downstream_decision_status": "CONDITIONAL_ON_COMPLETED_POINT_FORECAST_EVALUATION_AND_EXISTING_SIMULATED_HONDA_CONSTRAINTS",
+  "prohibited_claims": [
+    "prospective holdout performance",
+    "industrial monetary savings from unverified Honda tariffs or asset constraints",
+    "causal similarity of retrieved neighbors",
+    "Kumo superiority without identical-target empirical results"
+  ]
+}
